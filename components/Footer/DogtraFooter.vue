@@ -1,41 +1,29 @@
 <template>
-  <footer class='bg-black text-white fixed bottom-0 right-0 left-0 w-full p-4 flex space-x-4 justify-center'>
-    <FooterMenu>
-      <template #title>
-        Menu
-      </template>
-      <template #body>
-        <div class='footer-menu-item'>Manual</div>
-        <div class='footer-menu-item'>Updates</div>
-        <div class='footer-menu-item'>FAQ</div>
-        <div class='footer-menu-item'>Videos</div>
-        <div class='footer-menu-item'>Dogtra.com</div>
-      </template>
-    </FooterMenu>
-    <FooterMenu>
-      <template #title>
-        Footer 2
-      </template>
-    </FooterMenu>
-    <FooterMenu>
-      <template #title>
-        Footer 2
-      </template>
-    </FooterMenu>
-    <FooterMenu>
-      <template #body>
-        <i class='bg-white text-black rounded-full p-1 text-lg yi-facebook' />
-        <i class='bg-white text-black rounded-full p-1 text-lg yi-instagram' />
-        <i class='bg-white text-black rounded-full p-1 text-lg yi-youtube' />
-      </template>
-    </FooterMenu>
+  <footer class="absolute p-10 footer bg-black text-white bottom-0 left-0 right-0">
+    <div>
+      <span class="footer-title">Services</span>
+      <a class="link link-hover">Branding</a>
+      <a class="link link-hover">Design</a>
+      <a class="link link-hover">Marketing</a>
+      <a class="link link-hover">Advertisement</a>
+    </div>
+    <div>
+      <span class="footer-title">Company</span>
+      <a class="link link-hover">About us</a>
+      <a class="link link-hover">Contact</a>
+      <a class="link link-hover">Jobs</a>
+      <a class="link link-hover">Press kit</a>
+    </div>
+    <div class='inline-block'>
+      <i class='bg-white text-black rounded-full p-1 text-lg yi-facebook' />
+      <i class='bg-white text-black rounded-full p-1 text-lg yi-instagram' />
+      <i class='bg-white text-black rounded-full p-1 text-lg yi-youtube' />
+    </div>
   </footer>
 </template>
 <script>
-import FooterMenu from '~/components/Footer/FooterMenu'
 
 export default {
   name: 'DogtraFooter',
-  components: { FooterMenu }
 }
 </script>

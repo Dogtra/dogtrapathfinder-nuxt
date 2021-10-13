@@ -1,13 +1,17 @@
 <template>
-$END$
+  <div class='h-screen bg-white'>
+    <Navbar />
+    <main>
+      <Nuxt />
+    </main>
+    <DogtraFooter />
+  </div>
 </template>
-
 <script>
+import DogtraFooter from '~/components/Footer/DogtraFooter'
+import Navbar from '~/components/Navbar/Navbar'
+
 export default {
-name: "default.vue"
+  components: { Navbar, DogtraFooter}
 }
 </script>
-
-<style scoped>
-
-</style>
