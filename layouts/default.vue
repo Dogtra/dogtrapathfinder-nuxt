@@ -12,6 +12,11 @@ import DogtraFooter from '~/components/Footer/DogtraFooter'
 import Navbar from '~/components/Navbar/Navbar'
 
 export default {
-  components: { Navbar, DogtraFooter}
+  components: { Navbar, DogtraFooter},
+  head: {
+    htmlAttrs: {
+      'data-theme': 'dogtra'
+    }
+  }
 }
 </script>

@@ -1,3 +1,5 @@
+import i18n from './config/i18n'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -55,8 +57,10 @@ export default {
   },
 
   i18n: {
+    vueI18nLoader: true,
     locales: ['en', 'fr', 'es'],
     defaultLocale: 'en',
+    vueI18n: i18n
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
