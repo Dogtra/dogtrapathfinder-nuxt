@@ -7,13 +7,16 @@
              width='228' height='52'>
       </NuxtLink>
     </div>
-    <div class="">
-      <button class="btn btn-ghost">
-        Get Help ?
-      </button>
-      <button class="btn btn-ghost">
-        Shop at Dogtra.com
-      </button>
+    <div>
+      <i class='yi-menu text-white block md:hidden'></i>
+      <div class='hidden md:block'>
+          <NuxtLink to="/support" class="btn btn-ghost">
+            Get Help ?
+          </NuxtLink>
+          <a href='https://dogtra.com' class="btn btn-ghost">
+            Shop at Dogtra.com
+          </a>
+      </div>
     </div>
   </nav>
 </template>
