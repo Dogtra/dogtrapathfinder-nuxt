@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="main-banner" class="lg:h-96 md:h-80 sm:h-64 bg-cover bg-center  h-auto text-white object-fill" style="background-image: url(https://dogtrapathfinder.com/wp-content/uploads/2021/10/pathfinder-se-dogtra-website-banner_210826_ver02.jpg?id=1953)">
+    <div id="main-banner" class="lg:h-96 md:h-80 sm:h-64 bg-cover bg-center  h-auto text-white object-fill">
       <div class="md:w-1/2">
 <!--        <p class="font-bold text-sm uppercase">Services</p>-->
 <!--        <p class="text-3xl font-bold">Multimedia products</p>-->
@@ -13,6 +13,7 @@
 <style>
 #main-banner {
   height: 350px;
+  background-image: url('~assets/images/main-banner.webp');
 }
 @media (min-width: 640px) {
   #main-banner {
