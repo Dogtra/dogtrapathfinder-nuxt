@@ -44,6 +44,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/i18n',
+    '@nuxtjs/strapi'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -61,6 +62,16 @@ export default {
     locales: ['en', 'fr', 'es'],
     defaultLocale: 'en',
     vueI18n: i18n
+  },
+
+  strapi: {
+    // Options
+    entities: [
+      {
+        name: 'main-banner',
+        type: 'single',
+        url: 'http://localhost:1337'
+      }]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

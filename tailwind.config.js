@@ -30,7 +30,6 @@ module.exports = {
           "base-200": "#110e0e",
           "base-300": "#060404",
           "base-content": "#ffffff",
-          "--rounded-btn": "1.9rem",
           "info": "#66c6ff",
           "success": "#87d039",
           "warning": "#e2d562",
