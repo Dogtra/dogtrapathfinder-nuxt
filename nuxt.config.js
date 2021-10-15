@@ -70,7 +70,7 @@ export default {
       {
         name: 'main-banner',
         type: 'single',
-        url: 'http://localhost:1337'
+        url: process.env.NODE_ENV === 'production' ? 'https://www.master-7rqtwti-2dhpvmsgvr5nq.us-3.platformsh.site' : 'http://localhost:1337'
       }]
   },
 
