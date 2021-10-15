@@ -1,4 +1,5 @@
 import i18n from './config/i18n'
+require('dotenv').config()
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -44,7 +45,8 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/i18n',
-    '@nuxtjs/strapi'
+    '@nuxtjs/strapi',
+    '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -70,11 +72,11 @@ export default {
       {
         name: 'main-banner',
         type: 'single',
-        url: process.env.NODE_ENV === 'production' ? 'https://www.master-7rqtwti-2dhpvmsgvr5nq.us-3.platformsh.site' : 'http://localhost:1337'
+        url: process.env.STRAPI_URL
       }]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
 }
