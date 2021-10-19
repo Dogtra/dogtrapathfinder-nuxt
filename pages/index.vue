@@ -30,7 +30,7 @@ export default {
     mainBannerStyle() {
       if (this.mainBanner) {
         return {
-          backgroundImage: 'url("' + this.$strapi.options.url + this.mainBanner.image.url + '")'
+          backgroundImage: 'url("' + this.mainBanner.image.url + '")'
         }
       }
       return {}
