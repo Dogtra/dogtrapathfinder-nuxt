@@ -23,8 +23,10 @@ export default {
     return {
       mainBanner: null,
       error: null,
-      strapi: null
     }
+  },
+  async fetch() {
+      this.mainBanner = await this.$strapi.find('main-banner')
   },
   computed: {
     mainBannerStyle() {
@@ -36,14 +38,6 @@ export default {
       return {}
     }
   },
-  async mounted () {
-    try {
-      this.strapi = this.$strapi;
-      this.mainBanner = await this.$strapi.find('main-banner')
-    } catch (error) {
-      this.error = error
-    }
-  }
 }
 </script>
 
