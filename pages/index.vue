@@ -14,19 +14,34 @@
       </div>
       <p class='text-center mt-4'>Popular searches</p>
     </div>
+    <ais-instant-search :search-client="searchClient" index-name="article">
+      <ais-search-box />
+      <ais-hits>
+        <div slot="item" slot-scope="{ item }">
+          <h2>{{ item.title }}</h2>
+        </div>
+      </ais-hits>
+    </ais-instant-search>
   </div>
 </template>
 
 <script>
+import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
+
 export default {
+  async asyncData({$strapi}) {
+    const mainBanner = await $strapi.find('main-banner')
+
+    return {mainBanner}
+  },
   data () {
     return {
-      mainBanner: null,
       error: null,
+      searchClient: instantMeiliSearch(
+        "http://localhost:7700",
+        process.env.MEILI_MASTER_KEY
+      ),
     }
-  },
-  async fetch() {
-      this.mainBanner = await this.$strapi.find('main-banner')
   },
   computed: {
     mainBannerStyle() {
