@@ -80,6 +80,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vue-instantsearch'],
+    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   },
 }

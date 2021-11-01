@@ -14,21 +14,44 @@
       </div>
       <p class='text-center mt-4'>Popular searches</p>
     </div>
-    <ais-instant-search :search-client="searchClient" index-name="article">
+    <ais-instant-search-ssr>
       <ais-search-box />
       <ais-hits>
         <div slot="item" slot-scope="{ item }">
           <h2>{{ item.title }}</h2>
         </div>
       </ais-hits>
-    </ais-instant-search>
+    </ais-instant-search-ssr>
   </div>
 </template>
 
 <script>
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 
+import {
+  AisInstantSearchSsr,
+  AisHits,
+  AisSearchBox,
+  createServerRootMixin
+} from 'vue-instantsearch';
+
+const searchClient = instantMeiliSearch(
+  'https://strapi.jhyang.xyz',
+  process.env.MEILI_MASTER_KEY
+);
+
 export default {
+  components: {
+    AisInstantSearchSsr,
+    AisSearchBox,
+    AisHits
+  },
+  mixins: [
+    createServerRootMixin({
+      searchClient,
+      indexName: 'article',
+    }),
+  ],
   async asyncData({$strapi}) {
     const mainBanner = await $strapi.find('main-banner')
 
@@ -37,10 +60,6 @@ export default {
   data () {
     return {
       error: null,
-      searchClient: instantMeiliSearch(
-        "http://localhost:7700",
-        process.env.MEILI_MASTER_KEY
-      ),
     }
   },
   computed: {
