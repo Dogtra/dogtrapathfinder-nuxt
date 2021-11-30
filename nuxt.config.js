@@ -75,7 +75,12 @@ export default {
         name: 'main-banner',
         type: 'single',
         url: process.env.STRAPI_URL
-      }]
+      },
+      {
+        name: 'manuals',
+        url: process.env.STRAPI_URL
+      }
+      ]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

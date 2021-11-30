@@ -1,0 +1,95 @@
+<template>
+  <div class='text-black'>
+    <div id='search-banner' class='p-12'>
+      <p class='text-center'>Filter search by Product</p>
+      <div class='flex justify-around flex-wrap mt-4'>
+        <div class="product-badge rounded-full bg-gray-400 p-1 px-4">Pathfinder</div>
+        <div class="product-badge rounded-full bg-gray-400 text-black p-1 px-4">Pathfinder mini</div>
+      </div>
+
+      <div class="text-black flex mt-4">
+        <input type="text" placeholder="Look for assistance" class='search-bar flex-grow rounded-l-full py-1 pl-4'>
+        <div class='search-bar rounded-r-full py-1 pr-4'><i class='yi-search'/></div>
+      </div>
+      <p class='text-center mt-4'>Popular searches</p>
+    </div>
+    <ais-instant-search-ssr>
+      <ais-search-box />
+      <ais-hits>
+        <div slot="item" slot-scope="{ item }">
+          <h2>{{ item.title }}</h2>
+        </div>
+      </ais-hits>
+    </ais-instant-search-ssr>
+  </div>
+</template>
+
+<script>
+import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
+
+import {
+  AisInstantSearchSsr,
+  AisHits,
+  AisSearchBox,
+  createServerRootMixin
+} from 'vue-instantsearch';
+
+const searchClient = instantMeiliSearch(
+  'https://strapi.jhyang.xyz',
+  process.env.MEILI_MASTER_KEY
+);
+
+export default {
+  components: {
+    AisInstantSearchSsr,
+    AisSearchBox,
+    AisHits
+  },
+  mixins: [
+    createServerRootMixin({
+      searchClient,
+      indexName: 'article',
+    }),
+  ],
+  async asyncData({$strapi}) {
+    const mainBanner = await $strapi.find('main-banner')
+
+    return {mainBanner}
+  },
+  data () {
+    return {
+      error: null,
+    }
+  },
+  computed: {
+    mainBannerStyle() {
+      if (this.mainBanner) {
+        return {
+          backgroundImage: 'url("' + this.mainBanner.image.url + '")'
+        }
+      }
+      return {}
+    }
+  },
+}
+</script>
+
+<style>
+.product-badge {
+  background-color: #C4C4C4;
+}
+.search-bar {
+  background-color: #E7E7E7;
+  border: 1px solid transparent;
+}
+
+input.search-bar:focus-visible{
+  border: 1px solid black;
+  border-right-color: transparent;
+  outline: none;
+}
+input.search-bar:focus-visible + .search-bar {
+  border: 1px solid black;
+  border-left-color: transparent;
+}
+</style>
