@@ -35,7 +35,7 @@ import {
 } from 'vue-instantsearch';
 
 const searchClient = instantMeiliSearch(
-  'https://strapi.jhyang.xyz',
+  process.env.meiliUrl,
   process.env.MEILI_MASTER_KEY
 );
 

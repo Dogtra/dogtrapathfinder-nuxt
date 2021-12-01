@@ -83,6 +83,12 @@ export default {
       ]
   },
 
+  env: {
+    strapiUrl: process.env.STRAPI_URL,
+    meiliUrl: process.env.MEILI_URL,
+    meiliMasterKey: process.env.MEILI_MASTER_KEY,
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['vue-instantsearch', 'instantsearch.js/es'],
