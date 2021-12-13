@@ -79,6 +79,10 @@ export default {
       {
         name: 'manuals',
         url: process.env.STRAPI_URL
+      },
+      {
+        name: 'articles',
+        url: process.env.STRAPI_URL
       }
       ]
   },

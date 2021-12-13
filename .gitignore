@@ -87,3 +87,6 @@ sw.*
 *.swp
 
 .env.production
+
+# Local Netlify folder
+.netlify
