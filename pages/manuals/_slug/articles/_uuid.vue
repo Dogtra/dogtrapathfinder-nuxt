@@ -11,17 +11,23 @@ export default {
       uuid: params.uuid
     })
 
-    // const matchingManuals = await $strapi.find('manuals', {
-    //   slug: params.slug
-    // })
+
 
     if (matchingArticles) {
-      return {
-        article: matchingArticles[0],
-      };
+      const article = matchingArticles[0];
+
+      const manual = await $strapi.findOne('manuals', article.chapter.manual)
+
+      if (manual.slug === params.slug) {
+
+        return {
+          article,
+          manual
+        };
+      }
     }
 
-    // redirect('/')
+    redirect('/')
   },
 }
 </script>
