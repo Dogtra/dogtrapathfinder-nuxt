@@ -1,9 +1,11 @@
 <template>
   <div>
-    {{ article.title }}
-    <div v-if="markedContent" class='prose'
-         v-html="markedContent"></div>
-
+    <template v-if='article'>
+      <div>Manuals / {{article.chapter.manual.title }} / {{ article.chapter.title}} / {{ article.title }}</div>
+      <h1>{{ article.title }}</h1>
+      <div v-if="markedContent" v-dompurify-html="markedContent"
+           class='prose'></div>
+    </template>
   </div>
 </template>
 
@@ -37,6 +39,16 @@ export default {
       article: null
     }
   },
+  computed: {
+    markedContent() {
+      return marked(this.article.content);
+    }
+  },
+  mounted() {
+    if (!this.article || this.article.chapter.manual.slug !== this.$route.params.slug) {
+      this.$router.push('/')
+    }
+  },
   apollo: {
     article: {
       query: articleQuery,
@@ -50,11 +62,6 @@ export default {
         return data.articles[0]
       }
     },
-  },
-  computed: {
-    markedContent() {
-      return marked(this.article.content);
-    }
   }
 }
 </script>
