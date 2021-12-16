@@ -1,0 +1,19 @@
+query Articles($uuid: String!) {
+  articles(where: {uuid: $uuid}) {
+    id
+    uuid
+    slug
+    title
+    content
+    chapter {
+      id
+      slug
+      title
+      manual {
+        id
+        slug
+        title
+      }
+    }
+  }
+}
