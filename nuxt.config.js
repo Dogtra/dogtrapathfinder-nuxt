@@ -49,6 +49,7 @@ export default {
     '@nuxtjs/i18n',
     '@nuxtjs/strapi',
     '@nuxtjs/dotenv',
+    '@nuxtjs/apollo',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -85,6 +86,15 @@ export default {
         url: process.env.STRAPI_URL
       }
       ]
+  },
+
+  // Apollo module configuration
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.STRAPI_GRAPGQL_URL || "http://localhost:1337/graphql"
+      }
+    }
   },
 
   env: {

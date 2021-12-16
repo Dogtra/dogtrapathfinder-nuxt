@@ -1,0 +1,18 @@
+query Manuals($slug: String!) {
+  manuals(where: {slug: $slug}) {
+    id
+    slug
+    title
+    chapters {
+      id
+      title
+      articles {
+        id
+        uuid
+        title
+        content
+        published_at
+      }
+    }
+  }
+}
