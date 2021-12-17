@@ -10,27 +10,34 @@
     <div class='navbar-end relative'>
       <i class='yi-menu text-white block md:hidden' @click='showMenu = !showMenu'></i>
       <div class='hidden md:block'>
-          <NuxtLink to="/support" class="btn btn-ghost">
-            {{ $t('main.get-help') }}
-          </NuxtLink>
-          <a href='https://dogtra.com' class="btn btn-ghost">
-            {{ $t('main.shop-dogtra-com') }}
-          </a>
+        <NuxtLink to="/products" class="btn btn-ghost">
+          {{ $t('main.products') }}
+        </NuxtLink>
+        <NuxtLink to="/content" class="btn btn-ghost">
+          {{ $t('main.content') }}
+        </NuxtLink>
+        <NuxtLink to="/manuals" class="btn btn-ghost">
+          {{ $t('main.manuals') }}
+        </NuxtLink>
       </div>
     </div>
     <transition name='slide-fade'>
       <div v-show='showMenu' class="absolute top-0 left-0 right-0 mt-16 bg-black w-full md:hidden">
         <ul class="menu py-3 shadow-lg bg-black rounded-box">
           <li>
-
-            <NuxtLink to="/support" @click.native='showMenu = false'>
-              {{ $t('main.get-help') }}
-            </NuxtLink>
+          <NuxtLink to="/products" @click.native='showMenu = false'>
+            {{ $t('main.products') }}
+          </NuxtLink>
           </li>
           <li>
-            <a href='https://dogtra.com'>
-              {{ $t('main.shop-dogtra-com') }}
-            </a>
+          <NuxtLink to="/content" @click.native='showMenu = false'>
+            {{ $t('main.content') }}
+          </NuxtLink>
+          </li>
+          <li>
+          <NuxtLink to="/manuals" @click.native='showMenu = false'>
+            {{ $t('main.manuals') }}
+          </NuxtLink>
           </li>
         </ul>
       </div>
