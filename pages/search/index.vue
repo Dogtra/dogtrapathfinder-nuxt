@@ -36,7 +36,7 @@ import {
 
 const searchClient = instantMeiliSearch(
   process.env.meiliUrl,
-  process.env.MEILI_MASTER_KEY
+  process.env.meiliMasterKey
 );
 
 export default {
