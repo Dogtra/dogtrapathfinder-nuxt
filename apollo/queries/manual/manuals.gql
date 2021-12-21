@@ -1,0 +1,7 @@
+query Manuals {
+  manuals {
+    id
+    slug
+    title
+  }
+}

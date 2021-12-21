@@ -45,9 +45,9 @@ export default {
     }
   },
   mounted() {
-    if (!this.article || this.article.chapter.manual.slug !== this.$route.params.slug) {
-      this.$router.push('/')
-    }
+    // if (!this.article || this.article.chapter.manual.slug !== this.$route.params.slug) {
+    //   this.$router.push('/')
+    // }
   },
   apollo: {
     article: {

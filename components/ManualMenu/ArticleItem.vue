@@ -1,6 +1,6 @@
 <template>
   <div >
-    <NuxtLink :to='articleHref'>Click here</NuxtLink>
+    <NuxtLink :to='articleHref'>{{ article.title }}</NuxtLink>
   </div>
 </template>
 <script>
