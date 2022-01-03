@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-if='article'>
-      <div>Manuals / {{article.chapter.manual.title }} / {{ article.chapter.title}} / {{ article.title }}</div>
+      <div><NuxtLink to='/manuals'>Manuals</NuxtLink> / <NuxtLink :to='"/manuals/" + article.chapter.manual.slug'>{{article.chapter.manual.title }}</NuxtLink> / {{ article.chapter.title}} / {{ article.title }}</div>
       <h1>{{ article.title }}</h1>
       <div v-if="markedContent" v-dompurify-html="markedContent"
            class='prose'></div>
