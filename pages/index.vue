@@ -64,7 +64,7 @@ export default {
   },
   computed: {
     mainBannerStyle() {
-      if (this.mainBanner) {
+      if (this.mainBanner.image) {
         return {
           backgroundImage: 'url("' + this.mainBanner.image.url + '")'
         }
