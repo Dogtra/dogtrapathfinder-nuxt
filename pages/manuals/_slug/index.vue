@@ -10,6 +10,7 @@ import manualQuery from '~/apollo/queries/manual/manual'
 import ManualMenu from '~/components/ManualMenu'
 
 export default {
+  layout: 'blog',
   components: { ManualMenu },
   async asyncData({ app, route }) {
     const { data } = await app.apolloProvider.defaultClient.query({

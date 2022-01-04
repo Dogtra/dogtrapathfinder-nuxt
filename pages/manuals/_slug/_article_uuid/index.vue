@@ -14,6 +14,7 @@ import { marked } from 'marked';
 import articleQuery from '~/apollo/queries/article/article'
 
 export default {
+  layout: 'blog',
   // async asyncData({$strapi, params, redirect}) {
   //   const matchingArticles = await $strapi.find('articles',{
   //     uuid: params.article_uuid
