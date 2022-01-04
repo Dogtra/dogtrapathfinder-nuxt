@@ -11,38 +11,17 @@ import ManualMenu from '~/components/ManualMenu'
 
 export default {
   components: { ManualMenu },
+  async asyncData({ app, route }) {
+    const { data } = await app.apolloProvider.defaultClient.query({
+      query: manualQuery,
+      variables: {
+        slug: route.params.slug
+      }
+    })
 
-  // async asyncData({$strapi, params, redirect}) {
-  //   const matchingManuals = await $strapi.find('manuals', {
-  //     slug: params.slug
-  //   })
-  //
-  //   if (matchingManuals) {
-  //     return {
-  //       manual: matchingManuals[0]
-  //     }
-  //   }
-  //
-  //   redirect('/')
-  // },
-  data(){
     return {
-      manual: null
+      manual: data.manuals[0]
     }
   },
-  apollo: {
-    manual: {
-      query: manualQuery,
-      variables () {
-        // Use vue reactive properties here
-        return {
-          slug: this.$route.params.slug,
-        }
-      },
-      update: data => {
-        return data.manuals[0]
-      }
-    },
-  }
 }
 </script>

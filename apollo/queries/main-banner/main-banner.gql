@@ -1,0 +1,7 @@
+query MainBanner {
+  mainBanner {
+    image {
+      url
+    }
+  }
+}
