@@ -1,4 +1,7 @@
 
 // Variables you want to modify in vuetify
+$vs-border-width: 0;
+$vs-border-radius: 0px;
+$vs-border-color: black;
 
-@import '~vuetify/src/styles/styles.sass';
+@import '~vue-select/src/scss/vue-select.scss';

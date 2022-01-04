@@ -31,7 +31,8 @@
     "nuxt": "^2.15.7",
     "sass-loader": "10",
     "vue-dompurify-html": "^2.4.0",
-    "vue-instantsearch": "^4.0.1"
+    "vue-instantsearch": "^4.0.1",
+    "vue-select": "^3.16.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

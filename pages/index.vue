@@ -1,18 +1,28 @@
 <template>
   <div class='text-black'>
     <div id="main-banner" class="lg:h-96 md:h-80 sm:h-64 bg-cover bg-center h-auto text-white object-fill" :style='mainBannerStyle'></div>
+
+    <div id="manual-banner">
+      <h1 class="text-center">Product user guides</h1>
+      <div class="manual-sliders flex overflow-x-scroll overflow-y-hidden">
+        <template v-for="index in 10">
+          <div class="bg-black h-60 object-contain manual-slide mr-4" :key="index">
+            <img src="~/assets/images/manual_thumbnail.jpg">
+          </div>
+        </template>
+      </div>
+    </div>
+
     <div id='search-banner' class='p-12'>
-      <p class='text-center'>Filter search by Product</p>
+      <h1 class='text-center'>Filter search by Product</h1>
       <div class='flex justify-around flex-wrap mt-4'>
-        <div class="product-badge rounded-full bg-gray-400 p-1 px-4">Pathfinder</div>
-        <div class="product-badge rounded-full bg-gray-400 text-black p-1 px-4">Pathfinder mini</div>
+        <v-select v-model="selectedSearchProduct" :components="{OpenIndicator}" :options="['All Products', 'Canada', 'United States']"></v-select>
       </div>
 
       <div class="text-black flex mt-4">
         <input type="text" placeholder="Look for assistance" class='search-bar flex-grow rounded-l-full py-1 pl-4'>
         <div class='search-bar rounded-r-full py-1 pr-4'><i class='yi-search'/></div>
       </div>
-      <p class='text-center mt-4'>Popular searches</p>
     </div>
     <ais-instant-search-ssr>
       <ais-search-box />
@@ -22,6 +32,17 @@
         </div>
       </ais-hits>
     </ais-instant-search-ssr>
+
+    <div id="popular-articles-banner">
+      <h1 class="text-center">Popular articles</h1>
+      <div class="articles-sliders flex overflow-x-scroll overflow-y-hidden">
+        <template v-for="index in 10">
+          <div :key="index" class="bg-black h-40 object-contain manual-slide mr-4">
+            <title>How to pair</title>
+          </div>
+        </template>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -60,6 +81,10 @@ export default {
   data () {
     return {
       error: null,
+      OpenIndicator: {
+        render: createElement => createElement('i', {class: {'yi-chevron-down': true}}),
+      },
+      selectedSearchProduct: 'All Products'
     }
   },
   computed: {
@@ -76,6 +101,12 @@ export default {
 </script>
 
 <style>
+.vs__dropdown-toggle {
+  border-bottom: 1px solid;
+}
+</style>
+
+<style scoped>
 #main-banner {
   height: 350px;
 }
@@ -110,5 +141,13 @@ input.search-bar:focus-visible{
 input.search-bar:focus-visible + .search-bar {
   border: 1px solid black;
   border-left-color: transparent;
+}
+
+.manual-slide {
+  min-width: 150px;
+}
+
+.manual-slide:first-child {
+  margin-left: 1rem;
 }
 </style>
