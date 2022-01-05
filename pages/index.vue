@@ -56,6 +56,8 @@ import {
   createServerRootMixin
 } from 'vue-instantsearch';
 
+import mainBannerQuery from '~/apollo/queries/main-banner/main-banner'
+
 const searchClient = instantMeiliSearch(
   process.env.meiliUrl,
   process.env.meiliMasterKey
@@ -73,10 +75,14 @@ export default {
       indexName: 'article',
     }),
   ],
-  async asyncData({$strapi}) {
-    const mainBanner = await $strapi.find('main-banner')
+  async asyncData({ app, route }) {
+    const { data } = await app.apolloProvider.defaultClient.query({
+      query: mainBannerQuery,
+    })
 
-    return {mainBanner}
+    return {
+      mainBanner: data.mainBanner
+    }
   },
   data () {
     return {
