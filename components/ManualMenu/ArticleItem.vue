@@ -1,7 +1,7 @@
 <template>
-  <div >
-    <NuxtLink :to='articleHref'>{{ article.title }}</NuxtLink>
-  </div>
+  <li class='list-square'>
+    <NuxtLink :to='articleHref' class='capitalize block'>{{ article.title }}</NuxtLink>
+  </li>
 </template>
 <script>
 export default {

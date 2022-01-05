@@ -2,7 +2,7 @@
   <div>
     MANUALS
     <template v-for='manual in manuals'>
-      <ManualThumbnail :key='manual.id' :manual='manual' />
+      <ManualThumbnail :key='manual.id' :manual='manual'/>
     </template>
   </div>
 </template>
