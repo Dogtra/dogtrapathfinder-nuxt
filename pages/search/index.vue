@@ -84,18 +84,4 @@ export default {
 .product-badge {
   background-color: #C4C4C4;
 }
-.search-bar {
-  background-color: #E7E7E7;
-  border: 1px solid transparent;
-}
-
-input.search-bar:focus-visible{
-  border: 1px solid black;
-  border-right-color: transparent;
-  outline: none;
-}
-input.search-bar:focus-visible + .search-bar {
-  border: 1px solid black;
-  border-left-color: transparent;
-}
 </style>

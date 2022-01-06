@@ -14,5 +14,12 @@ query Manuals($slug: String!) {
         published_at
       }
     }
+    app {
+      icon {
+        url
+      }
+      download
+      compatibility
+    }
   }
 }
