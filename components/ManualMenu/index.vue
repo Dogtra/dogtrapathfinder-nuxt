@@ -7,7 +7,7 @@
         <ManualMenuChapterItem :key='chapter.id' :chapter='chapter' :manual='manual' />
       </template>
     </div>
-    <div class='block md:hidden w-full bg-black text-white'>
+    <div v-show='manualMenuOpen' class='block md:hidden w-full bg-black text-white absolute'>
       <div class='manual-menu-mobile-container'>
         <div class='bg-yellow-300 text-black'> {{ manual.title }} </div>
         <div class='bg-yellow-300 text-black inline-block rounded-btn'>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ManualMenuChapterItem from '~/components/ManualMenu/ChapterItem'
 
 export default {
@@ -32,6 +33,9 @@ export default {
       type: Object,
       required: true
     }
+  },
+  computed: {
+    ...mapState('manual', ['manualMenuOpen'])
   }
 }
 </script>
