@@ -3,5 +3,15 @@ query Manuals {
     id
     slug
     title
+    product_image {
+      url
+      alternativeText
+    }
+    app {
+      icon {
+        url
+        alternativeText
+      }
+    }
   }
 }

@@ -46,14 +46,14 @@ export default {
   },
   computed: {
     hasFirstPage() {
-      return !!this.manual.chapters[0]
+      return !!(this.manual.chapters[0] && this.manual.chapters[0].articles[0])
     },
     manualFirstPageUrl() {
       if (!this.hasFirstPage) {
         return ''
       }
 
-      return '/manuals/' + this.manual.slug + '/' + this.manual.chapters[0].id
+      return '/manuals/' + this.manual.slug + '/' + this.manual.chapters[0].articles[0].uuid
     }
   }
 }

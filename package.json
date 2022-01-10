@@ -23,6 +23,8 @@
     "@tailwindcss/typography": "0.2.0",
     "@tailwindcss/ui": "^0.7.2",
     "apollo-cache-inmemory": "^1.6.6",
+    "apollo-fetch": "^0.7.0",
+    "axios": "^0.24.0",
     "core-js": "^3.15.1",
     "daisyui": "^1.14.4",
     "fibers": "^5.0.0",

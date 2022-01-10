@@ -11,33 +11,63 @@
 
 <script>
 import { marked } from 'marked';
+import axios from 'axios'
 import articleQuery from '~/apollo/queries/article/article'
+import manualQuery from '~/apollo/queries/manual/manual'
 
 export default {
   layout: 'manual',
-  // async asyncData({$strapi, params, redirect}) {
-  //   const matchingArticles = await $strapi.find('articles',{
-  //     uuid: params.article_uuid
-  //   })
-  //
-  //   if (matchingArticles) {
-  //     const article = matchingArticles[0];
-  //
-  //     const manual = await $strapi.findOne('manuals', article.chapter.manual)
-  //
-  //     if (manual.slug === params.slug) {
-  //       return {
-  //         article,
-  //         manual
-  //       };
-  //     }
-  //   }
-  //
-  //   redirect('/')
-  // },
+  mounted() {
+
+    // this.mainBanner = await this.$strapi.patch('main-banner')
+    const matchingArticles = this.$strapi.find('articles',{
+      uuid: this.$route.params.uuid
+    })
+    console.log(matchingArticles)
+
+    // this.mainBanner = await this.$strapi.patch('main-banner')
+    const matchingArticles2 = this.$strapi.$http.$patch(process.env.strapiUrl + '/manual/' + this.article.id + '/view')
+    console.log(matchingArticles2)
+
+    axios.patch(process.env.strapiUrl + '/manual/' + this.article.id + '/view').then(response => { console.log(response); });
+  },
+  async asyncData({ app, route, redirect, $strapi }) {
+    // this.mainBanner = await this.$strapi.patch('main-banner')
+    const matchingArticles = await $strapi.find('articles',{
+      uuid: route.params.article_uuid
+    })
+    console.log(matchingArticles)
+
+    const [articleResponse, manualResponse] = await Promise.all([
+      app.apolloProvider.defaultClient.query({
+      query: articleQuery,
+      variables: {
+        uuid: route.params.article_uuid,
+      }
+    }),
+      app.apolloProvider.defaultClient.query({
+      query: manualQuery,
+      variables: {
+        slug: route.params.slug
+      }
+    })
+      ])
+
+    const article = articleResponse.data.articles[0];
+    const manual = manualResponse.data.manuals[0];
+
+    if (!article || !manual || manual.slug !== article.chapter.manual.slug) {
+      redirect('/')
+    }
+
+    return {
+      article: articleResponse.data.articles[0],
+      manual: manualResponse.data.manuals[0]
+    }
+  },
   data(){
     return {
-      article: null
+      // article: null
     }
   },
   computed: {
@@ -45,24 +75,5 @@ export default {
       return marked(this.article.content);
     }
   },
-  mounted() {
-    // if (!this.article || this.article.chapter.manual.slug !== this.$route.params.slug) {
-    //   this.$router.push('/')
-    // }
-  },
-  apollo: {
-    article: {
-      query: articleQuery,
-      variables () {
-        // Use vue reactive properties here
-        return {
-          uuid: this.$route.params.article_uuid,
-        }
-      },
-      update: data => {
-        return data.articles[0]
-      }
-    },
-  }
 }
 </script>

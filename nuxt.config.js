@@ -102,6 +102,7 @@ export default {
     strapiUrl: process.env.STRAPI_URL,
     meiliUrl: process.env.MEILI_URL,
     meiliMasterKey: process.env.MEILI_MASTER_KEY,
+    strapiMediaPrefix: process.env.STRAPI_MEDIA_PREFIX,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
