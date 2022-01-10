@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar shadow-lg bg-black text-white">
+  <nav class="navbar shadow-lg bg-black text-white md:px-20 lg:px-24">
     <div class='navbar-start'>
       <NuxtLink to='/' title='Dogtra Europe'>
         <img class='logo img-responsive'

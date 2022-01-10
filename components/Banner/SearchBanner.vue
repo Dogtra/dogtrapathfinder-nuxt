@@ -1,13 +1,11 @@
 <template>
-  <div id='search-banner' class='p-12'>
-    <h1 class='text-center'>Filter search by Product</h1>
-    <div class='flex justify-around flex-wrap mt-'>
+  <div id='search-banner' class='banner'>
+    <h1 class='text-center mt-16 mb-8'>Filter search by Product</h1>
+    <div class='block md:hidden flex justify-around flex-wrap'>
       <v-select class='w-full' v-model='selectedSearchProduct' :components='{OpenIndicator}'
                 :options="['All Products', 'Canada', 'United States']"></v-select>
     </div>
-
     <SearchBar></SearchBar>
-
   </div>
 </template>
 <script>
@@ -29,6 +27,7 @@ export default {
 .search-bar {
   background-color: #E7E7E7;
   border: 1px solid transparent;
+  max-width: 54.5rem;
 }
 
 input.search-bar:focus-visible {

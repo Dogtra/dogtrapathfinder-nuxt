@@ -1,7 +1,7 @@
 <template>
-  <div id='manual-banner'>
-    <h1 class='text-center'>Product user guides</h1>
-    <div class='manual-sliders flex overflow-x-scroll overflow-y-hidden'>
+  <div id='manual-banner pb-20' class='banner'>
+    <h1 class='text-center mt-16 mb-8 capitalize'>Product user guides</h1>
+    <div class='manual-sliders flex overflow-x-scroll overflow-y-hidden flex justify-center'>
       <ProductUserGuideBannerListItem v-for='manual in manuals' :key='manual.id' :manual='manual' />
     </div>
   </div>
@@ -20,3 +20,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.banner h1 {
+  font-size: 4rem;
+  line-height: 1;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="text-black flex mt-4 search-bar rounded-btn p-1">
+  <div class="text-black flex search-bar rounded-btn h-16">
     <input type="text" placeholder="Look for assistance" class='bg-transparent flex-grow placeholder-black'>
     <i class='yi-search' />
   </div>
