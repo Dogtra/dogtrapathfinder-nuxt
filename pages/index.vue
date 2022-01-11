@@ -1,6 +1,9 @@
 <template>
   <div class='text-black'>
-    <div id="main-banner" class="lg:h-96 md:h-80 sm:h-64 bg-cover bg-center h-auto text-white object-fill" :style='mainBannerStyle'></div>
+    <div id="main-banner" class="lg:h-96 md:h-80 sm:h-64 bg-cover bg-center h-auto text-white object-fill flex justify-center text-center flex-col" :style='mainBannerStyle'>
+      <p class="main-banner-title"><strong>PATHFINDER Manual</strong></p>
+      <p class="main-banner-description">The Dogtra PATHFINDER brings GPS and <br> e-collar technolory right to your smartphone</p>
+    </div>
     <ProductUserGuideBanner :manuals='manuals'/>
     <SearchBanner />
     <ais-instant-search-ssr>
@@ -104,4 +107,13 @@ export default {
     height: 690px;
   }
 }
+
+.main-banner-title {
+  font-size: 4.2rem;
+}
+
+.main-banner-description {
+  font-size: 2rem;
+}
+
 </style>

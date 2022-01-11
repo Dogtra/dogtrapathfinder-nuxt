@@ -14,6 +14,9 @@ query Manuals($slug: String!) {
         published_at
       }
     }
+    product_image {
+      url
+    }
     app {
       icon {
         url

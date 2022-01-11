@@ -27,3 +27,10 @@ export default {
   name: 'DogtraFooter',
 }
 </script>
+
+<style>
+.footer {
+  font-size: .875em;
+  line-height: 1.25em;
+}
+</style>

@@ -3,14 +3,14 @@
     <ManualMenu :manual='manual'></ManualMenu>
     <div id='manual-index-container' class='flex flex-col px-3 text-center'>
       <div id='manual-index-image'>
-        <img src='~/assets/images/manual_thumbnail.jpg/' class='mx-auto'>
+        <img :src='manualProductImageUrl' class='mx-auto'>
       </div>
       <p>USER MANUAL</p>
       <div id='manual-index-search'>
         <SearchBar />
       </div>
       <div id='manual-index-app'>
-        <div><img class='mx-auto w-16' src='~/assets/images/dogtra-pathfinder.jpg'></div>
+        <div><img class='mx-auto w-16' :src='manualAppIconUrl'></div>
         <h1><strong v-dompurify-html="manual.app.download"></strong></h1>
         <p v-dompurify-html="manual.app.compatibility"></p>
         <div class='app-badge-container flex'>
@@ -28,6 +28,7 @@
 import manualQuery from '~/apollo/queries/manual/manual'
 import ManualMenu from '~/components/ManualMenu'
 import SearchBar from '~/components/SearchBar/SearchBar'
+import {strapiMediaUrl} from "~/utils/strapi";
 
 export default {
   components: { SearchBar, ManualMenu },
@@ -54,7 +55,13 @@ export default {
       }
 
       return '/manuals/' + this.manual.slug + '/' + this.manual.chapters[0].articles[0].uuid
-    }
+    },
+    manualProductImageUrl() {
+      return strapiMediaUrl(this.manual.product_image.url)
+    },
+    manualAppIconUrl() {
+      return strapiMediaUrl(this.manual.app.icon.url)
+    },
   }
 }
 </script>

@@ -44,6 +44,7 @@
     </transition>
   </nav>
 </template>
+
 <script>
 export default {
   name: 'Navbar',
@@ -54,3 +55,14 @@ export default {
   }
 }
 </script>
+
+<style>
+.btn {
+  height: 3em;
+  font-size: .875em;
+  line-height: 1.25em;
+  padding-left: 1em;
+  padding-right: 1em;
+  min-height: 3em;
+}
+</style>

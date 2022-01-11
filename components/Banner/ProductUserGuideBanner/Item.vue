@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink class='bg-red-50 object-contain manual-slide mr-12 rounded-2xl p-8' :to='manualUrl'>
+  <NuxtLink class='shadow-xl object-contain manual-slide mr-12 rounded-2xl p-8' :to='manualUrl'>
     <img :src='productImageUrl' :alt='manual.alternativeText' class='mx-auto pb-4'>
     <div class='mobile-slider-bottom flex items-center'>
       <img :src='appIconUrl' :alt='manual.app.icon.url' class='manual-app-logo max-h-full max-w-full'>
