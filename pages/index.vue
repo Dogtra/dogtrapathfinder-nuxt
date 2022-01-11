@@ -15,6 +15,8 @@
       </ais-hits>
     </ais-instant-search-ssr>
     <PopularArticlesBanner />
+    <div id="footer-banner" class="lg:h-96 md:h-80 sm:h-64 bg-cover bg-center h-auto text-white object-fill flex justify-center text-center flex-col" :style='footerBannerStyle'>
+    </div>
   </div>
 </template>
 
@@ -24,6 +26,7 @@ import { AisHits, AisInstantSearchSsr, AisSearchBox, createServerRootMixin } fro
 import { strapiMediaUrl } from '~/utils/strapi'
 
 import mainBannerQuery from '~/apollo/queries/main-banner/main-banner'
+import footerBannerQuery from '~/apollo/queries/footer-banner/footer-banner'
 import manualsQuery from '~/apollo/queries/manual/manuals'
 import SearchBanner from '~/components/Banner/SearchBanner'
 import ProductUserGuideBanner from '~/components/Banner/ProductUserGuideBanner'
@@ -50,17 +53,21 @@ export default {
     }),
   ],
   async asyncData({ app, route }) {
-    const [mainBannerResponse, manualsResponse] = await Promise.all([
+    const [mainBannerResponse, manualsResponse, footerBannerResponse] = await Promise.all([
         app.apolloProvider.defaultClient.query({
           query: mainBannerQuery
         }),
         app.apolloProvider.defaultClient.query({
           query: manualsQuery
+        }),
+        app.apolloProvider.defaultClient.query({
+          query: footerBannerQuery
         })
       ])
 
     return {
       mainBanner: mainBannerResponse.data.mainBanner,
+      footerBanner: footerBannerResponse.data.footerBanner,
       manuals: manualsResponse.data.manuals
     }
   },
@@ -74,6 +81,14 @@ export default {
       if (this.mainBanner.image) {
         return {
           backgroundImage: 'url("' + strapiMediaUrl(this.mainBanner.image.url) + '")'
+        }
+      }
+      return {}
+    },
+    footerBannerStyle() {
+      if (this.footerBanner.image) {
+        return {
+          backgroundImage: 'url("' + strapiMediaUrl(this.footerBanner.image.url) + '")'
         }
       }
       return {}

@@ -1,0 +1,7 @@
+query FooterBanner {
+  footerBanner {
+    image {
+      url
+    }
+  }
+}
