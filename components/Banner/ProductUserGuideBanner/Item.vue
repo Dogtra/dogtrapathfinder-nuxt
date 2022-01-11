@@ -1,9 +1,9 @@
 <template>
   <NuxtLink class='bg-red-50 object-contain manual-slide mr-12 rounded-2xl p-8' :to='manualUrl'>
     <img :src='productImageUrl' :alt='manual.alternativeText' class='mx-auto pb-4'>
-    <div class='mobile-slider-bottom flex items-center justify-between'>
+    <div class='mobile-slider-bottom flex items-center'>
       <img :src='appIconUrl' :alt='manual.app.icon.url' class='manual-app-logo max-h-full max-w-full'>
-      <span class='pl-4 uppercase'>{{ manual.title }}</span>
+      <span class='pl-4 uppercase manual-slide-title'>{{ manual.title }}</span>
     </div>
   </NuxtLink>
 </template>
@@ -38,6 +38,10 @@ export default {
 
 .manual-app-logo {
   height: 5.7rem;
+}
+
+.manual-slide-title {
+  font-size: 2rem;
 }
 /*.manual-slide:first-child {*/
 /*  margin-left: 1rem;*/

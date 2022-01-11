@@ -28,16 +28,14 @@ export default {
   background-color: #E7E7E7;
   border: 1px solid transparent;
   max-width: 54.5rem;
+  margin: auto;
 }
 
-input.search-bar:focus-visible {
-  border: 1px solid black;
-  border-right-color: transparent;
-  outline: none;
+>>> .yi-search {
+  font-size: 2.5rem;
 }
 
-input.search-bar:focus-visible + .search-bar {
-  border: 1px solid black;
-  border-left-color: transparent;
+>>> .search-bar input::placeholder {
+  text-align: center;
 }
 </style>
