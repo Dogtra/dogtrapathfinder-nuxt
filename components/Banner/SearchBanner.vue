@@ -1,6 +1,12 @@
 <template>
   <div id='search-banner' class='banner pt-16 pb-20'>
     <h1 class='text-center mb-8'>Filter search by Product</h1>
+    <div class="search-banner-product-filter flex justify-center pb-8">
+      <div class="product-filter-choice product-filter-choice-active uppercase text-center cursor-pointer">Pathfinder2 Mini TRX</div>
+      <div class="product-filter-choice uppercase text-center cursor-pointer">Pathfinder2</div>
+      <div class="product-filter-choice uppercase text-center cursor-pointer">Pathfidner2 TRX</div>
+      <div class="product-filter-choice uppercase text-center cursor-pointer">Pathfinder</div>
+    </div>
     <div class='block md:hidden flex justify-around flex-wrap'>
       <v-select class='w-full' v-model='selectedSearchProduct' :components='{OpenIndicator}'
                 :options="['All Products', 'Canada', 'United States']"></v-select>
@@ -27,6 +33,23 @@ export default {
 #search-banner {
   background-color: #F8F7F5;
 }
+
+#search-banner {
+  background-color: #F8F7F5;
+}
+
+.product-filter-choice {
+  width: 26.8rem;
+  font-size: 2rem;
+  color: #7C7C7C;
+  border-bottom: 3px solid #7C7C7C;
+}
+
+.product-filter-choice.product-filter-choice-active {
+  border-bottom: 3px solid #FFDD00;
+  color: #121212;
+}
+
 .search-bar {
   background-color: #E7E7E7;
   border: 1px solid transparent;
