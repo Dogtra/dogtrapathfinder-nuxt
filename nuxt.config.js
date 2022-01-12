@@ -51,6 +51,7 @@ export default {
     '@nuxtjs/strapi',
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
+    'nuxt-material-design-icons'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

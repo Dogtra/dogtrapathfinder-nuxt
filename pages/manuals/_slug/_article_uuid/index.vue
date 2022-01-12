@@ -31,13 +31,7 @@ export default {
 
     axios.patch(process.env.strapiUrl + '/manual/' + this.article.id + '/view').then(response => { console.log(response); });
   },
-  async asyncData({ app, route, redirect, $strapi }) {
-    // this.mainBanner = await this.$strapi.patch('main-banner')
-    const matchingArticles = await $strapi.find('articles',{
-      uuid: route.params.article_uuid
-    })
-    console.log(matchingArticles)
-
+  async asyncData({ app, route, redirect, $strapi, store }) {
     const [articleResponse, manualResponse] = await Promise.all([
       app.apolloProvider.defaultClient.query({
       query: articleQuery,
@@ -59,6 +53,8 @@ export default {
     if (!article || !manual || manual.slug !== article.chapter.manual.slug) {
       redirect('/')
     }
+
+    store.commit('manual/setManual', manual)
 
     return {
       article: articleResponse.data.articles[0],

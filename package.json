@@ -31,6 +31,7 @@
     "graphql": "^16.1.0",
     "marked": "^4.0.7",
     "nuxt": "^2.15.7",
+    "nuxt-material-design-icons": "^1.0.4",
     "sass-loader": "10",
     "vue-dompurify-html": "^2.4.0",
     "vue-instantsearch": "^4.0.1",
