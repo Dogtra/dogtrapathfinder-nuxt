@@ -1,9 +1,9 @@
 <template>
   <nav id="side-navbar" class="sticky w-0 md:w-96 h-full min-h-screen bg-black z-10 top-0" :class="manualMenuClass" :style="manualMenuStyle">
-    <div class='manual-menu-desktop-wrapper h-full hidden md:block'>
+    <div v-if="$breakpoints.lMd" class='manual-menu-desktop-wrapper h-full hidden md:block'>
       <ManualMenuContent/>
     </div>
-    <div v-if='manualMenuOpen' class='manual-menu-mobile-wrapper block md:hidden h-full w-full bg-black text-white absolute'>
+    <div v-else v-show="manualMenuOpen" class='manual-menu-mobile-wrapper block md:hidden h-full w-full bg-black text-white absolute'>
       <ManualMenuContent/>
     </div>
   </nav>
@@ -25,7 +25,7 @@ export default {
     },
     manualMenuStyle() {
       return {
-        position: this.manualMenuOpen ? 'sticky' : 'absolute'
+        position: this.manualMenuOpen || this.$breakpoints.lMd ? 'sticky' : 'absolute'
       }
     }
   },

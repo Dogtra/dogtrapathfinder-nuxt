@@ -28,7 +28,7 @@ export default {
   plugins: [
     {src: '~/plugins/instant-meilisearch.js', mode:'client'},
     {src: '~/plugins/dompurify-html.js', mode:'client'},
-    {src: '~/plugins/vue-select.js', mode:'client'}
+    {src: '~/plugins/vue-select.js', mode:'client'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -51,7 +51,8 @@ export default {
     '@nuxtjs/strapi',
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
-    'nuxt-material-design-icons'
+    'nuxt-material-design-icons',
+    'nuxt-breakpoints',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -97,6 +98,11 @@ export default {
         httpEndpoint: process.env.STRAPI_GRAPGQL_URL || "http://localhost:1337/graphql"
       }
     }
+  },
+
+  loading: {
+    color: '#FFDD00',
+    height: '5px'
   },
 
   env: {

@@ -22,7 +22,7 @@
       </div>
     </div>
     <transition name='slide-fade'>
-      <div v-show='showMenu' class="absolute top-0 left-0 right-0 mt-16 bg-black w-full md:hidden">
+      <div v-show='showMenu' class="absolute top-0 left-0 right-0 mt-40 bg-black w-full md:hidden">
         <ul class="menu py-3 shadow-lg bg-black rounded-box">
           <li>
           <NuxtLink to="/products" @click.native='showMenu = false'>

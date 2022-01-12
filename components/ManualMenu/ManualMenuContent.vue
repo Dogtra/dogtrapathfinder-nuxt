@@ -1,7 +1,14 @@
 <template>
   <div class='manual-menu-container h-full'>
-    <div class='bg-yellow-300 text-black'><span class="material-icons">unfold_more</span>{{ manual.title }}</div>
-    <div class="manual-menu-list bg-black text-white h-full p-8">
+    <div class='bg-yellow-300 text-black cursor-pointer' @click="productMenuExpanded = !productMenuExpanded"><span class="material-icons">unfold_more</span>{{ manual.title }}</div>
+
+    <div v-show="productMenuExpanded" class="manual-menu-product-list absolute bg-yellow-300 text-black inset-0 mt-12">
+      <ul>
+        <ManualMenuProductItem v-for="otherManual in manuals" :manual="otherManual" :key="otherManual.id"/>
+      </ul>
+    </div>
+
+    <div class="manual-menu-chapter-list bg-black text-white h-full p-8">
       <div class='bg-yellow-300 text-black inline-block rounded-full px-4 py-2'>
         <span class="material-icons align-bottom">picture_as_pdf</span><span>Download as PDF</span>
       </div>
@@ -12,14 +19,31 @@
   </div>
 </template>
 <script>
-import {mapState} from "vuex";
+import {mapMutations, mapState} from "vuex";
 import ManualMenuChapterItem from '~/components/ManualMenu/ChapterItem'
+import manualsQuery from '~/apollo/queries/manual/manuals'
+import ManualMenuProductItem from "~/components/ManualMenu/ManualMenuProductItem";
 
 export default {
   name: 'ManualMenuContent',
-  components: {ManualMenuChapterItem},
-  computed: {
-    ...mapState('manual', ['manualMenuOpen', 'manual'])
+  components: {ManualMenuProductItem, ManualMenuChapterItem},
+  data() {
+    return {
+      productMenuExpanded: false
+    }
   },
+  computed: {
+    ...mapState('manual', ['manualMenuOpen', 'manual', 'manuals']),
+  },
+  async mounted() {
+    const { data } = await this.$apollo.provider.defaultClient.query({
+      query: manualsQuery
+    })
+
+    this.setManuals(data.manuals)
+  },
+  methods: {
+    ...mapMutations('manual', ['setManuals'])
+  }
 }
 </script>
