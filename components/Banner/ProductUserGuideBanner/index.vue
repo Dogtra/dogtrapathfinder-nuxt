@@ -1,7 +1,7 @@
 <template>
   <div id='manual-banner' class='banner'>
     <h1 class='text-center mt-16 mb-8 capitalize'>Product user guides</h1>
-    <div class='manual-sliders flex overflow-x-scroll overflow-y-hidden flex justify-center pb-20'>
+    <div class='manual-sliders flex overflow-x-auto overflow-y-hidden flex justify-center pb-20'>
       <ProductUserGuideBannerListItem v-for='manual in manuals' :key='manual.id' :manual='manual' />
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
-  <div id='search-banner' class='banner'>
-    <h1 class='text-center mt-16 mb-8'>Filter search by Product</h1>
+  <div id='search-banner' class='banner pt-16 pb-20'>
+    <h1 class='text-center mb-8'>Filter search by Product</h1>
     <div class='block md:hidden flex justify-around flex-wrap'>
       <v-select class='w-full' v-model='selectedSearchProduct' :components='{OpenIndicator}'
                 :options="['All Products', 'Canada', 'United States']"></v-select>
@@ -24,6 +24,9 @@ export default {
 }
 </script>
 <style scoped>
+#search-banner {
+  background-color: #F8F7F5;
+}
 .search-bar {
   background-color: #E7E7E7;
   border: 1px solid transparent;
