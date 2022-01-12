@@ -1,8 +1,8 @@
 <template>
   <div class='manual-menu-container h-full'>
-    <div class='bg-yellow-300 text-black cursor-pointer' @click="productMenuExpanded = !productMenuExpanded"><span class="material-icons">unfold_more</span>{{ manual.title }}</div>
+    <div class='bg-yellow-300 text-black cursor-pointer' @click="toggleManualProductMenu"><span class="material-icons">unfold_more</span>{{ manual.title }}</div>
 
-    <div v-show="productMenuExpanded" class="manual-menu-product-list absolute bg-yellow-300 text-black inset-0 mt-12">
+    <div v-show="manualMenuProductMenuOpen" class="manual-menu-product-list absolute bg-yellow-300 text-black inset-0 mt-12">
       <ul>
         <ManualMenuProductItem v-for="otherManual in manuals" :manual="otherManual" :key="otherManual.id"/>
       </ul>
@@ -27,13 +27,13 @@ import ManualMenuProductItem from "~/components/ManualMenu/ManualMenuProductItem
 export default {
   name: 'ManualMenuContent',
   components: {ManualMenuProductItem, ManualMenuChapterItem},
-  data() {
-    return {
-      productMenuExpanded: false
-    }
-  },
   computed: {
-    ...mapState('manual', ['manualMenuOpen', 'manual', 'manuals']),
+    ...mapState('manual', [
+      'manualMenuOpen',
+      'manual',
+      'manuals',
+      'manualMenuProductMenuOpen',
+    ]),
   },
   async mounted() {
     const { data } = await this.$apollo.provider.defaultClient.query({
@@ -43,7 +43,7 @@ export default {
     this.setManuals(data.manuals)
   },
   methods: {
-    ...mapMutations('manual', ['setManuals'])
+    ...mapMutations('manual', ['setManuals', 'toggleManualProductMenu'])
   }
 }
 </script>
