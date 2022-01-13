@@ -11,21 +11,21 @@ body {
 }
 
 h1 {
-  @apply text-2xl;
+  @apply text-40;
 }
 h2 {
-  @apply text-xl;
+  @apply text-32;
 }
 h3 {
-  @apply text-lg;
+  @apply text-18;
 }
 
-@layer base {
-  ul, ol {
-    list-style: revert;
-  }
-}
-
-.list-square {
-  list-style: square;
-}
+//@layer base {
+//  ul, ol {
+//    list-style: revert;
+//  }
+//}
+//
+//.list-square {
+//  list-style: square;
+//}

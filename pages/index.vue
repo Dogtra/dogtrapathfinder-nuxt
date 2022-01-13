@@ -1,8 +1,8 @@
 <template>
   <div class='text-black'>
-    <div id="main-banner" class="lg:h-96 md:h-80 sm:h-64 bg-cover bg-center h-auto text-white object-fill flex justify-center text-center flex-col" :style='mainBannerStyle'>
-      <p class="main-banner-title"><strong>PATHFINDER Manual</strong></p>
-      <p class="main-banner-description">The Dogtra PATHFINDER brings GPS and <br> e-collar technolory right to your smartphone</p>
+    <div id="main-banner" class="h-[55rem] md:h-[75rem] bg-cover bg-center text-white object-fill flex justify-center text-center flex-col" :style='mainBannerStyle'>
+      <p class="main-banner-title text-32 md:text-40"><strong>PATHFINDER Manual</strong></p>
+      <p class="main-banner-description text-18 md:text-20">The Dogtra PATHFINDER brings GPS and <br> e-collar technolory right to your smartphone</p>
     </div>
     <ProductUserGuideBanner :manuals='manuals'/>
     <SearchBanner />
@@ -99,36 +99,6 @@ export default {
 
 <style>
 .vs__dropdown-toggle {
-  border-bottom: 1px solid;
+  border-bottom: 3px solid #888888;
 }
-</style>
-
-<style scoped>
-#main-banner {
-  height: 350px;
-}
-@media (min-width: 640px) {
-  #main-banner {
-    height: 400px;
-  }
-}
-@media (min-width: 768px) {
-  #main-banner {
-    height: 490px;
-  }
-}
-@media (min-width: 1024px) {
-  #main-banner {
-    height: 690px;
-  }
-}
-
-.main-banner-title {
-  font-size: 4.2rem;
-}
-
-.main-banner-description {
-  font-size: 2rem;
-}
-
 </style>

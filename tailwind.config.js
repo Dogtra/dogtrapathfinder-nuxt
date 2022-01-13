@@ -1,8 +1,32 @@
 module.exports = {
-  purge: [],
+  mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    fontSize: {
+      '40': "4.0rem",
+      '32': "3.2rem",
+      '22': "2.2rem",
+      '20': "2.0rem",
+      '18': "1.8rem",
+      '16': "1.6rem",
+      '14': "1.4rem",
+      '12': "1.2rem",
+    },
+    extend: {
+      spacing: {
+        '18': '4.5rem',
+      },
+      width: {
+        'fit': 'fit-content'
+      },
+      colors: {
+        yellow: '#FFDD00',
+        'yellow-focus': '#DDC001',
+      },
+      borderWidth: {
+        '1': '1px',
+      }
+    },
   },
   variants: {
     extend: {},
@@ -15,8 +39,8 @@ module.exports = {
     themes: [
       {
         'dogtra': {                          /* your theme name */
-          "primary": "#ffde01",
-          "primary-focus": "#ffde01",
+          "primary": "#FFDD00",
+          "primary-focus": "#DDC001",
           "primary-content": "#000000",
           "secondary": "#1fd65f",
           "secondary-focus": "#18aa4b",
@@ -47,7 +71,7 @@ module.exports = {
           "--border-btn": "1px",
           "--tab-border": "1px",
           "--tab-radius": "0.5rem",
-        }
+        },
       }
     ]
   }

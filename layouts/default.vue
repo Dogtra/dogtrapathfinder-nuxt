@@ -1,7 +1,7 @@
 <template>
   <div class='min-h-screen bg-white'>
     <Navbar />
-    <main class='text-black'>
+    <main class='text-black mt-[7.5rem]'>
       <Nuxt />
     </main>
     <DogtraFooter />

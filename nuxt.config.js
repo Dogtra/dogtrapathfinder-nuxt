@@ -51,8 +51,10 @@ export default {
     '@nuxtjs/strapi',
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
+    '@nuxtjs/google-fonts',
     'nuxt-material-design-icons',
     'nuxt-breakpoints',
+    'nuxtjs-mdi-font'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -110,6 +112,13 @@ export default {
     meiliUrl: process.env.MEILI_URL,
     meiliMasterKey: process.env.MEILI_MASTER_KEY,
     strapiMediaPrefix: process.env.STRAPI_MEDIA_PREFIX,
+  },
+
+  // Google Fonts module
+  googleFonts: {
+    families: {
+      Montserrat: [500, 600, 700],
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

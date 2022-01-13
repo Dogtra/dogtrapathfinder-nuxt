@@ -1,6 +1,5 @@
 <template>
   <div>
-    MANUALS
     <ProductUserGuideBanner :manuals='manuals'/>
     <SearchBanner />
     <PopularArticlesBanner />

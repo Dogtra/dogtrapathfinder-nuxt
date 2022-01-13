@@ -1,43 +1,43 @@
 <template>
-  <nav class="navbar h-40 shadow-lg bg-black text-white md:px-20 lg:px-24">
+  <nav class="navbar fixed top-0 w-full shadow-lg bg-black text-white h-[7.5rem] md:h-auto py-6 pl-8 pr-10 md:px-24 lg:px-36 z-10">
     <div class='navbar-start'>
       <NuxtLink to='/' title='Dogtra Europe'>
-        <img class='logo img-responsive'
-             :src='require("~/static/images/pathfinder-logo.png")' alt='Dogtra Europe'
-             width='228' height='52'>
+        <img class='logo img-responsive w-60'
+             :src='require("~/static/images/pathfinder-logo.png")' alt='Dogtra Europe'>
       </NuxtLink>
     </div>
     <div class='navbar-end relative'>
-      <i class='yi-menu text-white block md:hidden' @click='showMenu = !showMenu'></i>
+      <span class="mdi mdi-menu text-[3rem] block md:hidden" @click='showMenu = !showMenu'></span>
       <div class='hidden md:block'>
-        <NuxtLink to="/products" class="btn btn-ghost">
+        <NuxtLink to="/products" class="btn btn-ghost text-18">
           {{ $t('main.products') }}
         </NuxtLink>
-        <NuxtLink to="/content" class="btn btn-ghost">
+        <NuxtLink to="/content" class="btn btn-ghost text-18">
           {{ $t('main.content') }}
         </NuxtLink>
-        <NuxtLink to="/manuals" class="btn btn-ghost">
+        <NuxtLink to="/manuals" class="btn btn-ghost text-18">
           {{ $t('main.manuals') }}
         </NuxtLink>
       </div>
     </div>
     <transition name='slide-fade'>
-      <div v-show='showMenu' class="absolute top-0 left-0 right-0 mt-40 bg-black w-full md:hidden">
-        <ul class="menu py-3 shadow-lg bg-black rounded-box">
-          <li>
-          <NuxtLink to="/products" @click.native='showMenu = false'>
-            {{ $t('main.products') }}
-          </NuxtLink>
+      <div v-show='showMenu' class="fixed inset-0 bottom-24 mt-[7.5rem] bg-black w-full block md:hidden px-12 py-4 text-18">
+        <SearchBar :background-color="'#ffffff'"></SearchBar>
+        <ul class="py-6 shadow-lg bg-black uppercase text-18 font-semibold">
+          <li class="border-b-2 border-white h-20 flex items-center">
+            <NuxtLink to="/products" @click.native='showMenu = false'>
+              {{ $t('main.products') }}
+            </NuxtLink>
           </li>
-          <li>
-          <NuxtLink to="/content" @click.native='showMenu = false'>
-            {{ $t('main.content') }}
-          </NuxtLink>
+          <li class="border-b-2 border-white h-20 flex items-center">
+            <NuxtLink to="/content" @click.native='showMenu = false'>
+              {{ $t('main.content') }}
+            </NuxtLink>
           </li>
-          <li>
-          <NuxtLink to="/manuals" @click.native='showMenu = false'>
+          <li class="border-b-2 border-white h-20 flex items-center">
+            <NuxtLink to="/manuals" @click.native='showMenu = false'>
             {{ $t('main.manuals') }}
-          </NuxtLink>
+            </NuxtLink>
           </li>
         </ul>
       </div>
@@ -46,8 +46,10 @@
 </template>
 
 <script>
+import SearchBar from "~/components/SearchBar/SearchBar";
 export default {
   name: 'Navbar',
+  components: {SearchBar},
   data() {
     return {
       showMenu: false
