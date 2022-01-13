@@ -9,7 +9,7 @@
       </div>
       <p class="text-30 font-semibold">{{ article.title }}</p>
       <div v-if="markedContent" v-dompurify-html="markedContent"
-           class='prose'></div>
+           class='prose text-16 max-w-[71rem]'></div>
     </template>
   </div>
 </template>
