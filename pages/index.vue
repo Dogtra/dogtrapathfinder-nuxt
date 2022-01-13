@@ -6,7 +6,7 @@
     </div>
     <ProductUserGuideBanner :manuals='manuals'/>
     <SearchBanner />
-    <ais-instant-search-ssr>
+    <ais-instant-search-ssr class="hidden">
       <ais-search-box />
       <ais-hits>
         <div slot="item" slot-scope="{ item }">
