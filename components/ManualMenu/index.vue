@@ -1,5 +1,5 @@
 <template>
-  <nav id="side-navbar" class="fixed w-0 md:w-[35rem] h-full min-h-screen bg-black z-10 top-[7.5rem]" :class="manualMenuClass" :style="manualMenuStyle">
+  <nav id="side-navbar" class="fixed w-0 md:w-[35rem] h-full min-h-screen bg-black z-10 top-[7.5rem]" :class="manualMenuClass">
     <div v-if="$breakpoints.lMd" class='manual-menu-desktop-wrapper h-full hidden md:block'>
       <ManualMenuContent/>
     </div>
@@ -20,20 +20,9 @@ export default {
     ...mapState('manual', ['manualMenuOpen', 'manual']),
     manualMenuClass() {
       return {
-        'manual-menu-open': this.manualMenuOpen
+        'w-full': this.manualMenuOpen
       }
     },
-    manualMenuStyle() {
-      return {
-        position: this.manualMenuOpen || this.$breakpoints.lMd ? 'sticky' : 'absolute'
-      }
-    }
   },
 }
 </script>
-
-<style scoped>
-#side-navbar.manual-menu-open {
-  width: 100%;
-}
-</style>

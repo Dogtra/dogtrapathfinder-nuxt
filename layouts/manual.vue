@@ -3,9 +3,8 @@
     <Navbar />
     <main class='text-black md:flex mt-[7.5rem]'>
       <ManualMenu></ManualMenu>
-      <div id="manual-wrapper ml-[35rem]" class="flex-grow">
+      <div id="manual-wrapper" class="flex-grow ml-[35rem]">
         <Nuxt />
-        <DogtraFooter />
       </div>
     </main>
     <MobileNavbar/>
@@ -13,13 +12,12 @@
 </template>
 
 <script>
-import DogtraFooter from '~/components/Footer/DogtraFooter'
 import Navbar from '~/components/Navbar/Navbar'
 import MobileNavbar from "~/components/ManualMenu/MobileNavbar";
 import ManualMenu from "~/components/ManualMenu";
 
 export default {
-  components: {ManualMenu, MobileNavbar, Navbar, DogtraFooter},
+  components: {ManualMenu, MobileNavbar, Navbar},
   head: {
     htmlAttrs: {
       'data-theme': 'dogtra'
