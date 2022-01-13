@@ -1,8 +1,13 @@
 <template>
-  <div>
+  <div class="px-12 py-18">
     <template v-if='article'>
-      <div><NuxtLink to='/manuals'>Manuals</NuxtLink> / <NuxtLink :to='"/manuals/" + article.chapter.manual.slug'>{{article.chapter.manual.title }}</NuxtLink> / {{ article.chapter.title}} / {{ article.title }}</div>
-      <h1>{{ article.title }}</h1>
+      <div class="text-14 text-gray-400">
+        <NuxtLink to='/manuals'>Manuals</NuxtLink>
+        /
+        <NuxtLink :to='"/manuals/" + article.chapter.manual.slug'>{{ article.chapter.manual.title }}</NuxtLink>
+        / {{ article.chapter.title }} / {{ article.title }}
+      </div>
+      <p class="text-30 font-semibold">{{ article.title }}</p>
       <div v-if="markedContent" v-dompurify-html="markedContent"
            class='prose'></div>
     </template>

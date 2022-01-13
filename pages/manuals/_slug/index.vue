@@ -1,15 +1,15 @@
 <template>
-  <div id='manual-index-container' class='flex flex-col px-3 text-center'>
+  <div id='manual-index-container' class='flex flex-col px-12 py-18 text-center'>
     <div id='manual-index-image'>
       <img :src='manualProductImageUrl' class='mx-auto'>
     </div>
-    <p>USER MANUAL</p>
+    <p class="pt-6 pb-10 text-18 uppercase font-medium">User manual</p>
     <div id='manual-index-search'>
       <SearchBar />
     </div>
     <div id='manual-index-app'>
-      <div><img class='mx-auto w-16' :src='manualAppIconUrl'></div>
-      <h1><strong v-dompurify-html="manual.app.download"></strong></h1>
+      <div><img class='mx-auto w-36 pt-20 pb-8' :src='manualAppIconUrl'></div>
+      <p v-dompurify-html="manual.app.download" class="text-30 font-medium"></p>
       <p v-dompurify-html="manual.app.compatibility"></p>
       <div class='app-badge-container flex'>
         <div class='w-1/2'><a href='https://play.google.com/store/apps/details?id=com.dogtra.gspathfinder&hl=fr&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a></div>

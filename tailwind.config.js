@@ -5,6 +5,7 @@ module.exports = {
     fontSize: {
       '40': "4.0rem",
       '32': "3.2rem",
+      '30': "3rem",
       '22': "2.2rem",
       '20': "2.0rem",
       '18': "1.8rem",

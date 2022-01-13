@@ -1,6 +1,6 @@
 <template>
-  <li class='list-square'>
-    <NuxtLink :to='articleHref' class='capitalize block' :class="articleItemClass">{{ article.title }}</NuxtLink>
+  <li class='list-disc list-inside px-4 text-16'>
+    <NuxtLink :to='articleHref' class='capitalize' :class="articleItemClass">{{ article.title }}</NuxtLink>
   </li>
 </template>
 <script>

@@ -3,7 +3,7 @@
     <Navbar />
     <main class='text-black md:flex mt-[7.5rem]'>
       <ManualMenu></ManualMenu>
-      <div id="manual-wrapper" class="flex-grow">
+      <div id="manual-wrapper ml-[35rem]" class="flex-grow">
         <Nuxt />
         <DogtraFooter />
       </div>
