@@ -1,7 +1,7 @@
 <template>
   <ais-instant-search-ssr>
-    <div class='text-black flex'>
-      <div class="w-[35rem] mt-24 ml-16">
+    <div class='text-black flex pt-18 px-12'>
+      <div class="w-[35rem] mt-24 ml-16 hidden md:block">
         <div>
           <ais-search-box/>
           <SearchBar v-model="textFilter"></SearchBar>
@@ -17,7 +17,7 @@
               </li>
             </ul>
           </div>
-          <div class="pt-12">
+          <div class="pt-2">
             <p class="h-18 flex items-center text-center font-bold text-18 border-b-1 border-[#E6E6E6] pl-8">Filter
               Search by Format</p>
             <ul>
@@ -29,23 +29,25 @@
           </div>
         </div>
       </div>
-      <div class='p-12 max-w-[80rem] w-full'>
-        <div class="pb-12 border-b-1 border-black">
+      <div class='m-0 md:ml-20 md:mt-24 max-w-[80rem] w-full'>
+        <div class="block md:hidden mb-12">
+          <SearchBar v-model="textFilter"></SearchBar>
+        </div>
+        <div class="pb-2 border-b-2 border-black">
           <p class="text-14 text-[#B4B4B4]">Search result for "{{ textFilter }}" - {{ nbResults }} results</p>
           <div>
             <p class="text-18 font-bold">Filter search by Product</p>
-            <div class='flex justify-self-start gap-4 flex-wrap mt-4'>
+            <div class='flex justify-self-start gap-4 flex-wrap mt-8 pb-10'>
               <div class="bg-yellow rounded-full p-1 px-4 font-semibold">Pathfinder</div>
               <div class="bg-yellow rounded-full p-1 px-4 font-semibold">Pathfinder mini</div>
             </div>
           </div>
           <div>
             <p class="text-18 font-bold">Filter search by Format</p>
-            <div class='flex justify-self-start gap-4 flex-wrap mt-4'>
+            <div class='flex justify-self-start gap-4 flex-wrap mt-8 pb-10'>
               <div class="bg-yellow rounded-full p-1 px-4 font-semibold">Pathfinder</div>
               <div class="bg-yellow rounded-full p-1 px-4 font-semibold">Pathfinder mini</div>
             </div>
-
           </div>
         </div>
         <div class="pt-12">
