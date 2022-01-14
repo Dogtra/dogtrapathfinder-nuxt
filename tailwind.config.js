@@ -34,7 +34,8 @@ module.exports = {
   },
   plugins: [
     require('daisyui'),
-    require(`@tailwindcss/typography`)
+    require(`@tailwindcss/typography`),
+    require('@neojp/tailwindcss-line-clamp-utilities')
   ],
   daisyui:{
     themes: [

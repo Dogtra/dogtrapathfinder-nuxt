@@ -1,6 +1,9 @@
 <template>
   <div class="text-black flex search-bar rounded-btn h-14" :style="searchBarStyle">
-    <input type="text" :placeholder="placeholder" class='bg-transparent flex-grow placeholder-black'>
+    <input type="text" :placeholder="placeholder" class='bg-transparent flex-grow placeholder-black'
+           :value="value"
+           v-on:input="$emit('input', $event.target.value)"
+    >
     <span class="mdi mdi-magnify text-22"></span>
   </div>
 </template>
@@ -22,7 +25,8 @@ export default {
       type: String,
       required: false,
       default: '#E7E7E7',
-    }
+    },
+    value: {}
   },
   computed: {
     searchBarStyle() {
