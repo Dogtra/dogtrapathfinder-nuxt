@@ -117,7 +117,7 @@ export default {
   // Google Fonts module
   googleFonts: {
     families: {
-      Montserrat: [500, 600, 700],
+      Montserrat: [400, 500, 600, 700],
     }
   },
 
