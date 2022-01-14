@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLink :to='manualLink'>
+    <NuxtLink :to='localePath(manualLink)'>
       {{ manual.title }}
       {{manual}}
     </NuxtLink>

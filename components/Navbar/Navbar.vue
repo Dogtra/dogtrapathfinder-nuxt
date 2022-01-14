@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar fixed top-0 w-full shadow-lg bg-black text-white h-[7.5rem] md:h-auto py-6 pl-8 pr-10 md:px-24 lg:px-36 z-10">
     <div class='navbar-start'>
-      <NuxtLink to='/' title='Dogtra Europe'>
+      <NuxtLink :to="localePath('/')" title='Dogtra Europe'>
         <img class='logo img-responsive w-60'
              :src='require("~/static/images/pathfinder-logo.png")' alt='Dogtra Europe'>
       </NuxtLink>
@@ -9,13 +9,13 @@
     <div class='navbar-end relative'>
       <span class="mdi mdi-menu text-[3rem] block md:hidden" @click='showMenu = !showMenu'></span>
       <div class='hidden md:block'>
-        <NuxtLink to="/products" class="btn btn-ghost text-18">
+        <NuxtLink :to="localePath('/products')" class="btn btn-ghost text-18">
           {{ $t('main.products') }}
         </NuxtLink>
-        <NuxtLink to="/content" class="btn btn-ghost text-18">
+        <NuxtLink :to="localePath('/content')" class="btn btn-ghost text-18">
           {{ $t('main.content') }}
         </NuxtLink>
-        <NuxtLink to="/manuals" class="btn btn-ghost text-18">
+        <NuxtLink :to="localePath('/manuals')" class="btn btn-ghost text-18">
           {{ $t('main.manuals') }}
         </NuxtLink>
       </div>
@@ -25,17 +25,17 @@
         <SearchBar :background-color="'#ffffff'"></SearchBar>
         <ul class="py-6 shadow-lg bg-black uppercase text-18 font-semibold">
           <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink to="/products" @click.native='showMenu = false'>
+            <NuxtLink :to="localePath('/products')" @click.native='showMenu = false'>
               {{ $t('main.products') }}
             </NuxtLink>
           </li>
           <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink to="/content" @click.native='showMenu = false'>
+            <NuxtLink :to="localePath('/content')" @click.native='showMenu = false'>
               {{ $t('main.content') }}
             </NuxtLink>
           </li>
           <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink to="/manuals" @click.native='showMenu = false'>
+            <NuxtLink :to="localePath('/manuals')" @click.native='showMenu = false'>
             {{ $t('main.manuals') }}
             </NuxtLink>
           </li>
