@@ -1,5 +1,5 @@
 <template>
-  <nav id="side-navbar" class="fixed w-0 md:w-[35rem] h-full min-h-screen bg-black z-10 top-[7.5rem]" :class="manualMenuClass">
+  <nav v-show="manualMenuOpen || $breakpoints.lMd" id="side-navbar" class="fixed w-full md:w-[35rem] h-full min-h-screen bg-black z-10 top-[7.5rem]" :class="manualMenuClass">
     <div v-if="$breakpoints.lMd" class='manual-menu-desktop-wrapper h-full hidden md:block'>
       <ManualMenuContent/>
     </div>

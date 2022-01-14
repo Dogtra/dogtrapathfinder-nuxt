@@ -3,7 +3,7 @@
     <Navbar />
     <main class='text-black md:flex mt-[7.5rem]'>
       <ManualMenu></ManualMenu>
-      <div id="manual-wrapper" class="flex-grow ml-[35rem]">
+      <div id="manual-wrapper" class="flex-grow md:ml-[35rem]">
         <Nuxt />
       </div>
     </main>

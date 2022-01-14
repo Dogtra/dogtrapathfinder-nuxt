@@ -1,5 +1,17 @@
 <template>
-  <div class='text-black'>
+  <div class='text-black flex'>
+    <div class="w-[35rem]">
+      <div>
+        <SearchBar></SearchBar>
+      </div>
+      <div>
+        Filter Search by Product
+      </div>
+
+      <div>
+        Filter Search by Format
+      </div>
+    </div>
     <div id='search-banner' class='p-12'>
       <p class='text-center'>Filter search by Product</p>
       <div class='flex justify-around flex-wrap mt-4'>
@@ -35,6 +47,7 @@ import {
 } from 'vue-instantsearch';
 
 import mainBannerQuery from '~/apollo/queries/main-banner/main-banner'
+import SearchBar from "~/components/SearchBar/SearchBar";
 
 const searchClient = instantMeiliSearch(
   process.env.meiliUrl,
@@ -43,6 +56,7 @@ const searchClient = instantMeiliSearch(
 
 export default {
   components: {
+    SearchBar,
     AisInstantSearchSsr,
     AisSearchBox,
     AisHits
