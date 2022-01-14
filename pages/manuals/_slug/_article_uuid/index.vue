@@ -78,3 +78,9 @@ export default {
   },
 }
 </script>
+<style scoped>
+.prose img {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
