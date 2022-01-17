@@ -1,6 +1,6 @@
 <template>
-  <div @click="isCollapsed = !isCollapsed">
-    <div class='uppercase border-b-1 border-yellow pl-4 flex items-center justify-between'>
+  <div>
+    <div @click="isCollapsed = !isCollapsed" class='uppercase border-b-1 border-yellow pl-4 flex items-center justify-between'>
       <span class="font-bold">{{chapter.title }}</span>
       <span v-show="isCollapsed" class="mdi mdi-chevron-down text-[2.8rem]"></span>
       <span v-show="!isCollapsed" class="mdi mdi-chevron-up text-[2.8rem]"></span>
@@ -25,9 +25,10 @@ export default {
     }
   },
   data() {
+    const uuid = this.$route.params.article_uuid;
     return {
       isCollapsed: !this.chapter.articles.some(article => {
-        return article.uuid === this.$route.params.article_uuid
+        return article.uuid === uuid
       })
     }
   },
