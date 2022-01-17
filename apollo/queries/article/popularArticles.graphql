@@ -1,0 +1,22 @@
+query popularArticles($sort: String, $limit: Int) {
+  articles(sort: $sort, limit: $limit) {
+    id
+    uuid
+    slug
+    title
+    content
+    content_plain_text
+    chapter {
+      id
+      slug
+      title
+      manual {
+        id
+        slug
+        title
+      }
+    }
+    view_count
+  }
+}
+

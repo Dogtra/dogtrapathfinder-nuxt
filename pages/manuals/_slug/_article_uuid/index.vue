@@ -23,18 +23,7 @@ import manualQuery from '~/apollo/queries/manual/manual'
 export default {
   layout: 'manual',
   mounted() {
-
-    // this.mainBanner = await this.$strapi.patch('main-banner')
-    const matchingArticles = this.$strapi.find('articles',{
-      uuid: this.$route.params.uuid
-    })
-    console.log(matchingArticles)
-
-    // this.mainBanner = await this.$strapi.patch('main-banner')
-    const matchingArticles2 = this.$strapi.$http.$patch(process.env.strapiUrl + '/manual/' + this.article.id + '/view')
-    console.log(matchingArticles2)
-
-    axios.patch(process.env.strapiUrl + '/manual/' + this.article.id + '/view').then(response => { console.log(response); });
+    axios.patch(process.env.strapiUrl + '/articles/' + this.article.id + '/view').then(response => { console.log(response); });
   },
   async asyncData({ app, route, redirect, $strapi, store }) {
     const [articleResponse, manualResponse] = await Promise.all([
