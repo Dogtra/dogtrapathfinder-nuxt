@@ -12,15 +12,26 @@
 </template>
 <script>
 import PopularArticleItem from "~/components/Banner/PopularArticleItem";
+import popularArticlesQuery from "~/apollo/queries/article/popularArticles";
 
 export default {
   name: 'PopularArticlesBanner',
   components: {PopularArticleItem},
-  props: {
-    popularArticles: {
-      type: Array,
-      required: true
+  data() {
+    return {
+      popularArticles: []
     }
+  },
+  async mounted() {
+    const { data } = await this.$apolloProvider.defaultClient.query({
+      query: popularArticlesQuery,
+      variables: {
+        limit: 7,
+        sort: "view_count:DESC"
+      }
+    })
+
+    this.popularArticles = data.articles
   }
 }
 </script>
