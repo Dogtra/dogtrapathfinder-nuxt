@@ -26,15 +26,10 @@ export default {
   },
   data() {
     return {
-      isCollapsed: true
+      isCollapsed: !this.chapter.articles.some(article => {
+        return article.uuid === this.$route.params.article_uuid
+      })
     }
   },
-  mounted() {
-    if (this.chapter.articles.some(article => {
-      return article.uuid === this.$route.params.article_uuid
-    })) {
-      this.isCollapsed = false
-    }
-  }
 }
 </script>
