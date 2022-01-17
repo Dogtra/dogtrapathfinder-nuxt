@@ -9,7 +9,7 @@
       </div>
       <p class="text-30 font-semibold">{{ article.title }}</p>
       <div v-if="markedContent" v-dompurify-html="markedContent"
-           class='prose text-16 max-w-[71rem]'></div>
+           class='prose text-16 max-w-[71rem] text-black'></div>
     </template>
   </div>
 </template>
@@ -67,8 +67,9 @@ export default {
   },
 }
 </script>
+
 <style scoped>
-.prose img {
+>>> .prose img {
   margin-left: auto;
   margin-right: auto;
 }
