@@ -1,7 +1,7 @@
 <template>
   <ais-instant-search-ssr>
     <div class='text-black flex pt-18 px-12'>
-      <div class="w-[35rem] mt-24 ml-16 hidden md:block">
+      <div class="w-[45rem] mt-24 ml-16 hidden md:block">
         <div>
           <ais-search-box :value='searchText' class='hidden'/>
           <SearchBar v-model='searchText'></SearchBar>
@@ -10,7 +10,7 @@
           <div>
             <p class="h-18 flex items-center text-center font-bold text-18 border-b-1 border-[#E6E6E6] pl-8">Filter
               Search by Product</p>
-            <ul>
+            <ul class="pl-8 pt-2">
               <li v-for="manual in manuals" :key="manual.id">
                 <input type="checkbox" :id="manual.id" :value="manual.title" v-model="checkedProductsFilter">
                 <label>{{ manual.title }}</label>

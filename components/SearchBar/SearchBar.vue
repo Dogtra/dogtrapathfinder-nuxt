@@ -1,6 +1,7 @@
 <template>
   <div class="text-black flex search-bar rounded-btn h-14" :style="searchBarStyle">
     <form ref='search-form'
+          class='w-full flex'
           method="post"
           @submit="searchForm">
       <input :value='searchText'
