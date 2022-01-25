@@ -1,11 +1,11 @@
 <template>
   <div id='search-banner' class='banner pt-8 md:pt-16 pb-16 md:pb-24 px-12'>
-    <h1 class='text-center mb-8'>Filter search by Product</h1>
+    <h1 class='text-center mb-8 font-medium'>Filter search by Product</h1>
     <div class="search-banner-product-filter justify-center pb-8 md:pb-20 hidden md:flex">
-      <div class="product-filter-choice product-filter-choice-active uppercase text-center cursor-pointer">Pathfinder2 Mini TRX</div>
-      <div class="product-filter-choice uppercase text-center cursor-pointer">Pathfinder2</div>
-      <div class="product-filter-choice uppercase text-center cursor-pointer">Pathfidner2 TRX</div>
-      <div class="product-filter-choice uppercase text-center cursor-pointer">Pathfinder</div>
+      <div class="product-filter-choice product-filter-choice-active uppercase text-center cursor-pointer font-semibold">Pathfinder2 Mini TRX</div>
+      <div class="product-filter-choice uppercase text-center cursor-pointer font-semibold">Pathfinder2</div>
+      <div class="product-filter-choice uppercase text-center cursor-pointer font-semibold">Pathfidner2 TRX</div>
+      <div class="product-filter-choice uppercase text-center cursor-pointer font-semibold">Pathfinder</div>
     </div>
     <div class='block md:hidden flex justify-around flex-wrap pb-8'>
       <v-select class='w-full' v-model='selectedSearchProduct' :components='{OpenIndicator}'
@@ -24,7 +24,7 @@ export default {
       OpenIndicator: {
         render: createElement => createElement('i', {class: {'yi-chevron-down': true}}),
       },
-      selectedSearchProduct: 'All Products'
+      selectedSearchProduct: 'All Products',
     }
   }
 }
