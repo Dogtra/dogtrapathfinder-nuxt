@@ -1,7 +1,7 @@
 <template>
   <div id='search-banner' class='banner pt-8 md:pt-16 pb-16 md:pb-24 px-12'>
     <h1 class='text-center mb-8 font-medium'>Filter search by Product</h1>
-    <div class="search-banner-product-filter justify-center pb-8 md:pb-20 hidden md:flex">
+    <div class="search-banner-product-filter justify-center pb-8 md:pb-20 hidden md:flex w-fit mx-auto">
       <div class="product-filter-choice product-filter-choice-active uppercase text-center cursor-pointer font-semibold">Pathfinder2 Mini TRX</div>
       <div class="product-filter-choice uppercase text-center cursor-pointer font-semibold">Pathfinder2</div>
       <div class="product-filter-choice uppercase text-center cursor-pointer font-semibold">Pathfidner2 TRX</div>
