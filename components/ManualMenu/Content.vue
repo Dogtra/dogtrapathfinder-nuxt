@@ -1,7 +1,7 @@
 <template>
   <div class='manual-menu-container h-full text-18'>
     <div class="hidden bg-yellow md:block py-6 px-10 border-b-1 border-black">
-      <SearchBar :background-color="'#FFFFFF'"></SearchBar>
+      <SearchBar :background-color="'#FFFFFF'" v-model='searchText'></SearchBar>
     </div>
     <div class='bg-yellow text-black cursor-pointer h-20 flex items-center px-8' @click="toggleManualProductMenu">
       <span v-show="!manualMenuProductMenuOpen" class="mdi mdi-unfold-more-horizontal text-[2.6rem]"></span>
@@ -43,6 +43,11 @@ export default {
       'manuals',
       'manualMenuProductMenuOpen',
     ]),
+  },
+  data() {
+    return {
+      searchText: ''
+    }
   },
   async mounted() {
     const { data } = await this.$apollo.provider.defaultClient.query({

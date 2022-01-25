@@ -11,7 +11,7 @@
       <v-select class='w-full' v-model='selectedSearchProduct' :components='{OpenIndicator}'
                 :options="['All Products', 'Canada', 'United States']"></v-select>
     </div>
-    <SearchBar :max-width="'42.5rem'"></SearchBar>
+    <SearchBar :max-width="'42.5rem'" v-model='searchText'></SearchBar>
   </div>
 </template>
 <script>
@@ -25,6 +25,7 @@ export default {
         render: createElement => createElement('i', {class: {'yi-chevron-down': true}}),
       },
       selectedSearchProduct: 'All Products',
+      searchText: ''
     }
   }
 }

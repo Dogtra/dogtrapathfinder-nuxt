@@ -36,7 +36,7 @@ export default {
       required: false,
       default: '#E7E7E7',
     },
-    searchText: String
+    searchText: String``
   },
   computed: {
     searchBarStyle() {

@@ -5,7 +5,7 @@
     </div>
     <p class="pt-6 pb-10 text-18 uppercase font-medium">User manual</p>
     <div id='manual-index-search'>
-      <SearchBar max-width="42.5rem" class="mx-auto" />
+      <SearchBar max-width="42.5rem" class="mx-auto" v-model='searchText'/>
     </div>
     <div id='manual-index-app'>
       <div><img class='mx-auto w-36 pt-20 pb-8' :src='manualAppIconUrl'></div>
@@ -16,7 +16,7 @@
         <div class='w-1/2'><a class='max-w-full' href="https://apps.apple.com/us/app/dogtra-pathfinder/id1167878156?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1478044800&h=9156e4252abdaa6e424d4337e768f382" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;" class='p-1'></a></div>
       </div>
     </div>
-    <NuxtLink v-if='hasFirstPage' :to='manualFirstPageUrl' id='manual-index-first-page'><span class='underline'>Go to first page of Manual</span><i class='yi-chevron-right text-yellow'></i></NuxtLink>
+    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' :to='manualFirstPageUrl'><span class='underline'>Go to first page of Manual</span><i class='yi-chevron-right text-yellow'></i></NuxtLink>
   </div>
 </template>
 
@@ -40,6 +40,11 @@ export default {
 
     return {
       manual: data.manuals[0]
+    }
+  },
+  data() {
+    return {
+      searchText: ''
     }
   },
   computed: {
