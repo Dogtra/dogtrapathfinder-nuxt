@@ -1,9 +1,33 @@
+import axios from 'axios'
 import i18n from './config/i18n'
 require('dotenv').config()
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
+  generate: {
+    async routes() {
+      const manualsResponse = await axios.get(process.env.STRAPI_URL + '/manuals')
+      const articlesResponse = await axios.get(process.env.STRAPI_URL + '/articles' )
+
+      const manualRoutes = manualsResponse.data.map(manual => {
+        return {
+          route: '/manuals/' + manual.slug,
+          payload: manual
+        }
+      })
+
+      const articleRoutes = articlesResponse.data.map(article => {
+        const manual = manualsResponse.data.find(manual => manual.id === article.chapter.manual)
+        return {
+          route: '/manuals/' + manual.slug  + '/' + article.uuid
+        }
+      })
+
+      return [...manualRoutes, ...articleRoutes];
+    }
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
