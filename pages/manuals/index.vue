@@ -1,7 +1,7 @@
 <template>
   <div>
     <ProductUserGuideBanner :manuals='manuals'/>
-    <SearchBanner />
+    <SearchBanner :manuals='manuals' />
     <PopularArticlesBanner />
   </div>
 </template>

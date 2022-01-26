@@ -51,9 +51,6 @@
 <!--          </div>-->
         </div>
         <div class="pt-12">
-<!--          <template v-for="item in hits">-->
-<!--            <search-result-item :item="item" :key="item.id" :manuals="manuals"/>-->
-<!--          </template>-->
           <ais-hits>
             <div slot="item" slot-scope="{ item }">
               <search-result-item :item="item" :manuals="manuals"/>
@@ -79,6 +76,11 @@ const searchClient = instantMeiliSearch(
   process.env.meiliMasterKey
 );
 
+const parameterizeArray = (key, arr) => {
+  arr = arr.map(encodeURIComponent)
+  return key+'[]=' + arr.join('&'+key+'[]=')
+}
+
 export default {
   components: {
     SearchResultItem,
@@ -95,7 +97,13 @@ export default {
   ],
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      vm.searchText = to.query.searchText
+      if (to.query.searchText) {
+        vm.searchText = to.query.searchText
+      }
+
+      if (to.query["products[]"]) {
+        vm.checkedProductsFilter = to.query["products[]"]
+      }
     })
   },
   async asyncData({app, route}) {
@@ -112,7 +120,7 @@ export default {
       error: null,
       checkedProductsFilter: [],
       nbResults: 0,
-      searchText: 'products',
+      searchText: '',
     }
   },
   methods: {
@@ -124,17 +132,23 @@ export default {
         '?' +
         Object.keys(params)
           .map(key => {
-            return (
-              encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
-            )
+            if (Array.isArray(params[key])) {
+              return parameterizeArray(key, params[key])
+            } else {
+              return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
+            }
           })
           .join('&')
       )
-    }
+    },
+
   },
   watch: {
     searchText(searchText) {
       this.addParamsToLocation({searchText})
+    },
+    checkedProductsFilter(products) {
+      this.addParamsToLocation({ products })
     }
   }
 }

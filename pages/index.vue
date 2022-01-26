@@ -5,7 +5,7 @@
       <p class="main-banner-description text-18 md:text-20">The Dogtra PATHFINDER brings GPS and <br> e-collar technolory right to your smartphone</p>
     </div>
     <ProductUserGuideBanner :manuals='manuals'/>
-    <SearchBanner />
+    <SearchBanner :manuals="manuals" />
     <ais-instant-search-ssr class="hidden">
       <ais-search-box />
       <ais-hits>

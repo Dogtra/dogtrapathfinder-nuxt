@@ -1,7 +1,7 @@
 <template>
   <section id="bottom-navigation" class="block md:hidden h-[5.5rem] fixed inset-x-0 bottom-0 z-10 bg-black shadow">
-    <div class="absolute h-5.5rem top-[-6.5rem] w-full bg-black px-10 py-6 rounded-t-2xl">
-      <SearchBar background-color="#FFFFFF" v-model='searchText'></SearchBar>
+    <div class="absolute h-5.5rem top-[-6.5rem] w-full bg-black px-10 py-6 rounded-t-2xl" :class='{hidden: !this.searchOpen}'>
+      <SearchBar v-if='manual' background-color="#FFFFFF" v-model='searchText' :selected-products='[manual.title]'></SearchBar>
     </div>
     <div id="tabs" class="flex justify-between h-full">
       <a v-for="menuItem in menuItems"
@@ -45,19 +45,19 @@ export default {
         {
           label: 'Search',
           icon: 'magnify',
-          action: this.toggleMenu,
+          action: () => { this.searchOpen = !this.searchOpen},
           active: this.searchOpen
         },
         {
           label: 'Prev.',
           icon: 'chevron-left',
-          action: this.toggleMenu,
+          action: () => { this.prevActive = !this.prevActive},
           active: this.prevActive
         },
         {
           label: 'Next',
           icon: 'chevron-right',
-          action: this.toggleMenu,
+          action: () => { this.nextActive = !this.nextActive},
           active: this.nextActive
         },
       ]

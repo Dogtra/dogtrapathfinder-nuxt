@@ -2,23 +2,30 @@
   <div id='search-banner' class='banner pt-8 md:pt-16 pb-16 md:pb-24 px-12'>
     <h1 class='text-center mb-8 font-medium'>Filter search by Product</h1>
     <div class="search-banner-product-filter justify-center pb-8 md:pb-20 hidden md:flex w-fit mx-auto">
-      <div class="product-filter-choice product-filter-choice-active uppercase text-center cursor-pointer font-semibold">Pathfinder2 Mini TRX</div>
-      <div class="product-filter-choice uppercase text-center cursor-pointer font-semibold">Pathfinder2</div>
-      <div class="product-filter-choice uppercase text-center cursor-pointer font-semibold">Pathfidner2 TRX</div>
-      <div class="product-filter-choice uppercase text-center cursor-pointer font-semibold">Pathfinder</div>
+      <template v-for='manual in manuals'>
+        <SearchBannerFilterChoice :key='manual.id' :manual='manual' :selected-product='selectedSearchProduct' :change-selected-product='selectProduct'/>
+      </template>
     </div>
     <div class='block md:hidden flex justify-around flex-wrap pb-8'>
-      <v-select class='w-full' v-model='selectedSearchProduct' :components='{OpenIndicator}'
+      <v-select v-model='selectedSearchProduct' class='w-full' :components='{OpenIndicator}'
                 :options="['All Products', 'Canada', 'United States']"></v-select>
     </div>
-    <SearchBar :max-width="'42.5rem'" v-model='searchText'></SearchBar>
+    <SearchBar v-model='searchText' :max-width="'42.5rem'" :selected-products='[selectedSearchProduct]'></SearchBar>
   </div>
 </template>
 <script>
 import SearchBar from '~/components/SearchBar/SearchBar'
+import SearchBannerFilterChoice from '~/components/Banner/SearchBannerFilterChoice'
+
 export default {
   name: 'SearchBanner',
-  components: { SearchBar },
+  components: { SearchBannerFilterChoice, SearchBar },
+  props: {
+    manuals: {
+      type: Array,
+      required: false,
+    }
+  },
   data() {
     return {
       OpenIndicator: {
@@ -26,6 +33,11 @@ export default {
       },
       selectedSearchProduct: 'All Products',
       searchText: ''
+    }
+  },
+  methods: {
+    selectProduct(product) {
+      this.selectedSearchProduct = product
     }
   }
 }
@@ -37,18 +49,6 @@ export default {
 
 #search-banner {
   background-color: #F8F7F5;
-}
-
-.product-filter-choice {
-  width: 26.8rem;
-  font-size: 2rem;
-  color: #7C7C7C;
-  border-bottom: 3px solid #7C7C7C;
-}
-
-.product-filter-choice.product-filter-choice-active {
-  border-bottom: 3px solid #FFDD00;
-  color: #121212;
 }
 
 .search-bar {

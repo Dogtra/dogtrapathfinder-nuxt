@@ -21,5 +21,5 @@ export const mutations = {
   closeAllMenu(state) {
     state.manualMenuOpen = false
     state.manualMenuProductMenuOpen = false
-  }
+  },
 }

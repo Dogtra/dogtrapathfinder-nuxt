@@ -37,7 +37,11 @@ export default {
       required: false,
       default: '#E7E7E7',
     },
-    searchText: String``
+    searchText: String,
+    selectedProducts: {
+      type: Array,
+      required: false
+    }
   },
   computed: {
     searchBarStyle() {
@@ -50,11 +54,18 @@ export default {
   methods: {
     searchForm(e) {
       e.preventDefault()
+
+      const query = {
+        searchText: this.searchText
+      }
+
+      if (this.selectedProducts) {
+        query['products[]'] = this.selectedProducts
+      }
+
       this.$nuxt.$options.router.push({
         path: this.localePath('search'),
-        query: {
-          searchText: this.searchText
-        }
+        query
       })
     }
   }
