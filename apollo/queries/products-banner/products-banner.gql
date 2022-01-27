@@ -1,5 +1,5 @@
-query MainBanner {
-  mainBanner {
+query ProductsBanner {
+  productsBanner {
     title
     description
     image {

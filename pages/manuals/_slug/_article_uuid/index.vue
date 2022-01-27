@@ -22,9 +22,6 @@ import manualQuery from '~/apollo/queries/manual/manual'
 
 export default {
   layout: 'manual',
-  mounted() {
-    axios.patch(process.env.strapiUrl + '/articles/' + this.article.id + '/view');
-  },
   async asyncData({ app, route, redirect, $strapi, store }) {
     const [articleResponse, manualResponse] = await Promise.all([
       app.apolloProvider.defaultClient.query({
@@ -55,15 +52,14 @@ export default {
       manual: manualResponse.data.manuals[0]
     }
   },
-  data(){
-    return {
-      // article: null
-    }
-  },
   computed: {
     markedContent() {
       return marked(this.article.content);
-    }
+    },
+
+  },
+  mounted() {
+    axios.patch(process.env.strapiUrl + '/articles/' + this.article.id + '/view');
   },
 }
 </script>

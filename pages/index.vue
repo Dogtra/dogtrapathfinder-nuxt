@@ -1,9 +1,6 @@
 <template>
   <div class='text-black'>
-    <div id="main-banner" class="h-[55rem] md:h-[75rem] bg-cover bg-center text-white object-fill flex justify-center text-center flex-col" :style='mainBannerStyle'>
-      <p class="main-banner-title text-32 md:text-40"><strong>PATHFINDER Manual</strong></p>
-      <p class="main-banner-description text-18 md:text-20">The Dogtra PATHFINDER brings GPS and <br> e-collar technolory right to your smartphone</p>
-    </div>
+    <ImageBanner :banner='mainBanner' />
     <ProductUserGuideBanner :manuals='manuals'/>
     <SearchBanner :manuals="manuals" />
     <ais-instant-search-ssr class="hidden">
@@ -23,6 +20,7 @@
 <script>
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import { AisHits, AisInstantSearchSsr, AisSearchBox, createServerRootMixin } from 'vue-instantsearch'
+import axios from 'axios'
 import { strapiMediaUrl } from '~/utils/strapi'
 
 import mainBannerQuery from '~/apollo/queries/main-banner/main-banner'
@@ -31,6 +29,7 @@ import manualsQuery from '~/apollo/queries/manual/manuals'
 import SearchBanner from '~/components/Banner/SearchBanner'
 import ProductUserGuideBanner from '~/components/Banner/ProductUserGuideBanner'
 import PopularArticlesBanner from '~/components/Banner/PopularArticlesBanner'
+import ImageBanner from '~/components/Banner/ImageBanner'
 
 const searchClient = instantMeiliSearch(
   process.env.meiliUrl,
@@ -39,6 +38,7 @@ const searchClient = instantMeiliSearch(
 
 export default {
   components: {
+    ImageBanner,
     PopularArticlesBanner,
     ProductUserGuideBanner,
     SearchBanner,
@@ -78,14 +78,6 @@ export default {
     }
   },
   computed: {
-    mainBannerStyle() {
-      if (this.mainBanner.image) {
-        return {
-          backgroundImage: 'url("' + strapiMediaUrl(this.mainBanner.image.url) + '")'
-        }
-      }
-      return {}
-    },
     footerBannerStyle() {
       if (this.footerBanner.image) {
         return {
@@ -94,6 +86,17 @@ export default {
       }
       return {}
     }
+  },
+  async mounted() {
+    const manualsResponse = await axios.get(process.env.STRAPI_URL + '/manuals' )
+    const articleRoutes = await axios.get(process.env.STRAPI_URL + '/articles' )
+
+    console.log(articleRoutes.data.map(article => {
+      const manual = manualsResponse.data.find(manual => manual.id === article.chapter.manual)
+      return {
+        route: '/manuals/' + manual.slug  + '/' + article.uuid
+      }
+    }))
   },
 }
 </script>

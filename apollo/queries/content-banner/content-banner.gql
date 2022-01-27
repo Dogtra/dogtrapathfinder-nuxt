@@ -1,5 +1,5 @@
-query MainBanner {
-  mainBanner {
+query ContentBanner {
+  contentBanner {
     title
     description
     image {
