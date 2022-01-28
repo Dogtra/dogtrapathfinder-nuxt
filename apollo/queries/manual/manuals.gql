@@ -3,6 +3,7 @@ query Manuals {
     id
     slug
     title
+    hidden
     product_image {
       url
       alternativeText

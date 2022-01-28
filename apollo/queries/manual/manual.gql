@@ -3,6 +3,7 @@ query Manuals($slug: String!) {
     id
     slug
     title
+    hidden
     chapters {
       id
       title
