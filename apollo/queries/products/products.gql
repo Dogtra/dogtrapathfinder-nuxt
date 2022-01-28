@@ -1,5 +1,6 @@
-query ProductsBanner {
-  productsBanner {
+query Products {
+  products {
+    id
     title
     price
     description

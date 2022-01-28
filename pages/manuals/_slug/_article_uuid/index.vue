@@ -69,4 +69,14 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+
+>>> .prose .note {
+  color: red;
+  background-color: #fff5bf;
+  padding: 1rem;
+}
+
+>>> .prose .note strong {
+  color: red;
+}
 </style>
