@@ -10,21 +10,18 @@
       <span class="mdi mdi-close text-[2.6rem]"></span>
     </div>
 
-    <div v-show="manualMenuProductMenuOpen" class="manual-menu-product-list absolute bg-yellow text-black inset-0 mt-20 md:mt-40">
+    <div v-if="manualMenuProductMenuOpen" class="manual-menu-product-list min-h-full bg-yellow text-black inset-0">
       <ul>
         <ManualMenuProductItem v-for="otherManual in manuals" :manual="otherManual" :key="otherManual.id"/>
       </ul>
     </div>
-    <div class='overflow-y-scroll'>
+    <div v-else class='overflow-y-scroll'>
       <div class="manual-menu-chapter-list bg-black text-white h-fit px-12 md:px-16 py-8 md:py-10">
         <div class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
           <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>
         </div>
         <template v-for='chapter in manual.chapters'>
-
-          <template v-for='index in 10'>
-            <ManualMenuChapterItem :key='chapter.id + index' :chapter='chapter' :manual='manual'/>
-          </template>
+          <ManualMenuChapterItem :key='chapter.id + index' :chapter='chapter' :manual='manual'/>
         </template>
       </div>
     </div>
