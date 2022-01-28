@@ -1,9 +1,9 @@
 <template>
-  <div class='manual-menu-container h-full text-18'>
+  <div class='manual-menu-container h-full text-18 flex flex-col'>
     <div class="hidden bg-yellow md:block py-6 px-10 border-b-1 border-black">
       <SearchBar :background-color="'#FFFFFF'" v-model='searchText' :selected-products='[manual.title]'></SearchBar>
     </div>
-    <div class='bg-yellow text-black cursor-pointer h-20 flex items-center px-8' @click="toggleManualProductMenu">
+    <div class='bg-yellow text-black cursor-pointer min-h-[5rem] flex items-center px-8' @click="toggleManualProductMenu">
       <span v-show="!manualMenuProductMenuOpen" class="mdi mdi-unfold-more-horizontal text-[2.6rem]"></span>
       <span v-show="manualMenuProductMenuOpen" class="mdi mdi-unfold-less-horizontal text-[2.6rem]"></span>
       <strong class="uppercase flex-grow">{{ manual.title }}</strong>
@@ -15,14 +15,18 @@
         <ManualMenuProductItem v-for="otherManual in manuals" :manual="otherManual" :key="otherManual.id"/>
       </ul>
     </div>
+    <div class='overflow-y-scroll'>
+      <div class="manual-menu-chapter-list bg-black text-white h-fit px-12 md:px-16 py-8 md:py-10">
+        <div class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
+          <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>
+        </div>
+        <template v-for='chapter in manual.chapters'>
 
-    <div class="manual-menu-chapter-list bg-black text-white h-full px-12 md:px-16 py-8 md:py-10">
-      <div class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
-        <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>
+          <template v-for='index in 10'>
+            <ManualMenuChapterItem :key='chapter.id + index' :chapter='chapter' :manual='manual'/>
+          </template>
+        </template>
       </div>
-      <template v-for='chapter in manual.chapters'>
-        <ManualMenuChapterItem :key='chapter.id' :chapter='chapter' :manual='manual'/>
-      </template>
     </div>
   </div>
 </template>
