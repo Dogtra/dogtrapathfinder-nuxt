@@ -18,6 +18,9 @@ query Manuals($slug: String!) {
     product_image {
       url
     }
+    product_with_title_image {
+      url
+    }
     app {
       icon {
         url

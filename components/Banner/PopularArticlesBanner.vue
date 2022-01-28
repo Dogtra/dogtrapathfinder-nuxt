@@ -1,11 +1,17 @@
 <template>
   <div id='popular-articles-banner' class="banner">
     <h1 class='text-center mt-16 mb-8 font-medium'>Popular Articles</h1>
-    <div class="manual-sliders-wrapper overflow-x-auto flex">
-      <div class='articles-sliders flex px-12 pb-20 w-fit md:max-w-[100rem] mx-auto'>
+    <div class="flex md:max-w-[100rem] mx-auto items-center">
+      <div @click='scrollLeft' class='cursor-pointer min-w-[3rem] min-h-[3rem] rounded-full flex justify-center items-center bg-gray-200 hover:bg-gray-300'>
+        <span class="mdi mdi-chevron-left"></span>
+      </div>
+      <div class='articles-sliders overflow-x-auto flex px-8 pb-20 w-fit mx-auto' ref='slider'>
         <template v-for='article in popularArticles'>
-          <PopularArticleItem :key="article.id" :article="article"/>
+          <PopularArticleItem :key="article.id + index" :article="article"/>
         </template>
+      </div>
+      <div @click='scrollRight' class='cursor-pointer min-w-[3rem] min-h-[3rem] rounded-full flex justify-center items-center bg-gray-200 hover:bg-gray-300'>
+        <span class="mdi mdi-chevron-right"></span>
       </div>
     </div>
   </div>
@@ -32,6 +38,14 @@ export default {
     })
 
     this.popularArticles = data.articles
+  },
+  methods: {
+    scrollRight() {
+      this.$refs.slider.scroll(this.$refs.slider.scrollLeft + this.$refs.slider.offsetWidth/2,0)
+    },
+    scrollLeft() {
+      this.$refs.slider.scroll(this.$refs.slider.scrollLeft - this.$refs.slider.offsetWidth/2,0)
+    },
   }
 }
 </script>

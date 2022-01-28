@@ -12,7 +12,10 @@ import { strapiMediaUrl } from '~/utils/strapi'
 export default {
   name: 'ProductItem',
   props: {
-    product: {}
+    product: {
+      type: Object,
+      required: true
+    }
   },
   computed: {
     imageUrl() {

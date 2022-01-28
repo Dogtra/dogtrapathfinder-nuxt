@@ -8,6 +8,9 @@ query Manuals {
       url
       alternativeText
     }
+    product_with_title_image {
+      url
+    }
     app {
       icon {
         url

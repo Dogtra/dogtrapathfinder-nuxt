@@ -37,6 +37,11 @@ import SearchBar from "~/components/SearchBar/SearchBar";
 export default {
   name: 'ManualMenuContent',
   components: {SearchBar, ManualMenuProductItem, ManualMenuChapterItem},
+  data() {
+    return {
+      searchText: ''
+    }
+  },
   computed: {
     ...mapState('manual', [
       'manualMenuOpen',
@@ -44,11 +49,6 @@ export default {
       'manuals',
       'manualMenuProductMenuOpen',
     ]),
-  },
-  data() {
-    return {
-      searchText: ''
-    }
   },
   async mounted() {
     const { data } = await this.$apollo.provider.defaultClient.query({

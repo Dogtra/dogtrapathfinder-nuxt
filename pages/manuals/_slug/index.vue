@@ -59,7 +59,7 @@ export default {
       return '/manuals/' + this.manual.slug + '/' + this.manual.chapters[0].articles[0].uuid
     },
     manualProductImageUrl() {
-      return strapiMediaUrl(this.manual.product_image.url)
+      return strapiMediaUrl(this.manual.product_with_title_image.url)
     },
     manualAppIconUrl() {
       return strapiMediaUrl(this.manual.app.icon.url)
