@@ -10,7 +10,7 @@
       <span class="mdi mdi-close text-[2.6rem]"></span>
     </div>
 
-    <div v-show="manualMenuProductMenuOpen" class="manual-menu-product-list absolute bg-yellow text-black inset-0 mt-20">
+    <div v-show="manualMenuProductMenuOpen" class="manual-menu-product-list absolute bg-yellow text-black inset-0 mt-20 md:mt-40">
       <ul>
         <ManualMenuProductItem v-for="otherManual in manuals" :manual="otherManual" :key="otherManual.id"/>
       </ul>
