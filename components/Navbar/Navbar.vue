@@ -21,7 +21,7 @@
       </div>
     </div>
     <transition name='slide-fade'>
-      <div v-show='showMenu' class="fixed inset-0 bottom-24 min-h-[calc(100%-13rem)] mt-[7.5rem] bg-black w-full block md:hidden px-12 py-4 text-18">
+      <div v-show='showMenu' class="fixed inset-0 bottom-24 min-h-[calc(100%-7.5rem)] mt-[7.5rem] bg-black w-full block md:hidden px-12 py-4 text-18">
         <SearchBar :background-color="'#ffffff'" v-model='searchText'></SearchBar>
         <ul class="py-6 shadow-lg bg-black uppercase text-18 font-semibold">
           <li class="border-b-2 border-white h-20 flex items-center">

@@ -2,7 +2,8 @@ export const state = () => ({
   manual: null,
   manuals: [],
   manualMenuOpen: false,
-  manualMenuProductMenuOpen: false
+  manualMenuProductMenuOpen: false,
+  article: null
 })
 
 export const mutations = {
@@ -22,4 +23,32 @@ export const mutations = {
     state.manualMenuOpen = false
     state.manualMenuProductMenuOpen = false
   },
+  setArticle(state, article) {
+    state.article = article
+  }
+}
+
+
+export const getters = {
+  allArticles(state) {
+    if (!state.manual) {
+      return []
+    }
+    return state.manual.chapters.flatMap(chapter => chapter.articles)
+  },
+  currentArticleIndex(state, getters) {
+    return getters.allArticles.findIndex(article => article.id === state.article.id)
+  },
+  previousArticleUrl(state, getters) {
+    if (!getters.allArticles[getters.currentArticleIndex - 1]) {
+      return '/manuals/' + state.manual.slug + '/' + state.article.uuid
+    }
+    return '/manuals/' + state.manual.slug + '/' + getters.allArticles[getters.currentArticleIndex - 1].uuid
+  },
+  nextArticleUrl(state, getters) {
+    if (!getters.allArticles[getters.currentArticleIndex + 1]) {
+      return '/manuals/' + state.manual.slug + '/' + state.article.uuid
+    }
+    return '/manuals/' + state.manual.slug + '/' + getters.allArticles[getters.currentArticleIndex + 1].uuid
+  }
 }

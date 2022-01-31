@@ -1,5 +1,5 @@
 <template>
-  <div class="px-12 py-18">
+  <div class="px-12 py-18 max-w-[71rem]">
     <template v-if='article'>
       <div class="text-14 text-gray-400">
         <NuxtLink to='/manuals'>Manuals</NuxtLink>
@@ -9,13 +9,24 @@
       </div>
       <p class="text-30 font-semibold">{{ article.title }}</p>
       <div v-if="markedContent" v-dompurify-html="markedContent"
-           class='prose text-16 max-w-[71rem] text-black'></div>
+           class='prose text-16 text-black'></div>
+      <div class='text-14 font-normal'>
+        <div class='py-28'>
+          <p class='underline'>Did it help ?</p>
+          <p>Didn't find what you were looking for? Try looking on the FAQ</p>
+        </div>
+        <div class='flex justify-between text-16 font-bold'>
+          <NuxtLink :to='previousArticleUrl' class='flex items-center'><span class='mdi mdi-chevron-left text-22'></span>Previous</NuxtLink>
+          <NuxtLink :to='nextArticleUrl' class='flex items-center'>Next<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
+        </div>
+      </div>
     </template>
   </div>
 </template>
 
 <script>
-import { marked } from 'marked';
+import { marked } from 'marked'
+import { mapGetters } from 'vuex'
 import axios from 'axios'
 import articleQuery from '~/apollo/queries/article/article'
 import manualQuery from '~/apollo/queries/manual/manual'
@@ -46,17 +57,21 @@ export default {
     }
 
     store.commit('manual/setManual', manual)
+    store.commit('manual/setArticle', article)
 
     return {
-      article: articleResponse.data.articles[0],
-      manual: manualResponse.data.manuals[0]
+      article,
+      manual
     }
   },
   computed: {
     markedContent() {
       return marked(this.article.content);
     },
-
+    ...mapGetters('manual', [
+      'previousArticleUrl',
+      'nextArticleUrl'
+    ])
   },
   mounted() {
     axios.patch(process.env.strapiUrl + '/articles/' + this.article.id + '/view');
