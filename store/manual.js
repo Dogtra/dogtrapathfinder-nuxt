@@ -37,15 +37,24 @@ export const getters = {
     return state.manual.chapters.flatMap(chapter => chapter.articles)
   },
   currentArticleIndex(state, getters) {
+    if (!state.article) {
+      return
+    }
     return getters.allArticles.findIndex(article => article.id === state.article.id)
   },
   previousArticleUrl(state, getters) {
+    if (!state.article) {
+      return
+    }
     if (!getters.allArticles[getters.currentArticleIndex - 1]) {
       return '/manuals/' + state.manual.slug + '/' + state.article.uuid
     }
     return '/manuals/' + state.manual.slug + '/' + getters.allArticles[getters.currentArticleIndex - 1].uuid
   },
   nextArticleUrl(state, getters) {
+    if (!state.article) {
+      return
+    }
     if (!getters.allArticles[getters.currentArticleIndex + 1]) {
       return '/manuals/' + state.manual.slug + '/' + state.article.uuid
     }

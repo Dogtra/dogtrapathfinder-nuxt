@@ -1,0 +1,7 @@
+query Apps {
+  mobileApps {
+    icon {
+      url
+    }
+  }
+}

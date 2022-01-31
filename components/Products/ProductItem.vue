@@ -3,7 +3,9 @@
     <div class='w-29rem'>
       <img :src='imageUrl'>
     </div>
-    {{ product }}
+    <div>
+      {{ product }}
+    </div>
   </div>
 </template>
 <script>
