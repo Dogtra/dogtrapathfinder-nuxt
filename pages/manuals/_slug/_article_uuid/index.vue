@@ -16,8 +16,8 @@
           <p>Didn't find what you were looking for? Try looking on the FAQ</p>
         </div>
         <div class='flex justify-between text-16 font-bold'>
-          <NuxtLink :to='previousArticleUrl' class='flex items-center'><span class='mdi mdi-chevron-left text-22'></span>Previous</NuxtLink>
-          <NuxtLink :to='nextArticleUrl' class='flex items-center'>Next<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
+          <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn hover:bg-gray-300 pr-4'><span class='mdi mdi-chevron-left text-22'></span>Previous</NuxtLink>
+          <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn hover:bg-gray-300 pl-4'>Next<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
         </div>
       </div>
     </template>
