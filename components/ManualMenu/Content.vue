@@ -21,7 +21,7 @@
           <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>
         </div>
         <template v-for='chapter in manual.chapters'>
-          <ManualMenuChapterItem :key='chapter.id + index' :chapter='chapter' :manual='manual'/>
+          <ManualMenuChapterItem :key='chapter.id' :chapter='chapter' :manual='manual'/>
         </template>
       </div>
     </div>
