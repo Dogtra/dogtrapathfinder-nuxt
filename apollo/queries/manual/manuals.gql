@@ -4,6 +4,7 @@ query Manuals {
     slug
     title
     hidden
+    tag
     product_image {
       url
       alternativeText

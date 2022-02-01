@@ -27,7 +27,7 @@ export default {
       required: true
     },
     apps: {
-      type: Object,
+      type: Array,
       required: true
     }
   },

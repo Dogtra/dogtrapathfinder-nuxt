@@ -14,6 +14,7 @@ query popularArticles($sort: String, $limit: Int) {
         id
         slug
         title
+        tag
       }
     }
     view_count
