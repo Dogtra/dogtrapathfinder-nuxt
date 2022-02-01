@@ -5,7 +5,7 @@
     </div>
     <p class="pt-6 pb-10 text-18 uppercase font-medium">User manual</p>
     <div id='manual-index-search'>
-      <SearchBar max-width="42.5rem" class="mx-auto" v-model='searchText' :selected-products='[manual.title]'/>
+      <SearchBar v-model='searchText' max-width="42.5rem" class="mx-auto" :selected-products='[manual.title]'/>
     </div>
     <div id='manual-index-app'>
       <div><img class='mx-auto w-36 pt-20 pb-8' :src='manualAppIconUrl'></div>

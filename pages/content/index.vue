@@ -9,7 +9,7 @@
 <script>
 import contentBannerQuery from '~/apollo/queries/content-banner/content-banner'
 import ImageBanner from '~/components/Banner/ImageBanner'
-import ContentBanner from '~/pages/content/ContentBanner'
+import ContentBanner from '~/components/Banner/ContentBanner'
 
 export default {
   components: { ContentBanner, ImageBanner },

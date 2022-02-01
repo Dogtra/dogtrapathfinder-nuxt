@@ -1,7 +1,7 @@
 <template>
   <div class='min-h-screen bg-white'>
     <Navbar />
-    <main class='text-black md:flex mt-[7.5rem] pb-[5.5rem]'>
+    <main class='text-black md:flex mt-[7.5rem] pb-[5.5rem] md:pb-0'>
       <ManualMenu></ManualMenu>
       <div id="manual-wrapper" class="flex-grow md:ml-[35rem]">
         <Nuxt keep-alive :keep-alive-props="{ exclude: ['ManualMenu'] }" />
