@@ -47,7 +47,7 @@ export const getters = {
       return
     }
     if (!getters.allArticles[getters.currentArticleIndex - 1]) {
-      return '/manuals/' + state.manual.slug + '/' + state.article.uuid
+      return '/manuals/' + state.manual.slug
     }
     return '/manuals/' + state.manual.slug + '/' + getters.allArticles[getters.currentArticleIndex - 1].uuid
   },
@@ -56,7 +56,7 @@ export const getters = {
       return
     }
     if (!getters.allArticles[getters.currentArticleIndex + 1]) {
-      return '/manuals/' + state.manual.slug + '/' + state.article.uuid
+      return '/manuals/' + state.manual.slug
     }
     return '/manuals/' + state.manual.slug + '/' + getters.allArticles[getters.currentArticleIndex + 1].uuid
   }
