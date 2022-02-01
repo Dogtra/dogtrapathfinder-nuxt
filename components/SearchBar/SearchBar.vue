@@ -10,7 +10,7 @@
              class='bg-transparent flex-grow placeholder-black'
              @input="$emit('change', $event.target.value)"
       >
-    <span class="mdi mdi-magnify text-22"></span>
+    <span class="mdi mdi-magnify text-22" @click='searchForm'></span>
     </form>
   </div>
 </template>
