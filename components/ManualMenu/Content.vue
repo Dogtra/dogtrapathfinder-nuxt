@@ -12,7 +12,7 @@
 
     <div v-if="manualMenuProductMenuOpen" class="manual-menu-product-list min-h-full bg-yellow text-black inset-0">
       <ul>
-        <ManualMenuProductItem v-for="otherManual in manuals" :manual="otherManual" :key="otherManual.id"/>
+        <ManualMenuProductItem v-for="otherManual in manuals" :key="otherManual.id" :manual="otherManual"/>
       </ul>
     </div>
     <div v-else class='overflow-y-scroll'>
