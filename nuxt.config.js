@@ -62,7 +62,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@aceforth/nuxt-netlify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -143,6 +144,16 @@ export default {
     families: {
       Montserrat: [400, 500, 600, 700],
     }
+  },
+
+  netlify: {
+    mergeSecurityHeaders: true,
+    redirects: [
+      {
+        from: '/manual',
+        to: '/manuals/pathfinder'
+      },
+    ]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

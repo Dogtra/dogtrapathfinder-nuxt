@@ -8,7 +8,7 @@
             <div class='w-full h-[22rem] bg-white rounded-btn'>
 
             </div>
-            <p class='font-bold text-20'>
+            <p class='font-bold text-20 pt-6 pb-4'>
               Introducing the DOGTRA PATHFINDER
             </p>
             <p class='font-medium text-14 text-[#808080] line-clamp-3'>

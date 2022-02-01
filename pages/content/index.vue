@@ -1,8 +1,8 @@
 <template>
 <div>
   <ImageBanner :banner='contentBanner'></ImageBanner>
-  <ContentBanner title='How to Dogtra PATHFINDER' />
-  <ContentBanner title='Troubleshooting' background-color='#808080' />
+  <ContentBanner title='How to Dogtra PATHFINDER' background-color='#303030' />
+  <ContentBanner title='Troubleshooting' />
 </div>
 </template>
 
