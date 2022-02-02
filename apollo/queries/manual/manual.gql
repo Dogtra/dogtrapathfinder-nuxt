@@ -8,12 +8,14 @@ query Manuals($slug: String!) {
     chapters {
       id
       title
+      order
       articles {
         id
         uuid
         title
         content
         published_at
+        order
       }
     }
     product_image {

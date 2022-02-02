@@ -20,7 +20,7 @@
         <div class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
           <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>
         </div>
-        <template v-for='chapter in manual.chapters'>
+        <template v-for='chapter in chapters'>
           <ManualMenuChapterItem :key='chapter.id' :chapter='chapter' :manual='manual'/>
         </template>
       </div>
@@ -29,6 +29,7 @@
 </template>
 <script>
 import {mapMutations, mapState} from "vuex";
+import {orderBy} from 'lodash'
 import ManualMenuChapterItem from '~/components/ManualMenu/ChapterItem'
 import manualsQuery from '~/apollo/queries/manual/manuals'
 import ManualMenuProductItem from "~/components/ManualMenu/ProductItem";
@@ -49,6 +50,9 @@ export default {
       'manuals',
       'manualMenuProductMenuOpen',
     ]),
+    chapters() {
+      return orderBy(this.manual.chapters, 'order')
+    }
   },
   async mounted() {
     const { data } = await this.$apollo.provider.defaultClient.query({

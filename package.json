@@ -29,6 +29,7 @@
     "daisyui": "^1.14.4",
     "fibers": "^5.0.0",
     "graphql": "^16.1.0",
+    "lodash": "^4.17.21",
     "marked": "^4.0.7",
     "nuxt": "^2.15.7",
     "nuxt-breakpoints": "^1.1.9",
