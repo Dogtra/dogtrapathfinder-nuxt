@@ -1,26 +1,33 @@
 <template>
   <div>
+    <ImageBanner :banner='manualBanner'></ImageBanner>
     <ProductUserGuideBanner :manuals='manuals'/>
     <SearchBanner :manuals='manuals' />
-    <PopularArticlesBanner />
   </div>
 </template>
 
 <script>
+import manualBannerQuery from '~/apollo/queries/manual-banner/manual-banner.gql'
 import manualsQuery from '~/apollo/queries/manual/manuals'
 import ProductUserGuideBanner from '~/components/Banner/ProductUserGuideBanner'
 import SearchBanner from '~/components/Banner/SearchBanner'
-import PopularArticlesBanner from '~/components/Banner/PopularArticlesBanner'
+import ImageBanner from '~/components/Banner/ImageBanner'
 
 export default {
-  components: { PopularArticlesBanner, SearchBanner, ProductUserGuideBanner },
+  components: { ImageBanner, SearchBanner, ProductUserGuideBanner },
   async asyncData({ app, route }) {
-    const { data } = await app.apolloProvider.defaultClient.query({
-      query: manualsQuery,
-    })
+    const [manualsResponse, manualBannerResponse] = await Promise.all([
+      app.apolloProvider.defaultClient.query({
+        query: manualsQuery,
+      }),
+      app.apolloProvider.defaultClient.query({
+        query: manualBannerQuery,
+      }),
+    ])
 
     return {
-      manuals: data.manuals
+      manuals: manualsResponse.data.manuals,
+      manualBanner: manualBannerResponse.data.manualBanner
     }
   },
 }

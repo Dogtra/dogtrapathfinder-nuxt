@@ -25,6 +25,11 @@
         <SearchBar :background-color="'#ffffff'" v-model='searchText'></SearchBar>
         <ul class="py-6 shadow-lg bg-black uppercase text-18 font-semibold">
           <li class="border-b-2 border-white h-20 flex items-center">
+            <NuxtLink :to="localePath('/manuals')" @click.native='showMenu = false'>
+              {{ $t('main.manuals') }}
+            </NuxtLink>
+          </li>
+          <li class="border-b-2 border-white h-20 flex items-center">
             <NuxtLink :to="localePath('/products')" @click.native='showMenu = false'>
               {{ $t('main.products') }}
             </NuxtLink>
@@ -32,11 +37,6 @@
           <li class="border-b-2 border-white h-20 flex items-center">
             <NuxtLink :to="localePath('/content')" @click.native='showMenu = false'>
               {{ $t('main.content') }}
-            </NuxtLink>
-          </li>
-          <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink :to="localePath('/manuals')" @click.native='showMenu = false'>
-            {{ $t('main.manuals') }}
             </NuxtLink>
           </li>
         </ul>

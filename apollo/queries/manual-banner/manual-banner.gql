@@ -1,0 +1,9 @@
+query ManualBanner {
+  manualBanner {
+    title
+    description
+    image {
+      url
+    }
+  }
+}
