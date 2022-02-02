@@ -30,6 +30,8 @@ query Manuals($slug: String!) {
       }
       download
       compatibility
+      android_store_url
+      apple_store_url
     }
   }
 }

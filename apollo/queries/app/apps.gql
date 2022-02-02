@@ -3,5 +3,8 @@ query Apps {
     icon {
       url
     }
+    manual {
+      hidden
+    }
   }
 }

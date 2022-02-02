@@ -13,8 +13,8 @@
       <p v-dompurify-html="manual.app.compatibility"></p>
       <div class='app-badge-container flex gap-4 max-w-[33rem] mx-auto pt-10 pb-8'>
 <!--        <img src='~/assets/images/mobile-apps-black.png' />-->
-        <div class='w-1/2'><a href='https://play.google.com/store/apps/details?id=com.dogtra.gspathfinder&hl=fr&gl=US&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='~/assets/images/mobile-android.png'/></a></div>
-        <div class='w-1/2'><a class='max-w-full' href="https://apps.apple.com/us/app/dogtra-pathfinder/id1167878156?itsct=apps_box_badge&amp;itscg=30200"><img src="~/assets/images/mobile-apple.png" alt="Download on the App Store"></a></div>
+        <div class='w-1/2'><a :href='manual.app.android_store_url'><img alt='Get it on Google Play' src='~/assets/images/mobile-android.png'/></a></div>
+        <div class='w-1/2'><a class='max-w-full' :href="manual.app.apple_store_url"><img src="~/assets/images/mobile-apple.png" alt="Download on the App Store"></a></div>
       </div>
     </div>
     <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' :to='manualFirstPageUrl'><span class='underline'>Go to first page of Manual</span><i class='yi-chevron-right text-yellow'></i></NuxtLink>
