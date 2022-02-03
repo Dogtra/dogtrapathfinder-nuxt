@@ -1,6 +1,6 @@
 <template>
   <div id='popular-articles-banner' class="banner">
-    <h1 class='text-center mt-16 mb-8 font-medium'>Popular Searches</h1>
+    <h1 class='text-center pt-16 mb-8 font-medium'>Popular Searches</h1>
     <div class="flex mx-auto items-center justify-center">
       <div @click='scrollLeft' class='cursor-pointer min-w-[3rem] min-h-[3rem] rounded-full flex justify-center items-center bg-gray-200 hover:bg-gray-300'>
         <span class="mdi mdi-chevron-left"></span>
