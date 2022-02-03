@@ -1,0 +1,18 @@
+query Chapter($chapterId: ID!) {
+  chapter(id: $chapterId) {
+    id
+    manual {
+      id
+      slug
+      title
+    }
+    title
+    slug
+    articles {
+      id
+      title
+      slug
+      uuid
+    }
+  }
+}

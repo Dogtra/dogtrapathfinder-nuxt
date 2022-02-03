@@ -5,7 +5,9 @@
         <NuxtLink to='/manuals'>Manuals</NuxtLink>
         /
         <NuxtLink :to='"/manuals/" + article.chapter.manual.slug'>{{ article.chapter.manual.title }}</NuxtLink>
-        / {{ article.chapter.title }} / {{ article.title }}
+        /
+        <NuxtLink :to='"/manuals/" + article.chapter.manual.slug + "/chapter/" + article.chapter.id'>{{ article.chapter.title }}</NuxtLink>
+        / {{ article.title }}
       </div>
       <p class="text-30 font-semibold">{{ article.title }}</p>
       <div v-if="markedContent" v-dompurify-html="markedContent"
