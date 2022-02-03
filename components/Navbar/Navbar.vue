@@ -9,14 +9,14 @@
     <div class='navbar-end relative'>
       <span class="mdi mdi-menu text-[3rem] block md:hidden" @click='showMenu = !showMenu'></span>
       <div class='hidden md:block'>
+        <NuxtLink :to="localePath('/manuals')" class="btn btn-ghost text-18">
+          {{ $t('main.manuals') }}
+        </NuxtLink>
         <NuxtLink :to="localePath('/products')" class="btn btn-ghost text-18">
           {{ $t('main.products') }}
         </NuxtLink>
         <NuxtLink :to="localePath('/content')" class="btn btn-ghost text-18">
           {{ $t('main.content') }}
-        </NuxtLink>
-        <NuxtLink :to="localePath('/manuals')" class="btn btn-ghost text-18">
-          {{ $t('main.manuals') }}
         </NuxtLink>
       </div>
     </div>

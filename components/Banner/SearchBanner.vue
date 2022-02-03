@@ -2,7 +2,7 @@
   <div id='search-banner' class='banner pt-8 md:pt-16 pb-16 md:pb-24 px-12'>
     <h1 class='text-center mb-8 font-medium'>Filter search by Product</h1>
     <div class="search-banner-product-filter justify-center pb-8 md:pb-20 hidden md:flex w-fit mx-auto">
-      <template v-for='manual in manuals'>
+      <template v-for='manual in filteredManuals'>
         <SearchBannerFilterChoice :key='manual.id' :manual='manual' :selected-product='selectedSearchProduct' :change-selected-product='selectProduct'/>
       </template>
     </div>
@@ -33,6 +33,11 @@ export default {
       },
       selectedSearchProduct: 'All Products',
       searchText: ''
+    }
+  },
+  computed: {
+    filteredManuals() {
+      return this.manuals.filter(manual => !manual.hidden)
     }
   },
   methods: {
