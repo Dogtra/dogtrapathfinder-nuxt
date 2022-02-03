@@ -7,9 +7,10 @@
     <div id='manual-index-search'>
       <SearchBar v-model='searchText' max-width="42.5rem" class="mx-auto" :selected-products='[manual.title]'/>
     </div>
-    <div id='manual-index-app'>
-      <div><img class='mx-auto w-36 pt-20 pb-8' :src='manualAppIconUrl'></div>
-      <p v-dompurify-html="manual.app.download" class="text-30 font-medium"></p>
+    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='pt-8 pb-4' :to='manualFirstPageUrl'><span class='underline'>Go to first page of Manual</span><i class='yi-chevron-right text-yellow'></i></NuxtLink>
+    <div id='manual-index-app' class='max-w-[64rem] mx-auto'>
+      <div><img class='mx-auto w-24 pt-8 pb-8' :src='manualAppIconUrl'></div>
+      <p v-dompurify-html="manual.app.download" class="text-24 font-medium"></p>
       <p v-dompurify-html="manual.app.compatibility"></p>
       <div class='app-badge-container flex gap-4 max-w-[33rem] mx-auto pt-10 pb-8'>
 <!--        <img src='~/assets/images/mobile-apps-black.png' />-->
@@ -17,7 +18,6 @@
         <div class='w-1/2'><a class='max-w-full' :href="manual.app.apple_store_url"><img src="~/assets/images/mobile-apple.png" alt="Download on the App Store"></a></div>
       </div>
     </div>
-    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' :to='manualFirstPageUrl'><span class='underline'>Go to first page of Manual</span><i class='yi-chevron-right text-yellow'></i></NuxtLink>
   </div>
 </template>
 
