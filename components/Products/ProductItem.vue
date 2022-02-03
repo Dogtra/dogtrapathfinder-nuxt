@@ -1,8 +1,9 @@
 <template>
   <div class='mt-10 md:mt-12 bg-white p-0 md:px-24 md:py-12 rounded-box md:rounded-3xl flex overflow-hidden shadow-xl'>
-    <div class='md:pr-24'>
-      <div class='flex items-center gap-4'>
-        <div class='rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c2.prev()'>
+    <div class='md:pr-24 w-full'>
+      <div class='flex items-center gap-4 relative'>
+        <div
+          v-if='imagesURLs.length' class='absolute md:relative left-0 z-10 rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c1.prev()'>
           <span class='mdi mdi-chevron-left text-white text-30'></span>
         </div>
         <div class='w-full md:w-[29rem]'>
@@ -27,6 +28,7 @@
             :as-nav-for='$refs.c1'
             :slides-to-show='4'
             :focus-on-select='true'
+            class='hidden md:block'
             @beforeChange='onBeforeChangeSlick'
           >
             <template v-for='url in imagesURLs'>
@@ -36,7 +38,8 @@
             </template>
           </VueSlickCarousel>
         </div>
-        <div class='rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c2.next()'>
+        <div
+          v-if='imagesURLs.length' class='absolute md:relative right-0 z-10 rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c1.next()'>
           <span class='mdi mdi-chevron-right text-white text-30'></span>
         </div>
       </div>
@@ -100,6 +103,9 @@ export default {
   },
   methods: {
     onBeforeChangeSlick(currentPosition, nextPosition) {
+      if (!this.$refs.c1 || !this.$refs.c2) {
+        return
+      }
       this.$refs.c1.goTo(nextPosition)
       this.$refs.c2.goTo(nextPosition)
     }
