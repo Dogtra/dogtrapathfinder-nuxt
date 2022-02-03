@@ -94,4 +94,16 @@ export default {
 >>> .prose .note strong {
   color: red;
 }
+
+>>> .prose .warning-note {
+  background-color: #f24f4f;
+  color: white;
+  padding: 1rem;
+}
+
+>>> .prose .warning-note strong{
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+}
 </style>
