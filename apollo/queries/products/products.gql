@@ -4,7 +4,7 @@ query Products {
     title
     price
     description
-    image {
+    images {
       url
     }
     features {

@@ -54,7 +54,10 @@ export default {
   },
   computed: {
     imageUrl() {
-      return strapiMediaUrl(this.product.image[0].url)
+      if (!this.product.images[0]) {
+        return
+      }
+      return strapiMediaUrl(this.product.images[0].url)
     }
   }
 }
