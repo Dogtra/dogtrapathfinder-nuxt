@@ -56,6 +56,7 @@ export default {
     {src: '~/plugins/instant-meilisearch.js', mode:'client'},
     {src: '~/plugins/dompurify-html.js', mode:'client'},
     {src: '~/plugins/vue-select.js', mode:'client'},
+    {src: '~/plugins/vue-slick-carousel' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
