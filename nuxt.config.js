@@ -19,6 +19,9 @@ export default {
       })
 
       const articleRoutes = articlesResponse.data.map(article => {
+        if (!article.chapter || !!article.chapter.manual) {
+          return false
+        }
         const manual = manualsResponse.data.find(manual => manual.id === article.chapter.manual)
         return {
           route: '/manuals/' + manual.slug  + '/' + article.uuid
