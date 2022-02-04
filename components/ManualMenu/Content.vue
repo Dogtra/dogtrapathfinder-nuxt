@@ -15,7 +15,7 @@
         <ManualMenuProductItem v-for="otherManual in manuals" :key="otherManual.id" :manual="otherManual"/>
       </ul>
     </div>
-    <div v-else class='overflow-y-scroll'>
+    <div v-else class='overflow-y-auto'>
       <div class="manual-menu-chapter-list bg-black text-white h-fit px-12 md:px-16 py-8 md:py-10">
         <div class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
           <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>

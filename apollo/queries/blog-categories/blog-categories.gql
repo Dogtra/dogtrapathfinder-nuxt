@@ -1,0 +1,18 @@
+query BlogCategories {
+  blogCategories {
+    id
+    title
+    order
+    color
+    articles {
+      id
+      uuid
+      title
+      content
+      content_plain_text
+      view_count
+      order
+      youtube_url
+    }
+  }
+}

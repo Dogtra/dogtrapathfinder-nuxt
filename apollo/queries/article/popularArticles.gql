@@ -1,5 +1,5 @@
-query popularArticles($sort: String, $limit: Int) {
-  articles(sort: $sort, limit: $limit) {
+query popularArticles($sort: String, $limit: Int, $where: JSON) {
+  articles(sort: $sort, limit: $limit, where: $where) {
     id
     uuid
     slug
@@ -17,6 +17,7 @@ query popularArticles($sort: String, $limit: Int) {
         tag
       }
     }
+    type
     view_count
   }
 }

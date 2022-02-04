@@ -3,6 +3,10 @@
     <div class='text-black flex pt-18 px-12'>
       <div class="w-[45rem] mt-24 ml-16 hidden md:block">
         <div>
+          <ais-configure :filters='"type = manual" '
+                         :restrict-searchable-attributes='["content"]'
+          >
+          </ais-configure>
           <ais-search-box :value='searchText' class='hidden'/>
           <SearchBar v-model='searchText'></SearchBar>
         </div>
@@ -12,7 +16,7 @@
               Search by Product</p>
             <ul class="pl-8 pt-2">
               <li v-for="manual in manuals" :key="manual.id">
-                <input type="checkbox" :id="manual.id" :value="manual.title" v-model="checkedProductsFilter">
+                <input :id="manual.id" v-model="checkedProductsFilter" type="checkbox" :value="manual.title">
                 <label>{{ manual.title }}</label>
               </li>
             </ul>
@@ -38,7 +42,7 @@
           <div>
             <p class="text-18 font-bold">Filter search by Product</p>
             <div class='flex justify-self-start gap-4 flex-wrap mt-8 pb-10'>
-              <div class="bg-yellow rounded-full p-1 px-4 font-semibold" v-for='product in checkedProductsFilter' :key='product'>
+              <div v-for='product in checkedProductsFilter' :key='product' class="bg-yellow rounded-full p-1 px-4 font-semibold">
                 {{ product }}</div>
             </div>
           </div>
@@ -65,11 +69,12 @@
 <script>
 import {instantMeiliSearch} from '@meilisearch/instant-meilisearch';
 
-import {AisHits, AisInstantSearchSsr, AisSearchBox, createServerRootMixin} from 'vue-instantsearch';
+import {AisHits, AisInstantSearchSsr, AisConfigure, AisSearchBox, createServerRootMixin} from 'vue-instantsearch';
 
 import manualsQuery from '~/apollo/queries/manual/manuals'
 import SearchBar from "~/components/SearchBar/SearchBar";
 import SearchResultItem from "~/components/Search/SearchResultItem";
+
 
 const searchClient = instantMeiliSearch(
   process.env.meiliUrl,
@@ -87,6 +92,7 @@ export default {
     SearchBar,
     AisInstantSearchSsr,
     AisSearchBox,
+    AisConfigure,
     AisHits
   },
   mixins: [
@@ -123,6 +129,14 @@ export default {
       searchText: '',
     }
   },
+  watch: {
+    searchText(searchText) {
+      this.addParamsToLocation({searchText})
+    },
+    checkedProductsFilter(products) {
+      this.addParamsToLocation({ products })
+    }
+  },
   methods: {
     addParamsToLocation(params) {
       history.pushState(
@@ -142,14 +156,6 @@ export default {
       )
     },
 
-  },
-  watch: {
-    searchText(searchText) {
-      this.addParamsToLocation({searchText})
-    },
-    checkedProductsFilter(products) {
-      this.addParamsToLocation({ products })
-    }
   }
 }
 </script>

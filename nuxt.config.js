@@ -56,6 +56,7 @@ export default {
     {src: '~/plugins/instant-meilisearch.js', mode:'client'},
     {src: '~/plugins/dompurify-html.js', mode:'client'},
     {src: '~/plugins/vue-select.js', mode:'client'},
+    {src: '~/plugins/vue-youtube-embed.js', mode:'client'},
     {src: '~/plugins/vue-slick-carousel' },
   ],
 
@@ -162,6 +163,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
+    transpile: ['vue-instantsearch', 'instantsearch.js/es', 'vue-youtube-embed'],
   },
 }

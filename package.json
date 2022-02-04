@@ -39,7 +39,8 @@
     "vue-dompurify-html": "^2.4.0",
     "vue-instantsearch": "^4.0.1",
     "vue-select": "^3.16.0",
-    "vue-slick-carousel": "^1.0.6"
+    "vue-slick-carousel": "^1.0.6",
+    "vue-youtube-embed": "^2.2.2"
   },
   "devDependencies": {
     "@aceforth/nuxt-netlify": "^1.1.0",
