@@ -18,11 +18,14 @@
         <NuxtLink :to="localePath('/content')" class="btn btn-ghost text-18">
           {{ $t('main.videos') }}
         </NuxtLink>
+        <NuxtLink :to="localePath('/faq')" class="btn btn-ghost text-18">
+          FAQ
+        </NuxtLink>
       </div>
     </div>
     <transition name='slide-fade'>
       <div v-show='showMenu' class="fixed inset-0 bottom-24 min-h-[calc(100%-7.5rem)] mt-[7.5rem] bg-black w-full block md:hidden px-12 py-4 text-18">
-        <SearchBar :background-color="'#ffffff'" v-model='searchText'></SearchBar>
+        <SearchBar v-model='searchText' :background-color="'#ffffff'"></SearchBar>
         <ul class="py-6 shadow-lg bg-black uppercase text-18 font-semibold">
           <li class="border-b-2 border-white h-20 flex items-center">
             <NuxtLink :to="localePath('/manuals')" @click.native='showMenu = false'>
@@ -37,6 +40,11 @@
           <li class="border-b-2 border-white h-20 flex items-center">
             <NuxtLink :to="localePath('/content')" @click.native='showMenu = false'>
               {{ $t('main.videos') }}
+            </NuxtLink>
+          </li>
+          <li class="border-b-2 border-white h-20 flex items-center">
+            <NuxtLink :to="localePath('/faq')" @click.native='showMenu = false'>
+              FAQ
             </NuxtLink>
           </li>
         </ul>

@@ -69,7 +69,7 @@
         <div>ratings link</div>
       </div>
       <p class='text-14 pt-4'>$ {{ product.price }}</p>
-      <p class='pt-4 pb-6'>{{ product.description }}</p>
+      <p v-dompurify-html='markedDescription' class='pt-4 pb-6'></p>
       <div class='flex gap-4 pb-12 flex-wrap'>
           <template v-for='feature in features'>
             <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
@@ -84,8 +84,7 @@
   </div>
 </template>
 <script>
-// import ProductItemSlick from '~/components/Products/ProductItemSlick'
-
+import { marked } from 'marked'
 import { strapiMediaUrl } from '~/utils/strapi'
 
 export default {
@@ -109,6 +108,9 @@ export default {
           title: feature.title
         }
       })
+    },
+    markedDescription() {
+      return marked(this.product.description)
     }
   },
   methods: {

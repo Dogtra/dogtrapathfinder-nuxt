@@ -26,6 +26,7 @@
       <a href='https://www.dogtra.com/the-dogtra-difference' class="link link-hover">About us</a>
       <a href='https://www.dogtra.com/warranty' class="link link-hover">Warranty</a>
       <a href='https://www.dogtra.com/product-registration' class="link link-hover">Product Registration</a>
+      <NuxtLink :to='localePath("/faq")'>FAQ</NuxtLink>
     </div>
     <div class='inline-block text-32'>
       <a href='https://www.facebook.com/DogtraHuntingOps'>

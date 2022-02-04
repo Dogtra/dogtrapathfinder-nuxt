@@ -10,11 +10,13 @@
         <span v-show='isExpanded' class='mdi mdi-chevron-up'></span>
       </p>
     </div>
-    <div v-show='isExpanded' v-dompurify-html='faq.description' class='border-t-1 p-8'>
+    <div v-show='isExpanded' v-dompurify-html='markedContent' class='border-t-1 p-8'>
     </div>
   </div>
 </template>
 <script>
+import { marked } from 'marked'
+
 export default {
   name: 'FaqItem',
   props: {
@@ -27,6 +29,11 @@ export default {
     return {
       isExpanded: false
     }
+  },
+  computed: {
+    markedContent() {
+      return marked(this.faq.description);
+    },
   }
 }
 </script>

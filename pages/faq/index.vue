@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { orderBy } from 'lodash'
 import faqsQuery from '~/apollo/queries/faq/faqs'
 import faqCategoriesQuery from '~/apollo/queries/faq-category/faq-categories'
 import FaqCategoryItem from '~/components/FAQ/FaqCategoryItem'
@@ -40,8 +41,8 @@ export default {
     ])
 
     return {
-      faqs: faqsResponse.data.faqs,
-      faqCategories: faqCategoriesResponse.data.faqCategories
+      faqs: orderBy(faqsResponse.data.faqs, 'order'),
+      faqCategories: orderBy(faqCategoriesResponse.data.faqCategories, 'order')
     }
   },
   data() {
