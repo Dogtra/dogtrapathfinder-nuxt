@@ -14,7 +14,6 @@ query Manuals($slug: String!) {
         uuid
         title
         content
-        published_at
         order
       }
     }

@@ -1,6 +1,6 @@
 <template>
-  <div class='bg-[#F8F7F5] py-28'>
-    <div class='max-w-[64rem] mx-auto px-4 py-12 bg-white'>
+  <div class='bg-yellow py-28'>
+    <div class='max-w-[64rem] rounded-box mx-auto px-4 py-12 bg-white'>
       <h1 class='uppercase text-center font-semibold'>
         FAQ & Troubleshooting
       </h1>
