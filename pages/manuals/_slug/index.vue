@@ -2,6 +2,7 @@
   <div id='manual-index-container' class='flex flex-col px-12 py-18 pb-8 text-center'>
     <div id='manual-index-image'>
       <img :src='manualProductImageUrl' class='mx-auto'>
+      <p class='uppercase font-semibold italic text-30'>{{ manual.title }}</p>
     </div>
     <p class="pt-6 pb-10 text-18 uppercase font-medium">User manual</p>
     <div id='manual-index-search'>
@@ -60,7 +61,7 @@ export default {
       return '/manuals/' + this.manual.slug + '/' + this.manual.chapters[0].articles[0].uuid
     },
     manualProductImageUrl() {
-      return strapiMediaUrl(this.manual.product_with_title_image.url)
+      return strapiMediaUrl(this.manual.product_image.url)
     },
     manualAppIconUrl() {
       return strapiMediaUrl(this.manual.app.icon.url)
