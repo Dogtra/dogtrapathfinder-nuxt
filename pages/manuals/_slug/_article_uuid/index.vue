@@ -15,7 +15,7 @@
       <div class='text-14 font-normal'>
         <div class='py-28'>
           <p class='underline'>Did it help ?</p>
-          <p>Didn't find what you were looking for? Try looking on the FAQ</p>
+          <p>Didn't find what you were looking for? Try looking on the <NuxtLink class='underline text-blue-600' to='/faq'>FAQ</NuxtLink></p>
         </div>
         <div class='flex justify-between text-16 font-bold'>
           <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn hover:bg-gray-300 pr-4'><span class='mdi mdi-chevron-left text-22'></span>Previous</NuxtLink>

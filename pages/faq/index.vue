@@ -24,8 +24,8 @@
 <script>
 import faqsQuery from '~/apollo/queries/faq/faqs'
 import faqCategoriesQuery from '~/apollo/queries/faq-category/faq-categories'
-import FaqCategoryItem from '~/pages/faq/FaqCategoryItem'
-import FaqItem from '~/pages/faq/FaqItem'
+import FaqCategoryItem from '~/components/FAQ/FaqCategoryItem'
+import FaqItem from '~/components/FAQ/FaqItem'
 
 export default {
   components: { FaqItem, FaqCategoryItem },
