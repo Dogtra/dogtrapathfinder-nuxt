@@ -72,7 +72,7 @@
       <p class='pt-4 pb-6'>{{ product.description }}</p>
       <div class='flex gap-4 pb-12 flex-wrap'>
           <template v-for='feature in features'>
-            <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText'>
+            <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
           </template>
       </div>
       <a
@@ -105,7 +105,8 @@ export default {
       return this.product.features.map(feature => {
         return {
           url: strapiMediaUrl(feature.icon.url),
-          alternativeText: feature.icon.alternativeText
+          alternativeText: feature.icon.alternativeText,
+          title: feature.title
         }
       })
     }
