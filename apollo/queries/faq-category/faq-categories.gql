@@ -1,0 +1,6 @@
+query FaqCategories {
+  faqCategories {
+    title
+    id
+  }
+}

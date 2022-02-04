@@ -35,7 +35,7 @@ import manualQuery from '~/apollo/queries/manual/manual'
 
 export default {
   layout: 'manual',
-  async asyncData({ app, route, redirect, $strapi, store }) {
+  async asyncData({ app, route, redirect, store }) {
     const [articleResponse, manualResponse] = await Promise.all([
       app.apolloProvider.defaultClient.query({
       query: articleQuery,

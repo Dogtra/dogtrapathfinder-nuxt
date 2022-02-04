@@ -1,0 +1,11 @@
+query Faqs {
+  faqs {
+    id
+    title
+    description
+    faq_category {
+      id
+      title
+    }
+  }
+}
