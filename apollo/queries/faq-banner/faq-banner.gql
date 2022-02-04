@@ -1,0 +1,9 @@
+query FaqBanner {
+  faqBanner {
+    title
+    description
+    image {
+      url
+    }
+  }
+}

@@ -2,7 +2,6 @@
   <div class='border-1 border-gray-200 border-solid border-b-0 last:border-b-1'>
     <div class='p-8 cursor-pointer flex justify-between' @click='isExpanded = !isExpanded'>
       <p class='font-semibold'>
-        <span class='mdi mdi-help text-gray-400'/>
         {{ faq.title }}
       </p>
       <p>
