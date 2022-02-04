@@ -1,12 +1,12 @@
 <template>
-  <nav class="navbar fixed top-0 w-full shadow-lg bg-black text-white h-[7.5rem] md:h-auto py-6 pl-8 pr-10 md:px-24 lg:px-36 z-10">
-    <div class='navbar-start'>
+  <nav class="navbar justify-between fixed top-0 w-full shadow-lg bg-black text-white h-[7.5rem] md:h-auto py-6 pl-8 pr-10 md:px-24 lg:px-36 z-10">
+    <div class=''>
       <NuxtLink :to="localePath('/')" title='Dogtra Europe'>
         <img class='logo img-responsive w-60'
              :src='require("~/static/images/pathfinder-logo.png")' alt='Dogtra Europe'>
       </NuxtLink>
     </div>
-    <div class='navbar-end relative'>
+    <div class='relative'>
       <span class="mdi mdi-menu text-[3rem] block md:hidden" @click='showMenu = !showMenu'></span>
       <div class='hidden md:block'>
         <NuxtLink :to="localePath('/manuals')" class="btn btn-ghost text-18">
