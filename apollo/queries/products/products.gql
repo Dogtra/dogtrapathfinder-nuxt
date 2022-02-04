@@ -8,9 +8,14 @@ query Products {
     shop_url
     images {
       url
+      alternativeText
     }
     features {
       title
+      icon {
+        url
+        alternativeText
+      }
     }
   }
 }

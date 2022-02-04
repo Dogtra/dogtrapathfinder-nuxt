@@ -16,7 +16,7 @@
           {{ $t('main.products') }}
         </NuxtLink>
         <NuxtLink :to="localePath('/content')" class="btn btn-ghost text-18">
-          {{ $t('main.content') }}
+          {{ $t('main.videos') }}
         </NuxtLink>
       </div>
     </div>
@@ -36,7 +36,7 @@
           </li>
           <li class="border-b-2 border-white h-20 flex items-center">
             <NuxtLink :to="localePath('/content')" @click.native='showMenu = false'>
-              {{ $t('main.content') }}
+              {{ $t('main.videos') }}
             </NuxtLink>
           </li>
         </ul>

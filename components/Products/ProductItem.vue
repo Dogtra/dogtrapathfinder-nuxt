@@ -70,10 +70,10 @@
       </div>
       <p class='text-14 pt-4'>$ {{ product.price }}</p>
       <p class='pt-4 pb-6'>{{ product.description }}</p>
-      <div>
-        <template v-for='feature in product.features'>
-          {{ feature.title }}
-        </template>
+      <div class='flex gap-4 pb-12 flex-wrap'>
+          <template v-for='feature in features'>
+            <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText'>
+          </template>
       </div>
       <a
         :href='product.shop_url'
@@ -100,6 +100,14 @@ export default {
   computed: {
     imagesURLs() {
       return this.product.images.map(image => strapiMediaUrl(image.url))
+    },
+    features() {
+      return this.product.features.map(feature => {
+        return {
+          url: strapiMediaUrl(feature.icon.url),
+          alternativeText: feature.icon.alternativeText
+        }
+      })
     }
   },
   methods: {
