@@ -47,7 +47,7 @@
         <div
           class='uppercase flex justify-between items-center pb-6 font-bold border-b-1 border-solid border-[#888888]'>
           <p class='text-18'>{{ product.title }}</p>
-          <div class='border-solid border-1 border-black rounded-full text-12 flex items-center h-10 pl-4'>
+          <div class='border-solid border-1 border-black bg-yellow rounded-full text-12 flex items-center h-10 pl-4'>
             Shop now<span class='mdi mdi-chevron-right text-22'></span>
           </div>
         </div>
@@ -77,7 +77,7 @@
       </div>
       <a
         :href='product.shop_url'
-        class='border-solid border-1 border-black rounded-full text-12 flex items-center h-10 pl-4 w-fit float-right font-bold uppercase'>
+        class='border-solid border-1 border-black bg-yellow rounded-full text-12 flex items-center h-10 pl-4 w-fit float-right font-bold uppercase'>
         Shop now<span class='mdi mdi-chevron-right text-22'></span>
       </a>
     </div>
