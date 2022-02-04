@@ -75,10 +75,11 @@
           {{ feature.title }}
         </template>
       </div>
-      <div
+      <a
+        :href='product.shop_url'
         class='border-solid border-1 border-black rounded-full text-12 flex items-center h-10 pl-4 w-fit float-right font-bold uppercase'>
         Shop now<span class='mdi mdi-chevron-right text-22'></span>
-      </div>
+      </a>
     </div>
   </div>
 </template>

@@ -2,7 +2,7 @@
   <div class='bg-[#F8F7F5]'>
     <ImageBanner :banner='productsBanner'></ImageBanner>
     <div class='max-w-[106rem] mx-auto px-8 md:px-0'>
-      <template v-for='product in products'>
+      <template v-for='product in productsOrdered'>
         <ProductItem :key='product.id' :product='product' />
       </template>
     </div>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { orderBy } from 'lodash'
 import productsBannerQuery from '~/apollo/queries/products-banner/products-banner'
 import productsQuery from '~/apollo/queries/products/products'
 import ImageBanner from '~/components/Banner/ImageBanner'
@@ -32,5 +33,10 @@ export default {
       productsBanner: productsBannerResponse.data.productsBanner
     }
   },
+  computed: {
+    productsOrdered() {
+      return orderBy(this.products, 'order')
+    }
+  }
 }
 </script>

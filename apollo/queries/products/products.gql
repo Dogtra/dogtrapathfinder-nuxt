@@ -4,6 +4,8 @@ query Products {
     title
     price
     description
+    order
+    shop_url
     images {
       url
     }
