@@ -108,8 +108,8 @@ export default {
             'type': 'image/png'
           }
           ],
-      'theme_color': '#ffffff',
-      'background_color': '#ffffff',
+      'theme_color': '#FFDD00',
+      'background_color': '#000000',
       'display': 'standalone'
     }
   },
