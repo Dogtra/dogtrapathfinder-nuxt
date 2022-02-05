@@ -3,7 +3,7 @@
     <div class='md:pr-24 w-full'>
       <div class='flex items-center gap-4 relative'>
         <div
-          v-if='imagesURLs.length' class='absolute md:relative left-0 z-10 rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c1.prev()'>
+          v-if='imagesURLs.length' class='absolute md:relative left-4 md:left-0 z-10 rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c1.prev()'>
           <span class='mdi mdi-chevron-left text-white text-30'></span>
         </div>
         <div class='w-full md:w-[29rem]'>
@@ -39,7 +39,7 @@
           </VueSlickCarousel>
         </div>
         <div
-          v-if='imagesURLs.length' class='absolute md:relative right-0 z-10 rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c1.next()'>
+          v-if='imagesURLs.length' class='absolute md:relative right-4 md:right-0 z-10 rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c1.next()'>
           <span class='mdi mdi-chevron-right text-white text-30'></span>
         </div>
       </div>
@@ -51,23 +51,23 @@
             Shop now<span class='mdi mdi-chevron-right text-22'></span>
           </div>
         </div>
-        <div class='flex py-6 flex justify-between'>
-          <p>ratings</p>
+        <div class='flex py-6 flex justify-between flex-row-reverse'>
+<!--          <p>ratings</p>-->
           <p>$ {{ product.price }}</p>
         </div>
-        <div>
-          <template v-for='feature in product.features'>
-            {{ feature.title }}
+        <div class='flex gap-4 pb-8 flex-wrap'>
+          <template v-for='feature in features'>
+            <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
           </template>
         </div>
       </div>
     </div>
     <div class='hidden md:block'>
       <p class='text-24 uppercase font-bold'>{{ product.title }}</p>
-      <div class='flex justify-between border-[#C5C5C5] border-b-1 border-solid pb-6'>
-        <div>ratings</div>
-        <div>ratings link</div>
-      </div>
+<!--      <div class='flex justify-between border-[#C5C5C5] border-b-1 border-solid pb-6'>-->
+<!--        <div>ratings</div>-->
+<!--        <div>ratings link</div>-->
+<!--      </div>-->
       <p class='text-14 pt-4'>$ {{ product.price }}</p>
       <p v-dompurify-html='markedDescription' class='pt-4 pb-6'></p>
       <div class='flex gap-4 pb-12 flex-wrap'>
@@ -128,7 +128,6 @@ export default {
 <style scoped>
 >>> .slick-track {
   display: flex;
-  gap: 1rem;
 }
 
 >>> .slick-list {
