@@ -37,10 +37,16 @@ export default {
       required: false,
       default: '#E7E7E7',
     },
-    searchText: String,
+    // eslint-disable-next-line vue/require-default-prop
+    searchText: {
+      type: String,
+    },
     selectedProducts: {
       type: Array,
-      required: false
+      required: false,
+      default: () => {
+        return []
+      }
     }
   },
   computed: {
@@ -59,8 +65,11 @@ export default {
         searchText: this.searchText
       }
 
-      if (this.selectedProducts) {
-        query['products[]'] = this.selectedProducts
+      const products = this.selectedProducts.filter(product => product !== 'All Products')
+
+      if (products.length > 0) {
+        query['products[]'] = products
+
       }
 
       this.$nuxt.$options.router.push({

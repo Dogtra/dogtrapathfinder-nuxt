@@ -6,9 +6,9 @@
         <SearchBannerFilterChoice :key='manual.id' :manual='manual' :selected-product='selectedSearchProduct' :change-selected-product='selectProduct'/>
       </template>
     </div>
-    <div class='block md:hidden flex justify-around flex-wrap pb-8'>
+    <div class='block md:hidden flex justify-around flex-wrap pb-8 max-w-[42.5rem] mx-auto'>
       <v-select v-model='selectedSearchProduct' class='w-full' :components='{OpenIndicator}'
-                :options="['All Products', 'Canada', 'United States']"></v-select>
+                :options="options"></v-select>
     </div>
     <SearchBar v-model='searchText' :max-width="'42.5rem'" class='mx-auto' :selected-products='[selectedSearchProduct]'></SearchBar>
   </div>
@@ -38,6 +38,9 @@ export default {
   computed: {
     filteredManuals() {
       return this.manuals.filter(manual => !manual.hidden)
+    },
+    options() {
+      return [...this.filteredManuals.map(manual => manual.title), 'All Products']
     }
   },
   methods: {
