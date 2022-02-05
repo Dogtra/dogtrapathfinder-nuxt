@@ -50,6 +50,11 @@ export default {
       manual
     }
   },
+  head() {
+    return {
+      title: this.chapter.title
+    }
+  },
 }
 </script>
 <style scoped>

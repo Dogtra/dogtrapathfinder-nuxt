@@ -33,10 +33,15 @@ export default {
       productsBanner: productsBannerResponse.data.productsBanner
     }
   },
+  head() {
+    return {
+      title: 'Products'
+    }
+  },
   computed: {
     productsOrdered() {
       return orderBy(this.products, 'order')
     }
-  }
+  },
 }
 </script>

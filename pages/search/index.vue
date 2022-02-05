@@ -129,6 +129,11 @@ export default {
       searchText: '',
     }
   },
+  head() {
+    return {
+      title: 'Search'
+    }
+  },
   watch: {
     searchText(searchText) {
       this.addParamsToLocation({searchText})

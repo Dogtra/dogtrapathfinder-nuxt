@@ -49,6 +49,11 @@ export default {
       searchText: ''
     }
   },
+  head() {
+    return {
+      title: this.manual.title
+    }
+  },
   computed: {
     hasFirstPage() {
       return !!(this.manual.chapters[0] && this.manual.chapters[0].articles[0])

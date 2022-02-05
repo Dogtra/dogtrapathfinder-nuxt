@@ -41,6 +41,11 @@ export default {
       article,
     }
   },
+  head() {
+    return {
+      title: 'Article - ' + this.article.title
+    }
+  },
   computed: {
     markedContent() {
       return marked(this.article.content);

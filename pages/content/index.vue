@@ -29,6 +29,11 @@ export default {
       contentBanner: contentBannerResponse.data.contentBanner,
       blogCategories: blogCategoriesResponse.data.blogCategories
     }
-  }
+  },
+  head() {
+    return {
+      title: 'Videos'
+    }
+  },
 }
 </script>

@@ -30,6 +30,11 @@ export default {
       manualBanner: manualBannerResponse.data.manualBanner
     }
   },
+  head() {
+    return {
+      title: 'Manuals'
+    }
+  },
 }
 
 </script>

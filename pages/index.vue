@@ -80,6 +80,11 @@ export default {
       error: null,
     }
   },
+  head() {
+    return {
+      title: 'Home'
+    }
+  }
 }
 </script>
 

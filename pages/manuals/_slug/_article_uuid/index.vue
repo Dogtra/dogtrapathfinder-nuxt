@@ -66,6 +66,11 @@ export default {
       manual
     }
   },
+  head() {
+    return {
+      title: this.article.title
+    }
+  },
   computed: {
     markedContent() {
       return marked(this.article.content);

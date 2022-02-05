@@ -54,6 +54,11 @@ export default {
       selectedCategory: 'All'
     }
   },
+  head() {
+    return {
+      title: 'FAQ'
+    }
+  },
   computed: {
     filteredFaqs() {
       if (this.selectedCategory === 'All') {
