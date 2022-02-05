@@ -55,7 +55,7 @@
 <!--          <p>ratings</p>-->
           <p>$ {{ product.price }}</p>
         </div>
-        <div class='flex gap-4 pb-8 flex-wrap'>
+        <div class='flex gap-4 flex-wrap'>
           <template v-for='feature in features'>
             <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
           </template>
