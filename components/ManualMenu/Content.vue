@@ -17,9 +17,9 @@
     </div>
     <div v-else class='overflow-y-auto'>
       <div class="manual-menu-chapter-list bg-black text-white h-fit px-12 md:px-16 py-8 md:py-10">
-        <div class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
+        <a v-if='manual.pdf' :href='manualPdfLink' download class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
           <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>
-        </div>
+        </a>
         <template v-for='chapter in chapters'>
           <ManualMenuChapterItem :key='chapter.id' :chapter='chapter' :manual='manual'/>
         </template>
@@ -34,6 +34,7 @@ import ManualMenuChapterItem from '~/components/ManualMenu/ChapterItem'
 import manualsQuery from '~/apollo/queries/manual/manuals'
 import ManualMenuProductItem from "~/components/ManualMenu/ProductItem";
 import SearchBar from "~/components/SearchBar/SearchBar";
+import { strapiMediaUrl } from '~/utils/strapi'
 
 export default {
   name: 'ManualMenuContent',
@@ -52,6 +53,12 @@ export default {
     ]),
     chapters() {
       return orderBy(this.manual.chapters, 'order')
+    },
+    manualPdfLink() {
+      if (!this.manual.pdf) {
+        return
+      }
+      return strapiMediaUrl(this.manual.pdf.url)
     }
   },
   async mounted() {
