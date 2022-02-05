@@ -63,7 +63,7 @@ export default {
     menuItems() {
       return [
         {
-          label: 'Menu',
+          label: 'Chapters',
           icon: 'menu',
           action: this.toggleMenu,
           active: this.manualMenuOpen,
