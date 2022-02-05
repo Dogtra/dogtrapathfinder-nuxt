@@ -2,7 +2,7 @@
   <div id='popular-articles-banner' class="banner">
     <h1 class='text-center pt-16 mb-8 font-medium'>Popular Searches</h1>
     <div class="flex mx-auto items-center justify-center">
-      <div class='cursor-pointer min-w-[3rem] min-h-[3rem] rounded-full flex justify-center items-center bg-gray-200 hover:bg-gray-300' @click='scrollLeft'>
+      <div class='ml-4 cursor-pointer min-w-[3rem] min-h-[3rem] rounded-full flex justify-center items-center bg-gray-200 hover:bg-gray-300' @click='$refs.c1.prev()'>
         <span class="mdi mdi-chevron-left"></span>
       </div>
       <div ref='slider' class='flex gap-12 pb-20 min-w-0'>
@@ -16,7 +16,7 @@
           </template>
         </VueSlickCarousel>
       </div>
-      <div class='cursor-pointer min-w-[3rem] min-h-[3rem] rounded-full flex justify-center items-center bg-gray-200 hover:bg-gray-300' @click='scrollRight'>
+      <div class='mr-4 cursor-pointer min-w-[3rem] min-h-[3rem] rounded-full flex justify-center items-center bg-gray-200 hover:bg-gray-300' @click='$refs.c1.next()'>
         <span class="mdi mdi-chevron-right"></span>
       </div>
     </div>
