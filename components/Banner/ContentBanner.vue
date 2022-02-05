@@ -92,6 +92,13 @@ export default {
   justify-content: center;
 }
 
+@media (min-width: 768px) {
+  >>> .slick-slide {
+    padding: 0 1rem;
+  }
+}
+
+
 >>> .slick-slide > div {
   max-width: 100%;
 }
