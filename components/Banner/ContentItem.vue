@@ -1,5 +1,5 @@
 <template>
-  <div :key='article.id' class='max-w-[34rem] px-8'>
+  <div :key='article.id' class='max-w-[34rem]'>
     <NuxtLink :to="'/articles/' + article.uuid">
       <div class='w-full h-[22rem] bg-white rounded-btn overflow-hidden'>
         <youtube :video-id='youtubeId' player-width='340' player-height='220' :player-vars='{control: 0}'></youtube>
