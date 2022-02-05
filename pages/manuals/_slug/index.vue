@@ -14,9 +14,8 @@
       <p v-dompurify-html="manual.app.download" class="text-24 font-medium"></p>
       <p v-dompurify-html="manual.app.compatibility"></p>
       <div class='app-badge-container flex gap-4 max-w-[33rem] mx-auto pt-10 pb-8'>
-<!--        <img src='~/assets/images/mobile-apps-black.png' />-->
-        <div class='w-1/2'><a :href='manual.app.android_store_url'><img alt='Get it on Google Play' src='~/assets/images/mobile-android.png'/></a></div>
-        <div class='w-1/2'><a class='max-w-full' :href="manual.app.apple_store_url"><img src="~/assets/images/mobile-apple.png" alt="Download on the App Store"></a></div>
+        <div class='w-1/2'><a :href='manual.app.android_store_url'><img alt='Get it on Google Play' src='~/assets/images/mobile-android.webp'/></a></div>
+        <div class='w-1/2'><a class='max-w-full' :href="manual.app.apple_store_url"><img src="~/assets/images/mobile-apple.webp" alt="Download on the App Store"></a></div>
       </div>
     </div>
   </div>

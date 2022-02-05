@@ -16,8 +16,8 @@
       APP
     </p>
     <div class='w-[16.6rem] md:w-[20rem] mx-auto flex gap-4'>
-      <div class='w-1/2'><a :href='filteredApps[0].android_store_url'><img alt='Get it on Google Play' src='~/assets/images/mobile-app-android-white.png'/></a></div>
-      <div class='w-1/2'><a class='max-w-full' :href="filteredApps[0].apple_store_url"><img src="~/assets/images/mobile-app-apple-white.png" alt="Download on the App Store"></a></div>
+      <div class='w-1/2'><a :href='filteredApps[0].android_store_url'><img alt='Get it on Google Play' src='~/assets/images/mobile-app-android-white.webp'/></a></div>
+      <div class='w-1/2'><a class='max-w-full' :href="filteredApps[0].apple_store_url"><img src="~/assets/images/mobile-app-apple-white.webp" alt="Download on the App Store"></a></div>
     </div>
   </div>
 </template>
