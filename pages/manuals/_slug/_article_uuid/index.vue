@@ -113,4 +113,18 @@ export default {
   font-weight: bold;
   color: white;
 }
+
+>>> .prose .grid {
+  display: grid
+}
+
+>>> .prose .grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  >>> .prose .md-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 </style>
