@@ -121,6 +121,9 @@ export default {
 >>> .prose .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+>>> .prose .gap-x-4 {
+  column-gap: 1rem;
+}
 
 @media (min-width: 768px) {
   >>> .prose .md-grid-cols-2 {
