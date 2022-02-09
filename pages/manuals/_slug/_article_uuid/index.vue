@@ -126,5 +126,9 @@ export default {
   >>> .prose .md-grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  >>> .prose .md-grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 </style>
