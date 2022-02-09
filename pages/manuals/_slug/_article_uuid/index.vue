@@ -125,6 +125,9 @@ export default {
   column-gap: 1rem;
 }
 
+>>> .prose .bg-gray {
+  background-color: #C5C5C5;
+}
 @media (min-width: 768px) {
   >>> .prose .md-grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
