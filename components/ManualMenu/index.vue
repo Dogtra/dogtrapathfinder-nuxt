@@ -3,7 +3,7 @@
     <div v-show="$breakpoints.lMd" class='manual-menu-desktop-wrapper h-full hidden md:block'>
       <ManualMenuContent/>
     </div>
-    <div v-show="$breakpoints.lMd && manualMenuOpen" class='manual-menu-mobile-wrapper block md:hidden h-[calc(100%-5.5rem)] w-full bg-black text-white absolute'>
+    <div v-show="!$breakpoints.lMd && manualMenuOpen" class='manual-menu-mobile-wrapper block md:hidden h-[calc(100%-5.5rem)] w-full bg-black text-white absolute'>
       <ManualMenuContent/>
     </div>
   </nav>
