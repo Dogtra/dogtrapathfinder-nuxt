@@ -55,6 +55,8 @@
 <!--          <p>ratings</p>-->
           <p>$ {{ product.price }}</p>
         </div>
+        <p v-dompurify-html='markedDescription' class='pt-4 pb-6'></p>
+
         <div class='flex gap-4 flex-wrap'>
           <template v-for='feature in features'>
             <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
