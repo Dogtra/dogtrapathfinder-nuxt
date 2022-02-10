@@ -1,9 +1,9 @@
 <template>
   <nav v-show="manualMenuOpen || $breakpoints.lMd" id="side-navbar" class="fixed w-full md:w-[35rem] h-[calc(100%-7.5rem)] min-h-[calc(100%-7.5rem)] bg-black z-10 top-[7.5rem]" :class="manualMenuClass">
-    <div v-if="$breakpoints.lMd" class='manual-menu-desktop-wrapper h-full hidden md:block'>
+    <div v-show="$breakpoints.lMd" class='manual-menu-desktop-wrapper h-full hidden md:block'>
       <ManualMenuContent/>
     </div>
-    <div v-else v-show="manualMenuOpen" class='manual-menu-mobile-wrapper block md:hidden h-[calc(100%-5.5rem)] w-full bg-black text-white absolute'>
+    <div v-show="$breakpoints.lMd && manualMenuOpen" class='manual-menu-mobile-wrapper block md:hidden h-[calc(100%-5.5rem)] w-full bg-black text-white absolute'>
       <ManualMenuContent/>
     </div>
   </nav>
