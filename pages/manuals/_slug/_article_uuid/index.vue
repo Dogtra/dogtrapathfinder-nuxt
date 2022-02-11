@@ -1,6 +1,6 @@
 <template>
-  <div class="px-12 py-18 max-w-[71rem]">
-    <template v-if='article'>
+  <div class="max-w-[71rem] px-12 h-[calc(100vh-7.5rem)]">
+    <div class="py-18">
       <div class="text-14 text-gray-400">
         <NuxtLink to='/manuals'>Manuals</NuxtLink>
         /
@@ -17,12 +17,12 @@
           <p class='underline'>Did it help ?</p>
           <p>Didn't find what you were looking for? Try looking on the <NuxtLink class='underline text-blue-600' to='/faq'>FAQ</NuxtLink></p>
         </div>
-        <div class='flex justify-between text-16 font-bold'>
-          <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn hover:bg-gray-300 pr-4'><span class='mdi mdi-chevron-left text-22'></span>Previous</NuxtLink>
-          <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn hover:bg-gray-300 pl-4'>Next<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
-        </div>
       </div>
-    </template>
+    </div>
+    <div class='sticky pb-4 bottom-0 flex justify-between text-16 font-bold'>
+      <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pr-4'><span class='mdi mdi-chevron-left text-22'></span>Previous</NuxtLink>
+      <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pl-4'>Next<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
+    </div>
   </div>
 </template>
 

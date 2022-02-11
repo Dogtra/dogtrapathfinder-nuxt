@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar justify-between fixed top-0 w-full shadow-lg bg-black text-white h-[7.5rem] md:h-auto py-6 pl-8 pr-10 md:px-24 lg:px-36 z-10">
+  <nav class="navbar justify-between fixed top-0 w-full shadow-lg bg-black text-white h-[7.5rem] py-6 pl-8 pr-10 md:px-24 lg:px-36 z-10">
     <div class=''>
       <NuxtLink :to="localePath('/')" title='Dogtra Europe'>
         <img class='logo img-responsive w-60'
