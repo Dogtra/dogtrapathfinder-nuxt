@@ -1,15 +1,17 @@
 <template>
   <div class="max-w-[71rem] px-12 h-[calc(100vh-7.5rem)]">
     <div class="py-18">
-      <div class="text-14 text-gray-400">
-        <NuxtLink to='/manuals'>Manuals</NuxtLink>
-        /
-        <NuxtLink :to='"/manuals/" + article.chapter.manual.slug'>{{ article.chapter.manual.title }}</NuxtLink>
-        /
-        <NuxtLink :to='"/manuals/" + article.chapter.manual.slug + "/chapter/" + article.chapter.id'>{{ article.chapter.title }}</NuxtLink>
-        / {{ article.title }}
+      <div class='sticky top-0 bg-white'>
+        <div class="text-14 text-gray-400">
+          <NuxtLink to='/manuals'>Manuals</NuxtLink>
+          /
+          <NuxtLink :to='"/manuals/" + article.chapter.manual.slug'>{{ article.chapter.manual.title }}</NuxtLink>
+          /
+          <NuxtLink :to='"/manuals/" + article.chapter.manual.slug + "/chapter/" + article.chapter.id'>{{ article.chapter.title }}</NuxtLink>
+          / {{ article.title }}
+        </div>
+        <p class="text-30 font-semibold">{{ article.title }}</p>
       </div>
-      <p class="text-30 font-semibold">{{ article.title }}</p>
       <div v-if="markedContent" v-dompurify-html="markedContent"
            class='prose text-16 text-black'></div>
       <div class='text-14 font-normal'>
