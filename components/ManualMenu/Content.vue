@@ -20,6 +20,9 @@
         <a v-if='manual.pdf' :href='manualPdfLink' download class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
           <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>
         </a>
+        <NuxtLink :to='manualIndexUrl' @click.native="closeAllMenu" class='bg-yellow mt-4 text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
+          <span class="text-12 uppercase font-extrabold">Home</span>
+        </NuxtLink>
         <template v-for='chapter in chapters'>
           <ManualMenuChapterItem :key='chapter.id' :chapter='chapter' :manual='manual'/>
         </template>
@@ -59,6 +62,9 @@ export default {
         return
       }
       return strapiMediaUrl(this.manual.pdf.url)
+    },
+    manualIndexUrl() {
+      return '/manuals/' + this.manual.slug
     }
   },
   async mounted() {
@@ -69,7 +75,11 @@ export default {
     this.setManuals(data.manuals)
   },
   methods: {
-    ...mapMutations('manual', ['setManuals', 'toggleManualProductMenu'])
+    ...mapMutations('manual', [
+      'setManuals',
+      'toggleManualProductMenu',
+      'closeAllMenu'
+    ])
   }
 }
 </script>
