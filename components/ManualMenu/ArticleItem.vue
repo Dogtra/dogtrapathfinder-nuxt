@@ -1,6 +1,6 @@
 <template>
     <NuxtLink :to='articleHref' @click.native="closeAllMenu" class='capitalize'>
-      <li class='list-disc list-inside px-4 text-16'>
+      <li class='list-disc list-inside px-4 text-16 list-outside ml-8'>
         <span :class="articleItemClass">{{ article.title }}</span>
       </li>
     </NuxtLink>
