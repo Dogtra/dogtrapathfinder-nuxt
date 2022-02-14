@@ -2,5 +2,9 @@ query FaqCategories {
   faqCategories {
     title
     id
+    manual {
+      id
+      title
+    }
   }
 }

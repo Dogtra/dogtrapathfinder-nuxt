@@ -6,6 +6,10 @@ query Faqs {
     faq_category {
       id
       title
+      manual {
+        id
+        title
+      }
     }
   }
 }
