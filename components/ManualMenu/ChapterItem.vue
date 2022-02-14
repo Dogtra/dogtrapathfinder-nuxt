@@ -6,14 +6,12 @@
       <span v-show="!isCollapsed" class="mdi mdi-chevron-up text-[2.8rem]"></span>
     </div>
     <ul v-if="!isCollapsed" class='p-4 leading-[3.2rem]'>
-      <ManualMenuArticleItem v-for="article in articles" :key='article.id' :article='article' :manual='manual'/>
+      <ManualMenuArticleItem v-for="article in chapter.articles" :key='article.id' :article='article' :manual='manual'/>
     </ul>
   </div>
 </template>
 
 <script>
-import { orderBy } from 'lodash'
-
 export default {
   name: 'ManualMenuChapterItem',
   props: {
@@ -34,10 +32,5 @@ export default {
       })
     }
   },
-  computed: {
-    articles() {
-      return orderBy(this.chapter.articles, 'order')
-    }
-  }
 }
 </script>

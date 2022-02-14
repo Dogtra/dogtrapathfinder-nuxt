@@ -1,3 +1,5 @@
+import { orderBy } from 'lodash'
+
 export const state = () => ({
   manual: null,
   manuals: [],
@@ -8,6 +10,11 @@ export const state = () => ({
 
 export const mutations = {
   setManual(state, manual) {
+    const chapters = manual.chapters.map(chapter => {
+      chapter.articles = orderBy(chapter.articles, 'order')
+      return chapter
+    })
+    manual.chapters = orderBy(chapters, 'order');
     state.manual = manual
   },
   setManuals(state, manuals) {
