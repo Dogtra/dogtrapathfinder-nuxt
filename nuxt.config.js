@@ -38,6 +38,8 @@ export default {
               route: '/manuals/' + manual.slug  + '/' + article.uuid
             }
           }
+          default:
+            return false
         }
       })
 
