@@ -8,11 +8,11 @@
     <div id='manual-index-search'>
       <SearchBar v-model='searchText' max-width="42.5rem" class="mx-auto" :selected-products='[manual.title]'/>
     </div>
-    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='pt-8 pb-4' :to='manualFirstPageUrl'><span class='underline'>Go to first page of Manual</span><i class='yi-chevron-right text-yellow'></i></NuxtLink>
+    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='w-fit mx-auto my-8 px-8 py-4 font-semibold rounded-btn bg-yellow text-black hover:bg-black hover:text-yellow' :to='manualFirstPageUrl'><span>Go to first page of Manual</span><i class='yi-chevron-right'></i></NuxtLink>
     <div id='manual-index-app' class='max-w-[64rem] mx-auto'>
       <div><img class='mx-auto w-24 pt-8 pb-8' :src='manualAppIconUrl'></div>
-      <p v-dompurify-html="manual.app.download" class="text-24 font-medium"></p>
-      <p v-dompurify-html="manual.app.compatibility"></p>
+      <p v-dompurify-html="manual.app.download" class="text-20 font-medium"></p>
+      <p v-dompurify-html="manual.app.compatibility" class='text-12'></p>
       <div class='app-badge-container flex gap-4 max-w-[33rem] mx-auto pt-10 pb-8'>
         <div class='w-1/2'><a :href='manual.app.android_store_url'><img alt='Get it on Google Play' src='~/assets/images/mobile-android.webp'/></a></div>
         <div class='w-1/2'><a class='max-w-full' :href="manual.app.apple_store_url"><img src="~/assets/images/mobile-apple.webp" alt="Download on the App Store"></a></div>
