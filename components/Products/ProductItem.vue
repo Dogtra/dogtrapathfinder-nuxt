@@ -55,8 +55,7 @@
 <!--          <p>ratings</p>-->
           <p>$ {{ product.price }}</p>
         </div>
-        <p v-dompurify-html='markedDescription' class='pt-4 pb-6'></p>
-
+        <read-more more-str="read more" less-str="read less" :text='markedDescription' class='pt-4 pb-6' maxChars='150'></read-more>
         <div class='flex gap-4 flex-wrap'>
           <template v-for='feature in features'>
             <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
@@ -71,7 +70,7 @@
 <!--        <div>ratings link</div>-->
 <!--      </div>-->
       <p class='text-14 pt-4'>$ {{ product.price }}</p>
-      <p v-dompurify-html='markedDescription' class='pt-4 pb-6'></p>
+      <read-more more-str="read more" less-str="read less" :text='markedDescription' class='pt-4 pb-6' maxChars='200'></read-more>
       <div class='flex gap-4 pb-12 flex-wrap'>
           <template v-for='feature in features'>
             <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
@@ -113,7 +112,7 @@ export default {
     },
     markedDescription() {
       return marked(this.product.description)
-    }
+    },
   },
   methods: {
     onBeforeChangeSlick(currentPosition, nextPosition) {
@@ -134,5 +133,10 @@ export default {
 
 >>> .slick-list {
   overflow: hidden;
+}
+
+>>> #readmore {
+  color: blue;
+  text-decoration: underline;
 }
 </style>

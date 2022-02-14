@@ -58,6 +58,7 @@ export default {
     {src: '~/plugins/vue-select.js', mode:'client'},
     {src: '~/plugins/vue-youtube-embed.js', mode:'client'},
     {src: '~/plugins/vue-slick-carousel' },
+    {src: '~/plugins/vue-read-more', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
