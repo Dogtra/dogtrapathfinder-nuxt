@@ -9,7 +9,7 @@
         <span v-show='isExpanded' class='mdi mdi-chevron-up'></span>
       </p>
     </div>
-    <div v-show='isExpanded' v-dompurify-html='markedContent' class='border-t-1 p-8'>
+    <div v-show='isExpanded' v-dompurify-html='markedContent' class='prose text-14 border-t-1 p-8'>
     </div>
   </div>
 </template>

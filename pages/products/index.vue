@@ -1,7 +1,7 @@
 <template>
   <div class='bg-[#F8F7F5]'>
     <ImageBanner :banner='productsBanner'></ImageBanner>
-    <div class='max-w-[106rem] mx-auto px-8 md:px-0 pb-16'>
+    <div class='max-w-[114rem] mx-auto px-8 md:px-0 pb-16'>
       <template v-for='product in productsOrdered'>
         <ProductItem :key='product.id' :product='product' />
       </template>

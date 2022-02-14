@@ -1,5 +1,5 @@
 <template>
-  <div class='mt-10 md:mt-12 bg-white p-0 md:px-24 md:py-12 rounded-box md:rounded-3xl flex overflow-hidden shadow-xl'>
+  <div class='mt-10 md:mt-12 bg-white p-0 md:px-24 md:py-12 md:mx-8 rounded-box md:rounded-3xl flex overflow-hidden shadow-xl'>
     <div class='md:pr-24 w-full md:w-fit'>
       <div class='flex items-center gap-4 relative'>
         <div
@@ -55,7 +55,7 @@
 <!--          <p>ratings</p>-->
           <p>$ {{ product.price }}</p>
         </div>
-        <read-more more-str="read more" less-str="read less" :text='markedDescription' class='pt-4 pb-6' max-chars='150'></read-more>
+        <read-more more-str="read more" less-str="read less" :text='markedDescription' class='prose text-14 pt-4 pb-6' max-chars='150'></read-more>
         <div class='flex gap-4 flex-wrap'>
           <template v-for='feature in features'>
             <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
@@ -71,7 +71,7 @@
         <!--        <div>ratings link</div>-->
         <!--      </div>-->
         <p class='text-14 pt-4'>$ {{ product.price }}</p>
-        <read-more more-str="read more" less-str="read less" :text='markedDescription' class='pt-4 pb-6' max-chars='100'></read-more>
+        <read-more more-str="read more" less-str="read less" :text='markedDescription' class='prose text-14 pt-4 pb-6' max-chars='200'></read-more>
         <div class='flex gap-4 pb-12 flex-wrap'>
           <template v-for='feature in features'>
             <img :key='feature.url' class='w-16' :src='feature.url' :alt='feature.alternativeText' :title='feature.title'>
