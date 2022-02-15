@@ -189,7 +189,7 @@ export default {
     redirects: [
       {
         from: '/manual',
-        to: '/manuals/pathfinder'
+        to: '/manuals/pathfinder-series'
       },
     ]
   },
