@@ -7,7 +7,7 @@
       / {{ article.title }}
     </div>
     <p class="text-30 font-semibold">{{ article.title }}</p>
-    <youtube class='py-8' :video-id='youtubeId' :player-vars='{control: 0}'></youtube>
+    <youtube class='youtube-container my-8 pt-[56.25%] w-full overflow-hidden relative' :video-id='youtubeId' :player-vars='{control: 0}' player-width='100%' player-height='100%'></youtube>
     <div v-if="markedContent" v-dompurify-html="markedContent"
          class='prose text-16 text-black'></div>
   </div>
@@ -105,5 +105,13 @@ export default {
   font-size: 1.6rem;
   font-weight: bold;
   color: white;
+}
+
+>>> .youtube-container iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 </style>
