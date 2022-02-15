@@ -15,7 +15,7 @@
         <NuxtLink :to="localePath('/products')" class="btn btn-ghost text-18">
           {{ $t('main.products') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/content')" class="btn btn-ghost text-18">
+        <NuxtLink :to="localePath('/videos')" class="btn btn-ghost text-18">
           {{ $t('main.videos') }}
         </NuxtLink>
         <NuxtLink :to="localePath('/faq')" class="btn btn-ghost text-18">
@@ -38,7 +38,7 @@
             </NuxtLink>
           </li>
           <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink :to="localePath('/content')" @click.native='showMenu = false'>
+            <NuxtLink :to="localePath('/videos')" @click.native='showMenu = false'>
               {{ $t('main.videos') }}
             </NuxtLink>
           </li>

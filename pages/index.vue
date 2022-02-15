@@ -82,7 +82,7 @@ export default {
   },
   head() {
     return {
-      title: 'Home'
+      title: 'Home - Dogtra Pathfinder'
     }
   }
 }

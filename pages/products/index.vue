@@ -35,7 +35,7 @@ export default {
   },
   head() {
     return {
-      title: 'Products'
+      title: 'Products - Dogtra Pathfinder'
     }
   },
   computed: {

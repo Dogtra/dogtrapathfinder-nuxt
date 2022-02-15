@@ -131,7 +131,7 @@ export default {
   },
   head() {
     return {
-      title: 'Search'
+      title: 'Search - Dogtra Pathfinder'
     }
   },
   watch: {

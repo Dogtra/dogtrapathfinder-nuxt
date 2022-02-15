@@ -75,7 +75,7 @@ export default {
   },
   head() {
     return {
-      title: 'FAQ'
+      title: 'FAQ - Dogtra Pathfinder'
     }
   },
   computed: {

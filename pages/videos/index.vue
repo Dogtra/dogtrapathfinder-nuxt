@@ -32,7 +32,7 @@ export default {
   },
   head() {
     return {
-      title: 'Videos'
+      title: 'Videos - Dogtra Pathfinder'
     }
   },
 }
