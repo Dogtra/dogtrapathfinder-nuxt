@@ -1,5 +1,5 @@
 <template>
-  <div class='footer-banner-item px-8 py-8 w-fit mx-auto md:mx-0'>
+  <div class='footer-banner-item px-8 py-8 md:py-0 w-fit mx-auto md:mx-0'>
     <img class='w-16 md:w-[5.2rem] h-16 md:h-[5.2rem] mx-auto my-4' :src='appIconUrl'>
     <p class='pb-4'>
       <span class='font-extrabold'> {{ app.name }} </span> APP
