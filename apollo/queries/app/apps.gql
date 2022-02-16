@@ -1,7 +1,9 @@
 query Apps {
   mobileApps {
-  android_store_url
-  apple_store_url
+    name
+    order
+    android_store_url
+    apple_store_url
     icon {
       url
     }
