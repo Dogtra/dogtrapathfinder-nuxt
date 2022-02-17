@@ -3,7 +3,26 @@
     "get-help": "Besoin d'aide ?",
     "shop-dogtra-com": "Acheter sur dogtra.com",
     "products": "Produits",
-    "videos": "Videos",
-    "manuals": "Manuels"
+    "videos": "Vidéos",
+    "manuals": "Manuels",
+    "read-more": "Lire plus..."
+  },
+  "product-guide-banner": {
+    "title": "Guide d'utilisation du produit"
+  },
+  "manuals": {
+    "did-it-help": "Cet article vous a-t-il été d'une aide ?",
+    "not-found": "Vous n'avez pas trouvé ce que vous cherchiez ? Essayez de regarder dans la ",
+    "previous": "Suivant",
+    "next": "Précédent",
+    "manual": {
+      "title": "Manuel de l'Utilisateur",
+      "first-page": "Aller à la première page du manuel"
+    }
+  },
+  "search": {
+    "product-filter": "Filtrer par produit",
+    "search-result": "Résultats pour",
+    "results": "résultats"
   }
 }

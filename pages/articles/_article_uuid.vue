@@ -2,7 +2,7 @@
   <div>
   <div class="px-12 py-18 max-w-[71rem]">
     <div class="text-14 text-gray-400">
-      <NuxtLink to='/videos'>Videos</NuxtLink>
+      <NuxtLink :to="localePath('/videos')">{{ $t('main.videos') }}</NuxtLink>
       / {{ article.blog_category.title }}
       / {{ article.title }}
     </div>

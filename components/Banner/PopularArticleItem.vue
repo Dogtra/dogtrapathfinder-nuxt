@@ -7,7 +7,7 @@
         <p class="article-slide-title pt-4 pb-2 text-18 md:text-20"><strong>{{ article.title }}</strong></p>
         <p class="line-clamp-3">{{ article.content_plain_text }}</p>
       </div>
-      <div class="text-right text-14 underline pt-4"><NuxtLink :to="articleUrl">Read more...</NuxtLink></div>
+      <div class="text-right text-14 underline pt-4"><NuxtLink :to="articleUrl">{{ $t('main.read-more') }}</NuxtLink></div>
     </NuxtLink>
   </div>
 </template>

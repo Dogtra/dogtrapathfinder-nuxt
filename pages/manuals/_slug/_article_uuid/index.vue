@@ -16,14 +16,14 @@
            class='prose text-16 text-black'></div>
       <div class='text-14 font-normal'>
         <div class='py-28'>
-          <p class='underline'>Did it help ?</p>
-          <p>Didn't find what you were looking for? Try looking on the <NuxtLink class='underline text-blue-600' to='/faq'>FAQ</NuxtLink></p>
+          <p class='underline'>{{ $t('manuals.did-it-help') }}</p>
+          <p>{{ $t('manuals.not-found') }}<NuxtLink class='underline text-blue-600' to='/faq'>FAQ</NuxtLink></p>
         </div>
       </div>
     </div>
     <div class='sticky pb-4 bottom-0 flex justify-between text-16 font-bold'>
-      <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pr-4'><span class='mdi mdi-chevron-left text-22'></span>Previous</NuxtLink>
-      <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pl-4'>Next<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
+      <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pr-4'><span class='mdi mdi-chevron-left text-22'></span>{{ $t('manuals.next') }}</NuxtLink>
+      <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pl-4'>{{ $t('manuals.previous') }}<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
     </div>
   </div>
 </template>

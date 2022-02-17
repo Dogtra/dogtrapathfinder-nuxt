@@ -4,11 +4,13 @@
       <img :src='manualProductImageUrl' class='mx-auto'>
       <p class='uppercase font-semibold italic text-30'>{{ manual.title }}</p>
     </div>
-    <p class="pt-6 pb-10 text-18 uppercase font-medium">User manual</p>
+    <p class="pt-6 pb-10 text-18 uppercase font-medium">{{ $t('manuals.manual.title')}}</p>
     <div id='manual-index-search'>
       <SearchBar v-model='searchText' max-width="42.5rem" class="mx-auto" :selected-products='[manual.title]'/>
     </div>
-    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='w-fit mx-auto my-8 px-8 py-4 font-semibold rounded-btn bg-yellow text-black hover:bg-black hover:text-yellow' :to='manualFirstPageUrl'><span>Go to first page of Manual</span><i class='yi-chevron-right'></i></NuxtLink>
+    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='w-fit mx-auto my-8 px-8 py-4 font-semibold rounded-btn bg-yellow text-black hover:bg-black hover:text-yellow' :to='manualFirstPageUrl'>
+      <span>{{ $t('manuals.manual.first-page')}}</span><i class='yi-chevron-right'></i>
+    </NuxtLink>
     <div id='manual-index-app' class='max-w-[64rem] mx-auto'>
       <div><img class='mx-auto w-24 pt-8 pb-8' :src='manualAppIconUrl'></div>
       <p v-dompurify-html="manual.app.download" class="text-20 font-medium"></p>

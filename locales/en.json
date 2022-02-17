@@ -4,6 +4,25 @@
     "shop-dogtra-com": "Shop at Dogtra.com",
     "products": "Products",
     "videos": "Videos",
-    "manuals": "Manuals"
+    "manuals": "Manuals",
+    "read-more": "Read more..."
+  },
+  "product-guide-banner": {
+    "title": "Product user guides"
+  },
+  "manuals": {
+    "did-it-help": "Did it help ?",
+    "not-found": "Didn't find what you were looking for? Try looking on the ",
+    "previous": "Previous",
+    "next": "Next",
+    "manual": {
+      "title": "User manual",
+      "first-page": "Go to first page of Manual"
+    }
+  },
+  "search": {
+    "product-filter": "Filter Search by Product",
+    "search-result": "Search result for",
+    "results": "results"
   }
 }

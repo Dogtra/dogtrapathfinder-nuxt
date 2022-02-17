@@ -12,8 +12,7 @@
         </div>
         <div class="mt-12 leading-[3.5rem]">
           <div>
-            <p class="h-18 flex items-center text-center font-bold text-18 border-b-1 border-[#E6E6E6] pl-8">Filter
-              Search by Product</p>
+            <p class="h-18 flex items-center text-center font-bold text-18 border-b-1 border-[#E6E6E6] pl-8">{{ $t('search.product-filter') }}</p>
             <ul class="pl-8 pt-2">
               <li v-for="manual in manuals" :key="manual.id">
                 <input :id="manual.id" v-model="checkedProductsFilter" type="checkbox" :value="manual.title">
@@ -38,9 +37,9 @@
           <SearchBar v-model='searchText'></SearchBar>
         </div>
         <div class="pb-2 border-b-2 border-black">
-          <p class="text-14 text-[#B4B4B4]">Search result for "{{ searchText }}" - {{ nbResults }} results</p>
+          <p class="text-14 text-[#B4B4B4]">{{ $t('search.search-result') }} "{{ searchText }}" - {{ nbResults }} {{ $t('search.results') }}</p>
           <div>
-            <p class="text-18 font-bold">Filter search by Product</p>
+            <p class="text-18 font-bold">{{ $t('search.product-filter') }}</p>
             <div class='flex justify-self-start gap-4 flex-wrap mt-8 pb-10'>
               <div v-for='product in checkedProductsFilter' :key='product' class="bg-yellow rounded-full p-1 px-4 font-semibold">
                 {{ product }}

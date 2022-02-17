@@ -2,7 +2,7 @@
   <div id='footer-banner'
        class='bg-cover bg-center h-auto text-white object-fill justify-center text-center flex-col py-10 md:py-20'
        :style='footerBannerStyle'>
-    <p class='pt-4 text-20'>DOWNLOAD THE APP</p>
+    <p class='pt-4 text-20 uppercase'>{{ footerBanner.title }}</p>
     <div class='flex justify-center flex-col md:flex-row'>
       <template v-for='app in filteredApps'>
         <FooterBannerImage :key='app.icon.url' :app='app' />
