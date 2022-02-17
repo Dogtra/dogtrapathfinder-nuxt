@@ -85,6 +85,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
     '@aceforth/nuxt-netlify',
+    '@nuxtjs/google-analytics',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -192,6 +193,10 @@ export default {
         to: '/manuals/pathfinder-series'
       },
     ]
+  },
+
+  googleAnalytics: {
+    id: 'UA-126982276-1'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

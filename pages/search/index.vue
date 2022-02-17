@@ -43,7 +43,8 @@
             <p class="text-18 font-bold">Filter search by Product</p>
             <div class='flex justify-self-start gap-4 flex-wrap mt-8 pb-10'>
               <div v-for='product in checkedProductsFilter' :key='product' class="bg-yellow rounded-full p-1 px-4 font-semibold">
-                {{ product }}</div>
+                {{ product }}
+              </div>
             </div>
           </div>
 <!--          <div>-->
