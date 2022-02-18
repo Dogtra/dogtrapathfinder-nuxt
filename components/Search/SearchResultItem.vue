@@ -1,20 +1,24 @@
 <template>
-  <div :key="item.id" class='pb-12'>
-    <NuxtLink class="text-18 font-bold" v-dompurify-html="item._highlightResult.title.value" :to='articleUrl'></NuxtLink>
+  <div v-show='!manual.hidden && (checkedProductsFilter.includes(manual.title) || checkedProductsFilter.length < 1)' :key="item.id" class='pb-12'>
+    <NuxtLink v-dompurify-html="item._highlightResult.title.value" class="text-18 font-bold" :to='articleUrl'></NuxtLink>
     <p class="text-14 font-normal text-[#B4B4B4] pt-4 pb-2"><NuxtLink :to='manualUrl'>{{ manual.title }}</NuxtLink> > <span v-dompurify-html='chapter.title'></span></p>
-    <p class="line-clamp-6 md:line-clamp-4 font-normal" v-dompurify-html="item._highlightResult.content.value"></p>
+    <p v-dompurify-html="item._highlightResult.content_plain_text.value" class="line-clamp-6 md:line-clamp-4 font-normal"></p>
     <span class="mt-6 article-slide-tag rounded-full bg-black text-yellow flex justify-center items-center h-10 w-fit px-4 text-14 uppercase"><strong>{{ manual.tag }}</strong></span>
   </div>
 </template>
 <script>
 export default {
-  name: 'search-result-item',
+  name: 'SearchResultItem',
   props: {
     item: {
       type: Object,
       required: true
     },
     manuals: {
+      type: Array,
+      required: true
+    },
+    checkedProductsFilter: {
       type: Array,
       required: true
     }
