@@ -13,8 +13,8 @@
   "manuals": {
     "did-it-help": "Cet article vous a-t-il été d'une aide ?",
     "not-found": "Vous n'avez pas trouvé ce que vous cherchiez ? Essayez de regarder dans la ",
-    "previous": "Suivant",
-    "next": "Précédent",
+    "previous": "Précédent",
+    "next": "Suivant",
     "manual": {
       "title": "Manuel de l'Utilisateur",
       "first-page": "Aller à la première page du manuel"

@@ -22,8 +22,8 @@
       </div>
     </div>
     <div class='sticky pb-4 bottom-0 flex justify-between text-16 font-bold'>
-      <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pr-4'><span class='mdi mdi-chevron-left text-22'></span>{{ $t('manuals.next') }}</NuxtLink>
-      <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pl-4'>{{ $t('manuals.previous') }}<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
+      <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pr-4'><span class='mdi mdi-chevron-left text-22'></span>{{ $t('manuals.previous') }}</NuxtLink>
+      <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pl-4'>{{ $t('manuals.next') }}<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
     </div>
   </div>
 </template>
