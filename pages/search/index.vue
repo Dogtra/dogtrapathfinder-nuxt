@@ -74,7 +74,7 @@ import { AisConfigure, AisHits, AisInstantSearchSsr, AisSearchBox, createServerR
 import manualsQuery from '~/apollo/queries/manual/manuals'
 import SearchBar from '~/components/SearchBar/SearchBar'
 import SearchResultItem from '~/components/Search/SearchResultItem'
-import SearchFilterChip from '~/pages/search/SearchFilterChip'
+import SearchFilterChip from '~/components/Search/SearchFilterChip'
 
 
 const searchClient = instantMeiliSearch(

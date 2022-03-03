@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-[71rem] px-12 h-[calc(100vh-7.5rem)]">
     <div class="py-18">
-      <div class='sticky top-0 bg-white'>
+      <div class='sticky top-0 bg-white z-10'>
         <div class="text-14 text-gray-400">
           <NuxtLink to='/manuals'>Manuals</NuxtLink>
           /
