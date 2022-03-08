@@ -123,6 +123,11 @@ export default {
 >>> .prose .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+
+>>> .prose .grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 >>> .prose .gap-x-4 {
   column-gap: 1rem;
 }
@@ -137,6 +142,10 @@ export default {
 
   >>> .prose .md-grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  >>> .prose .md-grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 </style>
