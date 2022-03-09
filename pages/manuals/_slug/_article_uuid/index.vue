@@ -95,13 +95,12 @@ export default {
 }
 
 >>> .prose .note {
-  color: red;
-  background-color: #fff5bf;
   padding: 1rem;
-}
-
->>> .prose .note strong {
-  color: red;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  background: #F2F2F2;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 >>> .prose .warning-note {
@@ -133,6 +132,10 @@ export default {
 }
 
 >>> .prose .gap-x-4 {
+  column-gap: 1rem;
+}
+
+>>> .prose .gap-x-8 {
   column-gap: 1rem;
 }
 
