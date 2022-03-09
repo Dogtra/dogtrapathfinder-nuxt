@@ -147,6 +147,10 @@ export default {
   margin-left: -1.75em;
 }
 
+>>> .prose .grid.grid-img-w-64 img{
+  width: 8rem;
+}
+
 @media (min-width: 768px) {
   >>> .prose .md-grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
