@@ -136,7 +136,7 @@ export default {
 }
 
 >>> .prose .gap-x-8 {
-  column-gap: 1rem;
+  column-gap: 2rem;
 }
 
 >>> .prose .bg-gray {
