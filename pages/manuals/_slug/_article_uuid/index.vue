@@ -163,6 +163,16 @@ export default {
   width: 8rem;
 }
 
+>>> .prose .dog-icons-table img {
+  height: 7rem;
+  object-fit: cover;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+>>> .prose .dog-icons-table td {
+  min-width: 13rem;
+}
+
 @media (min-width: 768px) {
   >>> .prose .md-grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
