@@ -95,7 +95,8 @@ export default {
 }
 
 >>> .prose .note {
-  padding: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   border: 1px solid #E0E0E0;
   border-radius: 10px;
   background: #F2F2F2;
