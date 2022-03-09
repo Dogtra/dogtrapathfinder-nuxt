@@ -143,7 +143,14 @@ export default {
   background-color: #C5C5C5;
 }
 
->>> .prose li .bg-gray {
+>>> .prose .bg-white {
+  background-color: #FFFFFF;
+}
+
+>>> .prose li .bg-gray,
+>>> .prose li .bg-white,
+>>> .prose li .note
+{
   margin-left: -1.75em;
 }
 
