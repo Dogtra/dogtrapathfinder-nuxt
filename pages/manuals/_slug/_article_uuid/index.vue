@@ -142,6 +142,11 @@ export default {
 >>> .prose .bg-gray {
   background-color: #C5C5C5;
 }
+
+>>> .prose li .bg-gray {
+  margin-left: -1.75em;
+}
+
 @media (min-width: 768px) {
   >>> .prose .md-grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
