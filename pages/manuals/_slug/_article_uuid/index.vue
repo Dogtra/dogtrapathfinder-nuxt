@@ -147,6 +147,10 @@ export default {
   background-color: #FFFFFF;
 }
 
+>>> .prose .text-14 {
+  font-size: 1.4rem;
+}
+
 >>> .prose li .bg-gray,
 >>> .prose li .bg-white,
 >>> .prose li .note
