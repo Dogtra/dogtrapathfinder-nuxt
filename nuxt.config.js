@@ -192,6 +192,11 @@ export default {
         from: '/manual',
         to: '/manuals/pathfinder-series'
       },
+
+      {
+        from: '/manuals/pathfinder-2',
+        to: '/manuals/pathfinder-2-series'
+      },
     ]
   },
 
