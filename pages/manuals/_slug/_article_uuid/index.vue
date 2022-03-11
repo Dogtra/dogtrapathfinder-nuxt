@@ -1,31 +1,35 @@
 <template>
-  <div class="max-w-[71rem] px-12 h-[calc(100vh-7.5rem)]">
-    <div class="py-18">
-      <div class='sticky top-0 bg-white z-10'>
-        <div class="text-14 text-gray-400">
-          <NuxtLink to='/manuals'>Manuals</NuxtLink>
-          /
-          <NuxtLink :to='"/manuals/" + article.chapter.manual.slug'>{{ article.chapter.manual.title }}</NuxtLink>
-          /
-          <NuxtLink :to='"/manuals/" + article.chapter.manual.slug + "/chapter/" + article.chapter.id'>{{ article.chapter.title }}</NuxtLink>
-          / {{ article.title }}
+  <div class="h-[calc(100vh-7.5rem)]">
+    <div class='bg-white'>
+      <div class='px-12 max-w-[71rem]'>
+        <div class="py-18">
+          <div class='sticky top-[7.5rem] bg-white z-10'>
+            <div class="text-14 text-gray-400">
+              <NuxtLink to='/manuals'>Manuals</NuxtLink>
+              /
+              <NuxtLink :to='"/manuals/" + article.chapter.manual.slug'>{{ article.chapter.manual.title }}</NuxtLink>
+              /
+              <NuxtLink :to='"/manuals/" + article.chapter.manual.slug + "/chapter/" + article.chapter.id'>{{ article.chapter.title }}</NuxtLink>
+              / {{ article.title }}
+            </div>
+            <p class="text-30 font-semibold">{{ article.title }}</p>
+          </div>
+          <div v-if="markedContent" v-dompurify-html="markedContent"
+               class='prose text-16 text-black'></div>
+          <div class='text-14 font-normal'>
+            <div class='py-28'>
+              <p class='underline'>{{ $t('manuals.did-it-help') }}</p>
+              <p>{{ $t('manuals.not-found') }}<NuxtLink class='underline text-blue-600' to='/faq'>FAQ</NuxtLink></p>
+            </div>
+          </div>
         </div>
-        <p class="text-30 font-semibold">{{ article.title }}</p>
-      </div>
-      <div v-if="markedContent" v-dompurify-html="markedContent"
-           class='prose text-16 text-black'></div>
-      <div class='text-14 font-normal'>
-        <div class='py-28'>
-          <p class='underline'>{{ $t('manuals.did-it-help') }}</p>
-          <p>{{ $t('manuals.not-found') }}<NuxtLink class='underline text-blue-600' to='/faq'>FAQ</NuxtLink></p>
+        <div class='sticky pb-4 bottom-0 flex justify-between text-16 font-bold'>
+          <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pr-4'><span class='mdi mdi-chevron-left text-22'></span>{{ $t('manuals.previous') }}</NuxtLink>
+          <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pl-4'>{{ $t('manuals.next') }}<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
         </div>
       </div>
     </div>
-    <div class='sticky pb-4 bottom-0 flex justify-between text-16 font-bold'>
-      <NuxtLink :to='previousArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pr-4'><span class='mdi mdi-chevron-left text-22'></span>{{ $t('manuals.previous') }}</NuxtLink>
-      <NuxtLink :to='nextArticleUrl' class='flex items-center rounded-btn bg-black text-yellow hover:bg-yellow hover:text-black pl-4'>{{ $t('manuals.next') }}<span class='mdi mdi-chevron-right text-22'></span></NuxtLink>
     </div>
-  </div>
 </template>
 
 <script>
