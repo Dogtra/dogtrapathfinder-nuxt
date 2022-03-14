@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { orderBy } from 'lodash'
+import orderBy from 'lodash/orderBy'
 import faqsQuery from '~/apollo/queries/faq/faqs'
 import faqCategoriesQuery from '~/apollo/queries/faq-category/faq-categories'
 import faqBannerQuery from '~/apollo/queries/faq-banner/faq-banner'

@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-import { orderBy } from 'lodash'
+import orderBy from 'lodash/orderBy'
 import { strapiMediaUrl } from '~/utils/strapi'
 import FooterBannerImage from '~/components/Banner/FooterBannerImage'
 

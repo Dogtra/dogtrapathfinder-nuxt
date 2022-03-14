@@ -27,7 +27,7 @@
   </div>
 </template>
 <script>
-import { orderBy } from 'lodash'
+import orderBy from 'lodash/orderBy'
 import ContentItem from '~/components/Banner/ContentItem'
 
 export default {

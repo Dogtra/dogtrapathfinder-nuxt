@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { orderBy } from 'lodash'
+import orderBy from 'lodash/orderBy'
 import productsBannerQuery from '~/apollo/queries/products-banner/products-banner'
 import productsQuery from '~/apollo/queries/products/products'
 import ImageBanner from '~/components/Banner/ImageBanner'
