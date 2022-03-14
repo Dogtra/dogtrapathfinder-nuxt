@@ -1,15 +1,21 @@
-@font-face {
-  font-family: 'YIcons';
-  src:  url('static/fonts/YIcons.eot?xnmpf');
-  src:  url('static/fonts/YIcons.eot?xnmpf#iefix') format('embedded-opentype'),
-  url('static/fonts/YIcons.ttf?xnmpf') format('truetype'),
-  url('static/fonts/YIcons.woff?xnmpf') format('woff'),
-  url('static/fonts/YIcons.svg?xnmpf#YIcons') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+}
+
+h1 {
+  @apply text-40;
+}
+h2 {
+  @apply text-32;
+}
+h3 {
+  @apply text-18;
 }

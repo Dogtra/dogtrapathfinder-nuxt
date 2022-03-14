@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       OpenIndicator: {
-        render: createElement => createElement('i', {class: {'yi-chevron-down': true}}),
+        render: createElement => createElement('span', {class: {'mdi mdi-chevron-down text-20': true}}),
       },
       selectedSearchProduct: 'All Products',
       searchText: ''
