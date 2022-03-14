@@ -30,13 +30,13 @@
     </div>
     <div class='inline-block text-32'>
       <a href='https://www.facebook.com/DogtraHuntingOps'>
-        <i class='bg-white text-black rounded-full p-1 text-lg yi-facebook' />
+        <i class='bg-black text-white text-lg mdi mdi-facebook' />
       </a>
       <a href='https://www.instagram.com/dogtrahuntingops/'>
-        <i class='bg-white text-black rounded-full p-1 text-lg yi-instagram' />
+        <i class='bg-black text-white p-1 text-lg mdi mdi-instagram' />
       </a>
       <a href='https://www.youtube.com/channel/UCrGGvbXnB8vSQTID3cSSsUg'>
-        <i class='bg-white text-black rounded-full p-1 text-lg yi-youtube' />
+        <i class='bg-black text-white text-lg mdi mdi-youtube' />
       </a>
     </div>
   </footer>

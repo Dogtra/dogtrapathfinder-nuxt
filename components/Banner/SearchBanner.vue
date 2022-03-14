@@ -51,11 +51,6 @@ export default {
 }
 </script>
 <style scoped>
-
->>> .yi-search {
-  font-size: 2.5rem;
-}
-
 >>> .search-bar input::placeholder {
   text-align: center;
 }

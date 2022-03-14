@@ -47,6 +47,7 @@
     "@aceforth/nuxt-netlify": "^1.1.0",
     "@babel/eslint-parser": "^7.14.7",
     "@neojp/tailwindcss-line-clamp-utilities": "^1.0.1",
+    "@nuxt/image": "^0.6.2",
     "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/google-analytics": "^2.4.0",

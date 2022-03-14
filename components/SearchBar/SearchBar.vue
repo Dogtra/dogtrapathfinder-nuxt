@@ -84,8 +84,4 @@ export default {
 .search-bar {
   border: 1px solid transparent;
 }
-
-.yi-search::before {
-  vertical-align: middle;
-}
 </style>

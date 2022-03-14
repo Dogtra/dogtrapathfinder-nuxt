@@ -86,6 +86,7 @@ export default {
     '@nuxtjs/tailwindcss',
     '@aceforth/nuxt-netlify',
     '@nuxtjs/google-analytics',
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -124,7 +125,7 @@ export default {
             'sizes': '512x512',
             'type': 'image/png'
           }
-          ],
+        ],
       'theme_color': '#FFDD00',
       'background_color': '#000000',
       'display': 'standalone'

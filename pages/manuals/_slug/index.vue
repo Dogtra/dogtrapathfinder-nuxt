@@ -9,7 +9,7 @@
       <SearchBar v-model='searchText' max-width="42.5rem" class="mx-auto" :selected-products='[manual.title]'/>
     </div>
     <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='w-fit mx-auto my-8 px-8 py-4 font-semibold rounded-btn bg-yellow text-black hover:bg-black hover:text-yellow' :to='manualFirstPageUrl'>
-      <span>{{ $t('manuals.manual.first-page')}}</span><i class='yi-chevron-right'></i>
+      <span>{{ $t('manuals.manual.first-page')}}</span><span class="mdi mdi-chevron-right text-18"></span>
     </NuxtLink>
     <div id='manual-index-app' class='max-w-[64rem] mx-auto'>
       <div><img class='mx-auto w-24 pt-8 pb-8' :src='manualAppIconUrl'></div>
@@ -17,7 +17,7 @@
       <p v-dompurify-html="manual.app.compatibility" class='text-12'></p>
       <div class='app-badge-container flex gap-4 max-w-[33rem] mx-auto pt-10 pb-8'>
         <div class='w-1/2'><a :href='manual.app.android_store_url'><img alt='Get it on Google Play' src='~/assets/images/mobile-android.webp'/></a></div>
-        <div class='w-1/2'><a class='max-w-full' :href="manual.app.apple_store_url"><img src="~/assets/images/mobile-apple.webp" alt="Download on the App Store"></a></div>
+        <div class='w-1/2'><a class='max-w-full' :href="manual.app.apple_store_url"><img src="~/assets/images/mobile-apple.webp" alt="Download on the App Store"/></a></div>
       </div>
     </div>
   </div>
