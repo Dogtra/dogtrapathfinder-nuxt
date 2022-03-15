@@ -13,7 +13,7 @@
           href='#'
           class='w-full focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1 flex flex-col'
           :class='{"text-yellow": menuItem.active }'
-          :to='menuItem.to'
+          :to='localePath(menuItem.to)'
         >
           <span class='mdi text-[3.5rem] mt-[-1.3rem]' :class="['mdi-' + menuItem.icon]"></span>
           <span class='tab block text-xs mt-[-1.5rem] text-white'

@@ -1,6 +1,6 @@
 <template>
   <div :key='article.id' class='max-w-[34rem]'>
-    <NuxtLink :to="'/articles/' + article.uuid">
+    <NuxtLink :to="localePath('/articles/' + article.uuid)">
       <div class='w-full bg-white rounded-btn overflow-hidden'>
         <img class='w-full' :src="'https://img.youtube.com/vi/' + youtubeId + '/mqdefault.jpg'"/>
 <!--        <youtube :video-id='youtubeId' player-width='340' player-height='220' :player-vars='{control: 0}'></youtube>-->

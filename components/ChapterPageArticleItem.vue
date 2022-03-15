@@ -1,6 +1,6 @@
 <template>
   <li>
-    <NuxtLink class='text-22' :to='articleUrl'>
+    <NuxtLink class='text-22' :to='localePath(articleUrl)'>
       <span class='mdi mdi-chevron-right text-yellow text-24'></span>
       <span class='font-medium'>{{ article.title }}</span>
     </NuxtLink>

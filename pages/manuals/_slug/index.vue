@@ -8,7 +8,7 @@
     <div id='manual-index-search'>
       <SearchBar v-model='searchText' max-width="42.5rem" class="mx-auto" :selected-products='[manual.title]'/>
     </div>
-    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='w-fit mx-auto my-8 px-8 py-4 font-semibold rounded-btn bg-yellow text-black hover:bg-black hover:text-yellow' :to='manualFirstPageUrl'>
+    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='w-fit mx-auto my-8 px-8 py-4 font-semibold rounded-btn bg-yellow text-black hover:bg-black hover:text-yellow' :to='localePath(manualFirstPageUrl)'>
       <span>{{ $t('manuals.manual.first-page')}}</span><span class="mdi mdi-chevron-right text-18"></span>
     </NuxtLink>
     <div id='manual-index-app' class='max-w-[64rem] mx-auto'>

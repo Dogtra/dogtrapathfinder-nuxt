@@ -28,16 +28,18 @@
       <a href='https://www.dogtra.com/product-registration' class="link link-hover">Product Registration</a>
       <NuxtLink :to='localePath("/faq")'>FAQ</NuxtLink>
     </div>
-    <div class='inline-block text-32'>
-      <a href='https://www.facebook.com/DogtraHuntingOps'>
-        <i class='bg-black text-white text-lg mdi mdi-facebook' />
-      </a>
-      <a href='https://www.instagram.com/dogtrahuntingops/'>
-        <i class='bg-black text-white p-1 text-lg mdi mdi-instagram' />
-      </a>
-      <a href='https://www.youtube.com/channel/UCrGGvbXnB8vSQTID3cSSsUg'>
-        <i class='bg-black text-white text-lg mdi mdi-youtube' />
-      </a>
+    <div>
+      <div class='inline-block text-32'>
+        <a href='https://www.facebook.com/DogtraHuntingOps'>
+          <i class='bg-black text-white text-lg mdi mdi-facebook' />
+        </a>
+        <a href='https://www.instagram.com/dogtrahuntingops/'>
+          <i class='bg-black text-white p-1 text-lg mdi mdi-instagram' />
+        </a>
+        <a href='https://www.youtube.com/channel/UCrGGvbXnB8vSQTID3cSSsUg'>
+          <i class='bg-black text-white text-lg mdi mdi-youtube' />
+        </a>
+      </div>
     </div>
   </footer>
 </template>

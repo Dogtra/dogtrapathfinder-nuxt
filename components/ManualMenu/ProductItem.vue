@@ -1,6 +1,6 @@
 <template>
   <li v-show='!manual.hidden' class="flex items-center uppercase h-20 pl-20" :class="{'bg-yellow-focus': active, 'font-extrabold': active}">
-    <NuxtLink :to="manualUrl" @click.native="closeAllMenu">
+    <NuxtLink :to="localePath(manualUrl)" @click.native="closeAllMenu">
       {{ manual.title }}
     </NuxtLink>
   </li>
