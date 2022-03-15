@@ -6,46 +6,46 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  generate: {
-    async routes() {
-      const manualsResponse = await axios.get(process.env.STRAPI_URL + '/manuals')
-      const articlesResponse = await axios.get(process.env.STRAPI_URL + '/articles' )
-
-      const manualRoutes = manualsResponse.data.map(manual => {
-        return {
-          route: '/manuals/' + manual.slug,
-          payload: manual
-        }
-      })
-
-      const articleRoutes = articlesResponse.data.map(article => {
-        switch (article.type) {
-          case 'blog': {
-            if (!article.blog_category) {
-              return false
-            }
-
-            return {
-              route: '/articles/' + article.uuid
-            }
-          }
-          case 'manual': {
-            if (!article.chapter || !!article.chapter.manual) {
-              return false
-            }
-            const manual = manualsResponse.data.find(manual => manual.id === article.chapter.manual)
-            return {
-              route: '/manuals/' + manual.slug  + '/' + article.uuid
-            }
-          }
-          default:
-            return false
-        }
-      })
-
-      return [...manualRoutes, ...articleRoutes];
-    }
-  },
+  // generate: {
+  //   async routes() {
+  //     const manualsResponse = await axios.get(process.env.STRAPI_URL + '/manuals')
+  //     const articlesResponse = await axios.get(process.env.STRAPI_URL + '/articles' )
+  //
+  //     const manualRoutes = manualsResponse.data.map(manual => {
+  //       return {
+  //         route: '/manuals/' + manual.slug,
+  //         payload: manual
+  //       }
+  //     })
+  //
+  //     const articleRoutes = articlesResponse.data.map(article => {
+  //       switch (article.type) {
+  //         case 'blog': {
+  //           if (!article.blog_category) {
+  //             return false
+  //           }
+  //
+  //           return {
+  //             route: '/articles/' + article.uuid
+  //           }
+  //         }
+  //         case 'manual': {
+  //           if (!article.chapter || !!article.chapter.manual) {
+  //             return false
+  //           }
+  //           const manual = manualsResponse.data.find(manual => manual.id === article.chapter.manual)
+  //           return {
+  //             route: '/manuals/' + manual.slug  + '/' + article.uuid
+  //           }
+  //         }
+  //         default:
+  //           return false
+  //       }
+  //     })
+  //
+  //     return [...manualRoutes, ...articleRoutes];
+  //   }
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
