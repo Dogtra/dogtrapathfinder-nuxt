@@ -15,7 +15,7 @@
             <p class="text-30 font-semibold">{{ article.title }}</p>
           </div>
           <div v-if="markedContent" v-dompurify-html="markedContent"
-               class='prose text-16 text-black'></div>
+               class='prose break-words text-16 text-black'></div>
           <div class='text-14 font-normal'>
             <div class='py-28'>
               <p class='underline'>{{ $t('manuals.did-it-help') }}</p>

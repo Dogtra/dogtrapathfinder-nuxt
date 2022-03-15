@@ -9,7 +9,7 @@
     <p class="text-30 font-semibold">{{ article.title }}</p>
     <youtube class='youtube-container my-8 pt-[56.25%] w-full overflow-hidden relative' :video-id='youtubeId' :player-vars='{control: 0}' player-width='100%' player-height='100%'></youtube>
     <div v-if="markedContent" v-dompurify-html="markedContent"
-         class='prose text-16 text-black'></div>
+         class='prose break-words text-16 text-black'></div>
   </div>
   <ContentBanner v-if='blogCategory' :category='blogCategory' />
   </div>
