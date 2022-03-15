@@ -8,7 +8,7 @@
     </div>
     <div class='relative'>
       <span class="mdi mdi-menu text-[3rem] block md:hidden" @click='showMenu = !showMenu'></span>
-      <div class='hidden md:block'>
+      <div class='hidden md:flex'>
         <NuxtLink :to="localePath('/manuals')" class="btn btn-ghost text-18">
           {{ $t('main.manuals') }}
         </NuxtLink>
@@ -21,6 +21,9 @@
         <NuxtLink :to="localePath('/faq')" class="btn btn-ghost text-18">
           FAQ
         </NuxtLink>
+        <div class='btn btn-ghost'>
+          <LanguageSelector />
+        </div>
       </div>
     </div>
     <transition name='slide-fade'>
@@ -47,6 +50,9 @@
               FAQ
             </NuxtLink>
           </li>
+          <li class='border-b-2 border-white h-20 flex items-center'>
+            <LanguageSelector />
+          </li>
         </ul>
       </div>
     </transition>
@@ -54,16 +60,18 @@
 </template>
 
 <script>
-import SearchBar from "~/components/SearchBar/SearchBar";
+import SearchBar from '~/components/SearchBar/SearchBar'
+import LanguageSelector from '~/components/Navbar/LanguageSelector'
+
 export default {
   name: 'Navbar',
-  components: {SearchBar},
+  components: { LanguageSelector, SearchBar},
   data() {
     return {
       showMenu: false,
       searchText: ''
     }
-  }
+  },
 }
 </script>
 
