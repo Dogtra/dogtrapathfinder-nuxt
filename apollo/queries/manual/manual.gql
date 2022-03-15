@@ -32,9 +32,14 @@ query Manuals($slug: String!) {
       android_store_url
       apple_store_url
     }
-    pdf {
+    products {
       id
-      url
+      slug
+      title
+      pdf {
+        id
+        url
+      }
     }
   }
 }

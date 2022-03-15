@@ -18,9 +18,5 @@ query Manuals {
         alternativeText
       }
     }
-    pdf {
-      id
-      url
-    }
   }
 }

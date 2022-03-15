@@ -17,10 +17,8 @@
     </div>
     <div v-else class='overflow-y-auto'>
       <div class="manual-menu-chapter-list bg-black text-white h-fit px-12 md:px-16 py-8 md:py-10">
-        <a v-if='manual.pdf' :href='manualPdfLink' download class='bg-yellow text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
-          <span class="material-icons align-bottom" style="font-size: 1.8rem">picture_as_pdf</span><span class="text-12 uppercase font-extrabold">Download as PDF</span>
-        </a>
-        <NuxtLink :to='manualIndexUrl' @click.native="closeAllMenu" class='bg-yellow mt-4 text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
+        <DownloadPDF v-if='manual.products.some(product => product.pdf)' :manual='manual' />
+        <NuxtLink :to='localePath(manualIndexUrl)' @click.native="closeAllMenu" class='bg-yellow mt-4 text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
           <span class="text-12 uppercase font-extrabold">Home</span>
         </NuxtLink>
         <template v-for='chapter in manual.chapters'>
@@ -31,16 +29,16 @@
   </div>
 </template>
 <script>
-import {mapMutations, mapState} from "vuex";
+import { mapMutations, mapState } from 'vuex'
 import ManualMenuChapterItem from '~/components/ManualMenu/ChapterItem'
 import manualsQuery from '~/apollo/queries/manual/manuals'
-import ManualMenuProductItem from "~/components/ManualMenu/ProductItem";
-import SearchBar from "~/components/SearchBar/SearchBar";
-import { strapiMediaUrl } from '~/utils/strapi'
+import ManualMenuProductItem from '~/components/ManualMenu/ProductItem'
+import SearchBar from '~/components/SearchBar/SearchBar'
+import DownloadPDF from '~/components/ManualMenu/DownloadPDF'
 
 export default {
   name: 'ManualMenuContent',
-  components: {SearchBar, ManualMenuProductItem, ManualMenuChapterItem},
+  components: { DownloadPDF, SearchBar, ManualMenuProductItem, ManualMenuChapterItem},
   data() {
     return {
       searchText: ''
@@ -53,12 +51,6 @@ export default {
       'manuals',
       'manualMenuProductMenuOpen',
     ]),
-    manualPdfLink() {
-      if (!this.manual.pdf) {
-        return
-      }
-      return strapiMediaUrl(this.manual.pdf.url)
-    },
     manualIndexUrl() {
       return '/manuals/' + this.manual.slug
     }
