@@ -1,5 +1,5 @@
-query Articles($uuid: String!) {
-  articles(where: {uuid: $uuid}) {
+query Articles($uuid: String!, $locale: String) {
+  articles(where: {uuid: $uuid}, locale: $locale) {
     id
     uuid
     slug
@@ -7,6 +7,7 @@ query Articles($uuid: String!) {
     content
     chapter {
       id
+      uuid
       slug
       title
       manual {
@@ -15,5 +16,6 @@ query Articles($uuid: String!) {
         title
       }
     }
+    locale
   }
 }

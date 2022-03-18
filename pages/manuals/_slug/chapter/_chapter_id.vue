@@ -16,27 +16,32 @@
 import manualQuery from '~/apollo/queries/manual/manual'
 import chapterQuery from '~/apollo/queries/chapter/chapter'
 import ChapterPageArticleItem from '~/components/ChapterPageArticleItem'
+import { getLocaleToUse } from '~/utils/getLocaleToUse'
 
 export default {
   components: { ChapterPageArticleItem },
   layout: 'manual',
   async asyncData({ app, route, redirect, store }) {
+    const locale = getLocaleToUse(app.i18n.locale)
+
     const [chapterResponse, manualResponse] = await Promise.all([
       app.apolloProvider.defaultClient.query({
         query: chapterQuery,
         variables: {
-          chapterId: route.params.chapter_id,
+          uuid: route.params.chapter_id,
+          locale
         }
       }),
       app.apolloProvider.defaultClient.query({
         query: manualQuery,
         variables: {
-          slug: route.params.slug
+          slug: route.params.slug,
+          locale
         }
       })
     ])
 
-    const chapter = chapterResponse.data.chapter;
+    const chapter = chapterResponse.data.chapters[0];
     const manual = manualResponse.data.manuals[0];
 
     if (!chapter || !manual || manual.slug !== chapter.manual.slug) {

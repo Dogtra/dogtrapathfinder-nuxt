@@ -1,5 +1,5 @@
-query Manuals($slug: String!) {
-  manuals(where: {slug: $slug}) {
+query Manuals($slug: String!, $locale: String) {
+  manuals(where: {slug: $slug}, locale: $locale) {
     id
     slug
     title

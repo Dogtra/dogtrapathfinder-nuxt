@@ -27,17 +27,27 @@
 import manualQuery from '~/apollo/queries/manual/manual'
 import SearchBar from '~/components/SearchBar/SearchBar'
 import {strapiMediaUrl} from "~/utils/strapi";
+import { getLocaleToUse } from '~/utils/getLocaleToUse'
 
 export default {
   components: { SearchBar },
   layout: 'manual',
-  async asyncData({ app, route, store}) {
+  async asyncData({ app, route, store, redirect}) {
+
+    const locale = getLocaleToUse(app.i18n.locale)
+
     const { data } = await app.apolloProvider.defaultClient.query({
       query: manualQuery,
       variables: {
-        slug: route.params.slug
+        slug: route.params.slug,
+        locale
       }
     })
+
+    if (!data.manuals[0]) {
+      return redirect('/')
+    }
+
 
     store.commit('manual/setManual', data.manuals[0])
 

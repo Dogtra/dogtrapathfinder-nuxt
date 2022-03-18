@@ -22,7 +22,7 @@
           FAQ
         </NuxtLink>
         <div class='btn btn-ghost'>
-          <LanguageSelector />
+          <LanguageSelector :hide-menu='hideMenu' />
         </div>
       </div>
     </div>
@@ -31,27 +31,27 @@
         <SearchBar v-model='searchText' :background-color="'#ffffff'"></SearchBar>
         <ul class="py-6 shadow-lg bg-black uppercase text-18 font-semibold">
           <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink :to="localePath('/manuals')" @click.native='showMenu = false'>
+            <NuxtLink :to="localePath('/manuals')" @click.native='hideMenu'>
               {{ $t('main.manuals') }}
             </NuxtLink>
           </li>
           <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink :to="localePath('/products')" @click.native='showMenu = false'>
+            <NuxtLink :to="localePath('/products')" @click.native='hideMenu'>
               {{ $t('main.products') }}
             </NuxtLink>
           </li>
           <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink :to="localePath('/videos')" @click.native='showMenu = false'>
+            <NuxtLink :to="localePath('/videos')" @click.native='hideMenu'>
               {{ $t('main.videos') }}
             </NuxtLink>
           </li>
           <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink :to="localePath('/faq')" @click.native='showMenu = false'>
+            <NuxtLink :to="localePath('/faq')" @click.native='hideMenu'>
               FAQ
             </NuxtLink>
           </li>
           <li class='border-b-2 border-white h-20 flex items-center'>
-            <LanguageSelector />
+            <LanguageSelector :hide-menu='hideMenu' />
           </li>
         </ul>
       </div>
@@ -72,6 +72,11 @@ export default {
       searchText: ''
     }
   },
+  methods: {
+    hideMenu() {
+      this.showMenu = false
+    }
+  }
 }
 </script>
 

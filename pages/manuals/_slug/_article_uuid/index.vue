@@ -9,7 +9,7 @@
               /
               <NuxtLink :to='localePath("/manuals/" + article.chapter.manual.slug)'>{{ article.chapter.manual.title }}</NuxtLink>
               /
-              <NuxtLink :to='localePath("/manuals/" + article.chapter.manual.slug + "/chapter/" + article.chapter.id)'>{{ article.chapter.title }}</NuxtLink>
+              <NuxtLink :to='localePath("/manuals/" + article.chapter.manual.slug + "/chapter/" + article.chapter.uuid)'>{{ article.chapter.title }}</NuxtLink>
               / {{ article.title }}
             </div>
             <p class="text-30 font-semibold">{{ article.title }}</p>
@@ -38,21 +38,26 @@ import { mapGetters } from 'vuex'
 import axios from 'axios'
 import articleQuery from '~/apollo/queries/article/article'
 import manualQuery from '~/apollo/queries/manual/manual'
+import { getLocaleToUse } from '~/utils/getLocaleToUse'
 
 export default {
   layout: 'manual',
   async asyncData({ app, route, redirect, store }) {
+    const locale = getLocaleToUse(app.i18n.locale)
+
     const [articleResponse, manualResponse] = await Promise.all([
       app.apolloProvider.defaultClient.query({
       query: articleQuery,
       variables: {
         uuid: route.params.article_uuid,
+        locale
       }
     }),
       app.apolloProvider.defaultClient.query({
       query: manualQuery,
       variables: {
-        slug: route.params.slug
+        slug: route.params.slug,
+        locale
       }
     })
       ])

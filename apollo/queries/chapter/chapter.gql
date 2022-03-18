@@ -1,6 +1,7 @@
-query Chapter($chapterId: ID!) {
-  chapter(id: $chapterId) {
+query Chapter($uuid: String!, $locale: String) {
+  chapters(where: {uuid: $uuid}, locale: $locale) {
     id
+    uuid
     manual {
       id
       slug
