@@ -3,13 +3,13 @@
     <div class="hidden bg-yellow md:block py-6 px-10 border-b-1 border-black">
       <SearchBar v-model='searchText' :background-color="'#FFFFFF'" :selected-products='[manual.title]'></SearchBar>
     </div>
-    <div class='bg-yellow text-black min-h-[5rem] flex' @click="toggleManualProductMenu">
-      <div class='flex items-center pl-8 cursor-pointer'>
+    <div class='bg-yellow text-black min-h-[5rem] flex'>
+      <div class='flex items-center pl-8 cursor-pointer flex-1' @click="toggleManualProductMenu">
         <span v-show="!manualMenuProductMenuOpen" class="mdi mdi-unfold-more-horizontal text-[2.6rem]"></span>
         <span v-show="manualMenuProductMenuOpen" class="mdi mdi-unfold-less-horizontal text-[2.6rem]"></span>
         <strong class="uppercase flex-grow">{{ manual.title }}</strong>
       </div>
-      <div class='cursor-pointer pr-8 flex items-center'>
+      <div class='cursor-pointer pr-8 flex items-center' @click='closeAllMenu'>
         <span class="mdi mdi-close text-[2.6rem]"></span>
       </div>
     </div>
