@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to='localePath(articleHref)' @click.native="closeAllMenu" class='capitalize'>
+    <NuxtLink :to='localePath(articleHref)' class='capitalize' @click.native="closeAllMenu">
       <li class='list-disc list-inside px-4 text-16 list-outside ml-8'>
         <span :class="articleItemClass">{{ article.title }}</span>
       </li>

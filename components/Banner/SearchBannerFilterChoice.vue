@@ -12,7 +12,10 @@ export default {
       required: true
     },
     selectedProduct: {},
-    changeSelectedProduct: Function
+    changeSelectedProduct: {
+      required: true,
+      type: Function
+    },
   },
   computed: {
     productFilterChoiceClass() {

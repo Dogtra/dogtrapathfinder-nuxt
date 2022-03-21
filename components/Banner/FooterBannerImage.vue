@@ -5,8 +5,8 @@
       <span class='font-extrabold'> {{ app.name }} </span> APP
     </p>
     <div class='w-[24rem] md:w-[30rem] mx-auto flex gap-4'>
-      <div class='w-1/2'><a :href='app.android_store_url'><nuxt-img sizes="sm:115px md:145px" alt='Get it on Google Play' src='/images/mobile-app-android-white.webp'/></a></div>
-      <div class='w-1/2'><a class='max-w-full' :href="app.apple_store_url"><nuxt-img sizes="sm:115px md:145px" src="/images/mobile-app-apple-white.webp" alt="Download on the App Store"/></a></div>
+      <div class='w-1/2'><a :href='app.android_store_url'><NuxtImg sizes="sm:115px md:145px" alt='Get it on Google Play' src='/images/mobile-app-android-white.webp'/></a></div>
+      <div class='w-1/2'><a class='max-w-full' :href="app.apple_store_url"><NuxtImg sizes="sm:115px md:145px" src="/images/mobile-app-apple-white.webp" alt="Download on the App Store"/></a></div>
     </div>
   </div>
 </template>

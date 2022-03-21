@@ -1,7 +1,7 @@
 <template>
   <div class='manual-menu-container h-full text-18 flex flex-col'>
     <div class="hidden bg-yellow md:block py-6 px-10 border-b-1 border-black">
-      <SearchBar :background-color="'#FFFFFF'" v-model='searchText' :selected-products='[manual.title]'></SearchBar>
+      <SearchBar v-model='searchText' :background-color="'#FFFFFF'" :selected-products='[manual.title]'></SearchBar>
     </div>
     <div class='bg-yellow text-black min-h-[5rem] flex' @click="toggleManualProductMenu">
       <div class='flex items-center pl-8 cursor-pointer'>
@@ -22,7 +22,7 @@
     <div v-else class='overflow-y-auto'>
       <div class="manual-menu-chapter-list bg-black text-white h-fit px-12 md:px-16 py-8 md:py-10">
         <DownloadPDF v-if='manual.products.some(product => product.pdf)' :manual='manual' />
-        <NuxtLink :to='localePath(manualIndexUrl)' @click.native="closeAllMenu" class='bg-yellow mt-4 text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit'>
+        <NuxtLink :to='localePath(manualIndexUrl)' class='bg-yellow mt-4 text-black inline-block rounded-full px-4 md:px-6 py-1 md:py-3 flex items-center w-fit' @click.native="closeAllMenu">
           <span class="text-12 uppercase font-extrabold">Home</span>
         </NuxtLink>
         <template v-for='chapter in manual.chapters'>

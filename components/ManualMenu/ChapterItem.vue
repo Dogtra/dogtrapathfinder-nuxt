@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @click="isCollapsed = !isCollapsed" class='uppercase border-b-1 border-yellow pl-4 flex items-center justify-between'>
+    <div class='uppercase border-b-1 border-yellow pl-4 flex items-center justify-between' @click="isCollapsed = !isCollapsed">
       <span class="font-bold">{{chapter.title }}</span>
       <span v-show="isCollapsed" class="mdi mdi-chevron-down text-[2.8rem]"></span>
       <span v-show="!isCollapsed" class="mdi mdi-chevron-up text-[2.8rem]"></span>
