@@ -3,11 +3,15 @@
     <div class="hidden bg-yellow md:block py-6 px-10 border-b-1 border-black">
       <SearchBar :background-color="'#FFFFFF'" v-model='searchText' :selected-products='[manual.title]'></SearchBar>
     </div>
-    <div class='bg-yellow text-black cursor-pointer min-h-[5rem] flex items-center px-8' @click="toggleManualProductMenu">
-      <span v-show="!manualMenuProductMenuOpen" class="mdi mdi-unfold-more-horizontal text-[2.6rem]"></span>
-      <span v-show="manualMenuProductMenuOpen" class="mdi mdi-unfold-less-horizontal text-[2.6rem]"></span>
-      <strong class="uppercase flex-grow">{{ manual.title }}</strong>
-      <span class="mdi mdi-close text-[2.6rem]"></span>
+    <div class='bg-yellow text-black min-h-[5rem] flex' @click="toggleManualProductMenu">
+      <div class='flex items-center pl-8 cursor-pointer'>
+        <span v-show="!manualMenuProductMenuOpen" class="mdi mdi-unfold-more-horizontal text-[2.6rem]"></span>
+        <span v-show="manualMenuProductMenuOpen" class="mdi mdi-unfold-less-horizontal text-[2.6rem]"></span>
+        <strong class="uppercase flex-grow">{{ manual.title }}</strong>
+      </div>
+      <div class='cursor-pointer pr-8 flex items-center'>
+        <span class="mdi mdi-close text-[2.6rem]"></span>
+      </div>
     </div>
 
     <div v-if="manualMenuProductMenuOpen" class="manual-menu-product-list min-h-full bg-yellow text-black inset-0">

@@ -1,5 +1,5 @@
 <template>
-  <section id='bottom-navigation' class='block md:hidden h-[5.5rem] fixed inset-x-0 bottom-0 z-10 bg-black shadow'>
+  <section id='bottom-navigation' class='block md:hidden h-[5.5rem] fixed inset-x-0 bottom-0 z-10 bg-black shadow z-20'>
     <div class='absolute h-5.5rem top-[-6.5rem] w-full bg-black px-10 py-6 rounded-t-2xl'
          :class='{hidden: !searchOpen}'>
       <SearchBar v-if='manual' v-model='searchText' background-color='#FFFFFF'
