@@ -29,6 +29,7 @@ query Manuals($slug: String!, $locale: String) {
       }
       download
       compatibility
+      disclaimer
       android_store_url
       apple_store_url
     }
