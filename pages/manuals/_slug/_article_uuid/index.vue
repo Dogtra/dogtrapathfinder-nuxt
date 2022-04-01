@@ -12,7 +12,7 @@
               <NuxtLink :to='localePath("/manuals/" + article.chapter.manual.slug + "/chapter/" + article.chapter.uuid)'>{{ article.chapter.title }}</NuxtLink>
               / {{ article.title }}
             </div>
-            <p class="text-30 font-semibold">{{ article.title }}</p>
+            <p class="text-30 font-semibold break-words">{{ article.title }}</p>
           </div>
           <div v-if="markedContent" v-dompurify-html="markedContent"
                class='prose break-words text-16 text-black'></div>
