@@ -34,6 +34,11 @@ export default {
               return false
             }
             const manual = manualsResponse.data.find(manual => manual.id === article.chapter.manual)
+
+            if (!manual) {
+              return false
+            }
+
             return {
               route: '/manuals/' + manual.slug  + '/' + article.uuid
             }
