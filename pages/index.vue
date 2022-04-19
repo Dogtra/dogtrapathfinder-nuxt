@@ -61,7 +61,24 @@ export default {
   },
   head() {
     return {
-      title: 'Home - Dogtra Pathfinder'
+      title: 'Home - Dogtra Pathfinder',
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Dogtra Pathfinder',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `/images/og_image.jpg`,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Complete GPS Dog Tracking and Training System by Dogtra. Explore the PATHFINDER SERIES manuals, products, video tutorials and FAQ\'S.',
+        },
+      ]
     }
   }
 }
