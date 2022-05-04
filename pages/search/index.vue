@@ -75,6 +75,7 @@ import manualsQuery from '~/apollo/queries/manual/manuals'
 import SearchBar from '~/components/SearchBar/SearchBar'
 import SearchResultItem from '~/components/Search/SearchResultItem'
 import SearchFilterChip from '~/components/Search/SearchFilterChip'
+import { getLocaleToUse } from '~/utils/getLocaleToUse'
 
 
 const searchClient = instantMeiliSearch(
@@ -119,8 +120,13 @@ export default {
     })
   },
   async asyncData({app, route}) {
+    const locale = getLocaleToUse(app.i18n.locale)
+
     const {data} = await app.apolloProvider.defaultClient.query({
       query: manualsQuery,
+      variables: {
+        locale
+      }
     })
 
     return {

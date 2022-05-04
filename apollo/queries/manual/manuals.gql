@@ -1,5 +1,5 @@
-query Manuals {
-  manuals {
+query Manuals($locale: String) {
+  manuals(locale: $locale) {
     id
     slug
     title
@@ -18,5 +18,6 @@ query Manuals {
         alternativeText
       }
     }
+    locale
   }
 }
