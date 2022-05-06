@@ -28,6 +28,7 @@
         <template v-for='chapter in manual.chapters'>
           <ManualMenuChapterItem :key='chapter.id' :chapter='chapter' :manual='manual'/>
         </template>
+        <ManualMenuVideoTutorial v-if='manual.video_tutorial_category' :manual='manual' />
       </div>
     </div>
   </div>
@@ -39,10 +40,11 @@ import manualsQuery from '~/apollo/queries/manual/manuals'
 import ManualMenuProductItem from '~/components/ManualMenu/ProductItem'
 import SearchBar from '~/components/SearchBar/SearchBar'
 import DownloadPDF from '~/components/ManualMenu/DownloadPDF'
+import ManualMenuVideoTutorial from '~/components/ManualMenu/VideoTutorialCategory'
 
 export default {
   name: 'ManualMenuContent',
-  components: { DownloadPDF, SearchBar, ManualMenuProductItem, ManualMenuChapterItem},
+  components: { ManualMenuVideoTutorial, DownloadPDF, SearchBar, ManualMenuProductItem, ManualMenuChapterItem},
   data() {
     return {
       searchText: ''

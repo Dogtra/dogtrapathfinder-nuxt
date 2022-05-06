@@ -57,7 +57,8 @@
         <div class="pt-12">
           <ais-hits>
             <div slot="item" slot-scope="{ item }">
-              <search-result-item :item="item" :manuals="manuals" :checked-products-filter='checkedProductsFilter'/>
+              <search-result-item v-if="item.type === 'manual'" :item="item" :manuals="manuals" :checked-products-filter='checkedProductsFilter'/>
+              <template v-else> {{ item }} </template>
             </div>
           </ais-hits>
         </div>
@@ -139,6 +140,7 @@ export default {
       checkedProductsFilter: [],
       nbResults: 0,
       searchText: '',
+      typeFilter: 'manual'
     }
   },
   head() {
@@ -148,7 +150,7 @@ export default {
   },
   computed: {
     filters() {
-      return "type = manual";
+      return "type = " + this.typeFilter;
     },
     filteredManuals() {
       return this.manuals.filter(manual => !manual.hidden)

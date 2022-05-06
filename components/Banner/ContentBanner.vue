@@ -1,7 +1,10 @@
 <template>
-  <div class='text-white' :style='{backgroundColor: category.color}'>
+  <div class='text-white'>
     <div class='mx-auto px-4 md:px-12 py-16 w-full max-w-[112rem]'>
-      <h1 class='text-30 md:text-35 font-bold text-white text-center md:text-left'>{{ category.title }}</h1>
+      <h1 v-if='showTitle' class='text-30 md:text-35 font-bold text-white text-center md:text-left md:inline-flex block'>
+        {{ category.title }}
+        <span class="mx-auto md:mx-0 md:ml-8 mt-6 article-slide-tag rounded-full bg-yellow text-black flex justify-center items-center h-10 w-fit px-4 text-14 uppercase"><strong>{{ category.manual.tag }}</strong></span>
+      </h1>
       <div class='flex items-center'>
         <div
           class='mr-2 rounded-full bg-black w-12 h-12 flex items-center justify-center' @click='$refs.c1.prev()'>
@@ -38,6 +41,16 @@ export default {
       type: Object,
       required: true
     },
+    showTitle: {
+      type: Boolean,
+      required: false,
+      default: true
+    },
+    takeSideMenuInAccount: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
   data() {
     return {
@@ -48,7 +61,7 @@ export default {
         "focusOnSelect": true,
         "responsive": [
           {
-            "breakpoint": 1080,
+            "breakpoint": this.takeSideMenuInAccount ? 1430 : 1080,
             "settings": {
               "slidesToShow": Math.min(2, this.category.articles.length),
               "slidesToScroll": Math.min(2, this.category.articles.length),
@@ -56,7 +69,7 @@ export default {
             }
           },
           {
-            "breakpoint": 780,
+            "breakpoint": this.takeSideMenuInAccount ? 1130 : 780,
             "settings": {
               "slidesToShow": Math.min(1, this.category.articles.length),
               "slidesToScroll": Math.min(1, this.category.articles.length)

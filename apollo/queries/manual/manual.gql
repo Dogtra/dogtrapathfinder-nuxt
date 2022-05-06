@@ -42,5 +42,18 @@ query Manuals($slug: String!, $locale: String) {
         url
       }
     }
+    video_tutorial_category {
+      id
+      articles {
+        id
+        uuid
+        title
+        content
+        content_plain_text
+        view_count
+        order
+        youtube_url
+      }
+    }
   }
 }

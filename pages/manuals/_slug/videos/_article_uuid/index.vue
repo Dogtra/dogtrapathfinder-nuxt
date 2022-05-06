@@ -1,0 +1,140 @@
+<template>
+  <div>
+    <div class="px-12 py-18 max-w-[71rem]">
+      <div class="text-14 text-gray-400">
+        <NuxtLink :to="localePath('/videos')">{{ $t('main.videos') }}</NuxtLink>
+        / {{ article.blog_category.title }}
+        / {{ article.title }}
+      </div>
+      <p class="text-30 font-semibold">{{ article.title }}</p>
+      <youtube class='youtube-container my-8 pt-[56.25%] w-full overflow-hidden relative' :video-id='youtubeId' :player-vars='{control: 0}' player-width='100%' player-height='100%'></youtube>
+      <div v-if="markedContent" v-dompurify-html="markedContent"
+           class='prose break-words text-16 text-black'></div>
+    </div>
+    <div class='bg-gray-800'>
+      <ContentBanner v-if='blogCategory' :category='blogCategory' :show-title='true' :take-side-menu-in-account='true' />
+    </div>
+  </div>
+</template>
+
+<script>
+import { marked } from 'marked'
+import axios from 'axios'
+import { getIdFromURL } from 'vue-youtube-embed'
+import blogArticleQuery from '~/apollo/queries/article/blog-article'
+import blogCategoryQuery from '~/apollo/queries/blog-categories/blog-category'
+import ContentBanner from '~/components/Banner/ContentBanner'
+import manualQuery from '~/apollo/queries/manual/manual.gql'
+import { getLocaleToUse } from '~/utils/getLocaleToUse'
+
+export default {
+  components: { ContentBanner },
+  layout: 'manual',
+  async asyncData({ app, route, redirect, store }) {
+
+    const locale = getLocaleToUse(app.i18n.locale)
+
+    const { data } = await app.apolloProvider.defaultClient.query({
+      query: manualQuery,
+      variables: {
+        slug: route.params.slug,
+        locale
+      }
+    })
+
+
+    if (!data.manuals[0]) {
+      return redirect('/')
+    }
+
+    store.commit('manual/setManual', data.manuals[0])
+
+    const articleResponse = await app.apolloProvider.defaultClient.query({
+      query: blogArticleQuery,
+      variables: {
+        uuid: route.params.article_uuid,
+      }
+    })
+
+    const article = articleResponse.data.articles[0];
+
+    if (!article) {
+      return redirect('/')
+    }
+
+    store.commit('manual/setArticle', article)
+
+    return {
+      article,
+    }
+  },
+  data() {
+    return {
+      blogCategory: null
+    }
+  },
+  head() {
+    return {
+      title: 'Article - ' + this.article.title
+    }
+  },
+  computed: {
+    markedContent() {
+      return marked(this.article.content);
+    },
+    youtubeId() {
+      return getIdFromURL(this.article.youtube_url)
+    }
+  },
+  async mounted() {
+    axios.patch(process.env.strapiUrl + '/articles/' + this.article.id + '/view');
+
+    const blogCategoryId = parseInt(this.article.blog_category.id)
+    const { data } = await this.$apolloProvider.defaultClient.query({
+      query: blogCategoryQuery,
+      variables: {
+        id: blogCategoryId,
+      }
+    })
+
+    this.blogCategory = data.blogCategories[0]
+  },
+}
+</script>
+
+<style scoped>
+>>> .prose img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+>>> .prose .note {
+  color: red;
+  background-color: #fff5bf;
+  padding: 1rem;
+}
+
+>>> .prose .note strong {
+  color: red;
+}
+
+>>> .prose .warning-note {
+  background-color: #f24f4f;
+  color: white;
+  padding: 1rem;
+}
+
+>>> .prose .warning-note strong{
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+}
+
+>>> .youtube-container iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+</style>

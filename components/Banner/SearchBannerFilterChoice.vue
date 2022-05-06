@@ -1,5 +1,5 @@
 <template>
-  <div class='product-filter-choice w-[26.8rem] uppercase text-center cursor-pointer font-semibold' :class='productFilterChoiceClass' @click='changeSelectedProduct(manual.title)'>
+  <div class='product-filter-choice text-20 w-[26.8rem] uppercase text-center cursor-pointer font-semibold' :style='productFilterChoiceStyle' @click='changeSelectedProduct(manual.title)'>
     {{ manual.title }}
   </div>
 </template>
@@ -16,30 +16,33 @@ export default {
       required: true,
       type: Function
     },
+    displayProp: {
+      type: String,
+      required: false,
+      default: 'title'
+    },
+    notSelectedColor: {
+      type: String,
+      required: false,
+      default: '#7C7C7C'
+    },
+    activeTextColor: {
+      type: String,
+      required: false,
+      default: '#121212'
+    }
   },
   computed: {
-    productFilterChoiceClass() {
+    isActive() {
+      return this.selectedProduct === this.manual[this.displayProp]
+    },
+
+    productFilterChoiceStyle() {
       return {
-        'product-filter-choice-active': this.selectedProduct === this.manual.title
+        'border-bottom': '3px solid ' + (this.isActive ? '#FFDD00' : this.notSelectedColor),
+        'color': (this.isActive ? this.activeTextColor : this.notSelectedColor)
       }
     }
   }
 }
 </script>
-<style scoped>
-
-.product-filter-choice {
-  font-size: 2rem;
-  color: #7C7C7C;
-  border-bottom: 3px solid #7C7C7C;
-}
-
-.product-filter-choice.product-filter-choice-active {
-  border-bottom: 3px solid #FFDD00;
-  color: #121212;
-}
-
->>> .search-bar input::placeholder {
-  text-align: center;
-}
-</style>

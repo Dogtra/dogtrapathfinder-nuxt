@@ -4,6 +4,13 @@ query BlogCategories {
     title
     order
     color
+    manual {
+      id
+      slug
+      title
+      hidden
+      tag
+    }
     articles {
       id
       uuid
