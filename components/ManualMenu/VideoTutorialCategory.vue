@@ -22,12 +22,12 @@ export default {
   props: {
     manual: {
       type: Object,
-      required:true,
+      required: true,
     }
   },
   data() {
     return {
-      isCollapsed: false
+      isCollapsed: true
     }
   }
 }
