@@ -6,11 +6,9 @@
       <SearchBannerFilterChoice :key='manual.id' :manual='manual' :selected-product='selectedSearchProduct' :change-selected-product='selectProduct' :active-text-color='"#FFDD00"'/>
     </template>
   </div>
-  <div class='odd:bg-black even:bg-white'>
-    <template v-for='category in filteredBlogCategories'>
-      <ContentBanner :key='category.id' :category='category' />
-    </template>
-  </div>
+  <template v-for='category in filteredBlogCategories'>
+    <ContentBanner :key='category.id' :category='category' />
+  </template>
 </div>
 </template>
 

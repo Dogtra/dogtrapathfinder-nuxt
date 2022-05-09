@@ -1,5 +1,5 @@
 <template>
-  <div class='text-white'>
+  <div class='text-white even:bg-black odd:bg-[#303030]'>
     <div class='mx-auto px-4 md:px-12 py-16 w-full max-w-[112rem]'>
       <h1 v-if='showTitle' class='text-30 md:text-35 font-bold text-white text-center md:text-left md:inline-flex block'>
         {{ category.title }}
