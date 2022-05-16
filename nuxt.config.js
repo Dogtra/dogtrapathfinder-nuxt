@@ -9,7 +9,19 @@ export default {
   generate: {
     async routes() {
       const manualsResponse = await axios.get(process.env.STRAPI_URL + '/manuals')
-      const articlesResponse = await axios.get(process.env.STRAPI_URL + '/articles' )
+      const articlesResponse = await axios.get(process.env.STRAPI_URL + '/articles')
+
+      const blogCategoriesResponse = await axios.get(process.env.STRAPI_URL + '/blog-categories')
+
+      const videosRoutes = blogCategoriesResponse.data.flatMap(blogCategory => {
+        if (blogCategory.id === blogCategory.manual.video_tutorial_category) {
+          return blogCategory.articles.map(article => {
+            return { route: '/manuals/' + blogCategory.manual.slug  + '/videos/' + article.uuid }
+          })
+        }
+
+        return false
+      });
 
       const manualRoutes = manualsResponse.data.map(manual => {
         return {
@@ -48,7 +60,7 @@ export default {
         }
       })
 
-      return [...manualRoutes, ...articleRoutes];
+      return [...manualRoutes, ...articleRoutes, ...videosRoutes];
     }
   },
 
