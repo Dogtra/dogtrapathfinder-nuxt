@@ -6,6 +6,7 @@ query Products {
     description
     order
     shop_url
+    active
     images {
       url
       alternativeText

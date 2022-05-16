@@ -39,8 +39,11 @@ export default {
     }
   },
   computed: {
+    productFiltered() {
+      return this.products.filter(product => product.active)
+    },
     productsOrdered() {
-      return orderBy(this.products, 'order')
+      return orderBy(this.productFiltered, 'order')
     }
   },
 }
