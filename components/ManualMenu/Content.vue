@@ -36,7 +36,6 @@
 <script>
 import { mapMutations, mapState } from 'vuex'
 import ManualMenuChapterItem from '~/components/ManualMenu/ChapterItem'
-import manualsQuery from '~/apollo/queries/manual/manuals'
 import ManualMenuProductItem from '~/components/ManualMenu/ProductItem'
 import SearchBar from '~/components/SearchBar/SearchBar'
 import DownloadPDF from '~/components/ManualMenu/DownloadPDF'
@@ -61,16 +60,8 @@ export default {
       return '/manuals/' + this.manual.slug
     }
   },
-  async mounted() {
-    const { data } = await this.$apollo.provider.defaultClient.query({
-      query: manualsQuery
-    })
-
-    this.setManuals(data.manuals)
-  },
   methods: {
     ...mapMutations('manual', [
-      'setManuals',
       'toggleManualProductMenu',
       'closeAllMenu'
     ])

@@ -9,9 +9,17 @@
     <div class='relative'>
       <span class="mdi mdi-menu text-[3rem] block md:hidden" @click='showMenu = !showMenu'></span>
       <div class='hidden md:flex'>
-        <NuxtLink :to="localePath('/manuals')" class="btn btn-ghost text-18">
-          {{ $t('main.manuals') }}
-        </NuxtLink>
+        <div class="relative group">
+          <div class="btn btn-ghost text-18">
+            {{ $t('main.manuals') }}
+          
+          </div>
+          <div class="absolute hidden group-hover:flex flex-col text-black bg-yellow w-max rounded-btn">
+            <NuxtLink v-for="manual in manuals" :key="manual.id" :to="localePath('/manuals/' + manual.slug)" class="btn btn-ghost">
+              {{ manual.title }}
+            </NuxtLink>
+          </div>
+        </div>
         <NuxtLink :to="localePath('/products')" class="btn btn-ghost text-18">
           {{ $t('main.products') }}
         </NuxtLink>
@@ -30,10 +38,21 @@
       <div v-show='showMenu' class="fixed inset-0 bottom-24 min-h-[calc(100%-7.5rem)] mt-[7.5rem] bg-black w-full block md:hidden px-12 py-4 text-18">
         <SearchBar v-model='searchText' :background-color="'#ffffff'"></SearchBar>
         <ul class="py-6 shadow-lg bg-black uppercase text-18 font-semibold">
-          <li class="border-b-2 border-white h-20 flex items-center">
-            <NuxtLink :to="localePath('/manuals')" @click.native='hideMenu'>
-              {{ $t('main.manuals') }}
-            </NuxtLink>
+          <li class="border-b-2 border-white flex flex-col items-center" @click="mobileManualMenuOpen = !mobileManualMenuOpen">
+            <div @click.native='hideMenu' class="flex justify-between w-full items-center">
+              <span>
+                {{ $t('main.manuals') }}
+              </span>
+              <span class="mdi mdi-chevron-down text-[2.8rem]" :class="{hidden: mobileManualMenuOpen}"></span>
+              <span class="mdi mdi-chevron-up text-[2.8rem]" :class="{hidden: !mobileManualMenuOpen}"></span>
+            </div>
+            <ul class="w-full pl-12 list-disc" :class="{hidden: !mobileManualMenuOpen}">
+              <li v-for="manual in manuals" :key="manual.id" class="p-3">
+                <NuxtLink :to="localePath('/manuals/' + manual.slug)"  @click.native='hideMenu'>
+                  {{ manual.title }}
+                </NuxtLink>
+              </li>
+            </ul>
           </li>
           <li class="border-b-2 border-white h-20 flex items-center">
             <NuxtLink :to="localePath('/products')" @click.native='hideMenu'>
@@ -60,6 +79,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import SearchBar from '~/components/SearchBar/SearchBar'
 import LanguageSelector from '~/components/Navbar/LanguageSelector'
 
@@ -69,8 +89,14 @@ export default {
   data() {
     return {
       showMenu: false,
-      searchText: ''
+      searchText: '',
+      mobileManualMenuOpen: false,
     }
+  },
+  computed: {
+    ...mapState('manual', [
+      'manuals'
+    ])
   },
   methods: {
     hideMenu() {
