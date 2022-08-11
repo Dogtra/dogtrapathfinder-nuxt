@@ -203,4 +203,14 @@ export default {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
+
+>>> .prose .bg-gray img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+>>> .prose .bg-gray p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 </style>
