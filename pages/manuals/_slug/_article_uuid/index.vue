@@ -151,6 +151,9 @@ export default {
 
 >>> .prose .bg-gray {
   background-color: #C5C5C5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 >>> .prose .bg-white {
