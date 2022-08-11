@@ -141,6 +141,11 @@ export default {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+>>> .prose .gap-4 {
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
+
 >>> .prose .gap-x-4 {
   column-gap: 1rem;
 }
