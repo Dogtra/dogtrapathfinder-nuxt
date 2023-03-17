@@ -14,7 +14,7 @@ export default {
       const blogCategoriesResponse = await axios.get(process.env.STRAPI_URL + '/blog-categories')
 
       const videosRoutes = blogCategoriesResponse.data.flatMap(blogCategory => {
-        if (blogCategory.id === blogCategory.manual.video_tutorial_category) {
+        if (blogCategory.manual && blogCategory.id === blogCategory.manual.video_tutorial_category) {
           return blogCategory.articles.map(article => {
             return { route: '/manuals/' + blogCategory.manual.slug  + '/videos/' + article.uuid }
           })
