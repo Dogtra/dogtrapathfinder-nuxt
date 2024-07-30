@@ -56,7 +56,7 @@ export default {
       return this.manuals.filter(manual => !manual.hidden)
     },
     filteredBlogCategories() {
-      return this.blogCategories.filter(blog => blog.manual.title === this.selectedSearchProduct)
+      return this.blogCategories.filter(blog => !!blog.manual && blog.manual.title === this.selectedSearchProduct)
     }
   },
   mounted() {
