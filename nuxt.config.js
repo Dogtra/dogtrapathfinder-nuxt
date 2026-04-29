@@ -80,6 +80,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    'vue-select/dist/vue-select.css',
     '~/assets/scss/main.scss'
   ],
 
@@ -215,5 +216,13 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['vue-instantsearch', 'instantsearch.js/es', 'vue-youtube-embed'],
+    loaders: {
+      scss: {
+        sassOptions: {
+          quietDeps: true,
+          silenceDeprecations: ['legacy-js-api'],
+        },
+      },
+    },
   },
 }

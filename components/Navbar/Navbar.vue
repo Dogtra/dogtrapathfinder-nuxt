@@ -39,7 +39,7 @@
         <SearchBar v-model='searchText' :background-color="'#ffffff'"></SearchBar>
         <ul class="py-6 shadow-lg bg-black uppercase text-18 font-semibold">
           <li class="border-b-2 border-white flex flex-col items-center" @click="mobileManualMenuOpen = !mobileManualMenuOpen">
-            <div @click.native='hideMenu' class="flex justify-between w-full items-center">
+            <div @click='hideMenu' class="flex justify-between w-full items-center">
               <span>
                 {{ $t('main.manuals') }}
               </span>

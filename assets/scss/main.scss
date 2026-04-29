@@ -1,5 +1,4 @@
-@import "fonts";
-@import "variables";
+@use "fonts";
 
 html {
   font-size: 62.5%;
@@ -17,4 +16,10 @@ h2 {
 }
 h3 {
   @apply text-18;
+}
+
+:root {
+  --vs-border-width: 0;
+  --vs-border-radius: 0px;
+  --vs-border-color: black;
 }
