@@ -8,12 +8,12 @@
     <div id='manual-index-search'>
       <SearchBar v-model='searchText' max-width="42.5rem" class="mx-auto" :selected-products='[manual.title]'/>
     </div>
-    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='w-fit mx-auto my-8 px-8 py-4 font-semibold rounded-btn bg-yellow text-black hover:bg-black hover:text-yellow' :to='localePath(manualFirstPageUrl)'>
+    <NuxtLink v-if='hasFirstPage' id='manual-index-first-page' class='w-fit mx-auto my-8 px-8 py-4 font-semibold rounded-[0.5rem] bg-yellow text-black hover:bg-black hover:text-yellow' :to='localePath(manualFirstPageUrl)'>
       <span>{{ $t('manuals.manual.first-page')}}</span><span class="mdi mdi-chevron-right text-18"></span>
     </NuxtLink>
     <div id='manual-index-app' class='max-w-[64rem] mx-auto'>
       <div><img class='mx-auto w-24 pb-4' :src='manualAppIconUrl'></div>
-      <div class='flex items-center px-10 py-4 border-solid border-1 border-[#E0E0E0] rounded-btn bg-[#F2F2F2] my-4 w-fit mx-auto flex gap-4'>
+      <div class='flex items-center px-10 py-4 border-solid border-1 border-[#E0E0E0] rounded-[0.5rem] bg-[#F2F2F2] my-4 w-fit mx-auto flex gap-4'>
         <span class='mdi mdi-alert'></span>
         <p v-if='manual.app.disclaimer' v-dompurify-html="manual.app.disclaimer" class='text-14'></p>
       </div>

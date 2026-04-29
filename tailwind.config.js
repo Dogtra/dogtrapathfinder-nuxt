@@ -42,7 +42,7 @@ module.exports = {
   daisyui:{
     themes: [
       {
-        'dogtra': {                          /* your theme name */
+        'dogtra': {
           "primary": "#FFDD00",
           "primary-focus": "#DDC001",
           "primary-content": "#000000",
@@ -63,7 +63,6 @@ module.exports = {
           "success": "#87d039",
           "warning": "#e2d562",
           "error": "#ff6f6f",
-          "--border-color": "var(--b3)",
           "--rounded-box": "1rem",
           "--rounded-btn": "0.5rem",
           "--rounded-badge": "1.9rem",

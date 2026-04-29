@@ -215,7 +215,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vue-instantsearch', 'instantsearch.js/es', 'vue-youtube-embed'],
+    transpile: ['vue-instantsearch', 'instantsearch.js/es', 'vue-youtube-embed', 'marked'],
     loaders: {
       scss: {
         sassOptions: {

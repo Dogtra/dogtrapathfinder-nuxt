@@ -1,5 +1,5 @@
 <template>
-  <li class='rounded-btn px-6 py-3 cursor-pointer' :class='faqCategoryItemClass' @click='selectThisCategory'>
+  <li class='rounded-[0.5rem] px-6 py-3 cursor-pointer' :class='faqCategoryItemClass' @click='selectThisCategory'>
     {{ title }}
   </li>
 </template>

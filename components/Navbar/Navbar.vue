@@ -14,7 +14,7 @@
             {{ $t('main.manuals') }}
           
           </div>
-          <div class="absolute hidden group-hover:flex flex-col text-black bg-yellow w-max rounded-btn">
+          <div class="absolute hidden group-hover:flex flex-col text-black bg-yellow w-max rounded-[0.5rem]">
             <NuxtLink v-for="manual in manuals" :key="manual.id" :to="localePath('/manuals/' + manual.slug)" class="btn btn-ghost">
               {{ manual.title }}
             </NuxtLink>

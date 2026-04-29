@@ -1,5 +1,5 @@
 <template>
-  <div class="text-black flex search-bar rounded-btn h-14" :style="searchBarStyle">
+  <div class="text-black flex search-bar rounded-[0.5rem] h-14" :style="searchBarStyle">
     <form ref='search-form'
           class='w-full flex'
           method="post"

@@ -4,12 +4,12 @@
       <span class='mdi mdi-web text-22'></span>
       <img class='w-10 ml-2' :src='getLocalFlag(currentLocale)' :alt='currentLocale' />
     </div>
-    <div v-show='showLanguageSelector' class='absolute top-20 left-0 rounded-btn bg-white text-black shadow-lg'>
-      <NuxtLink class='block p-4 hover:bg-gray-400 rounded-btn rounded-b-none flex w-full mr-16'
+    <div v-show='showLanguageSelector' class='absolute top-20 left-0 rounded-[0.5rem] bg-white text-black shadow-lg'>
+      <NuxtLink class='block p-4 hover:bg-gray-400 rounded-[0.5rem] rounded-b-none flex w-full mr-16'
                 :to="switchLocalePath('en')" @click.native='clickSelector'>
         <NuxtImg width='25' :src='getLocalFlag("en")' alt='English' /><span class='block ml-4'>English</span>
       </NuxtLink>
-      <NuxtLink class='block p-4 hover:bg-gray-400 rounded-btn rounded-t-none flex w-full mr-16'
+      <NuxtLink class='block p-4 hover:bg-gray-400 rounded-[0.5rem] rounded-t-none flex w-full mr-16'
                 :to="switchLocalePath('fr')" @click.native='clickSelector'>
         <NuxtImg width='25' :src='getLocalFlag("fr")' alt='Français' /><span class='block ml-4'>Français</span>
       </NuxtLink>
