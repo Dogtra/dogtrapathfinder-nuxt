@@ -4,6 +4,7 @@ require('dotenv').config()
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
+  ssr: false,
   target: 'static',
 
   generate: {
