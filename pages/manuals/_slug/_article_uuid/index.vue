@@ -14,7 +14,25 @@
             </div>
             <p class="text-30 font-semibold break-words">{{ article.title }}</p>
           </div>
-          <div v-if="markedContent" v-dompurify-html="markedContent"
+          <div v-if='markedIntroduction' v-dompurify-html='markedIntroduction'
+               class='prose break-words text-16 text-black'></div>
+          <div v-if='articleTabs.length' role='tablist' :aria-label='article.title'
+               class='manual-tabs flex rounded-full bg-[#F5F5F5] text-12 md:text-16 my-8'>
+            <button v-for='(tab, index) in articleTabs' :id='article.uuid + "-tab-" + index'
+                    :key='index' ref='articleTabs' type='button' role='tab'
+                    :aria-selected='activeTab === index' :aria-controls='article.uuid + "-panel"'
+                    :tabindex='activeTab === index ? 0 : -1'
+                    class='flex-1 min-w-0 px-4 py-0 rounded-full break-words appearance-none'
+                    :class="activeTab === index ? 'bg-yellow font-bold text-black' : 'text-[#939393]'"
+                    @click='activeTab = index' @keydown.left.prevent='selectTab(index - 1)'
+                    @keydown.right.prevent='selectTab(index + 1)' @keydown.home.prevent='selectTab(0)'
+                    @keydown.end.prevent='selectTab(articleTabs.length - 1)'>{{ tab.title }}</button>
+          </div>
+          <div v-if="markedContent || articleTabs.length" :id='articleTabs.length ? article.uuid + "-panel" : null'
+               v-dompurify-html='markedContent'
+               :role='articleTabs.length ? "tabpanel" : null'
+               :tabindex='articleTabs.length ? 0 : null'
+               :aria-labelledby='articleTabs.length ? article.uuid + "-tab-" + activeTab : null'
                class='prose break-words text-16 text-black'></div>
           <div class='text-14 font-normal'>
             <div class='py-28'>
@@ -77,27 +95,64 @@ export default {
       manual
     }
   },
+  data() {
+    return { activeTab: 0 }
+  },
   head() {
     return {
       title: this.article.title
     }
   },
   computed: {
+    // Optional tab markers use the existing CMS content field.
+    contentParts() {
+      return (this.article.content || '').split(/<!--\s*tab:\s*([^\r\n<>]+?)\s*-->/g)
+    },
+    articleTabs() {
+      const tabs = []
+      for (let index = 1; index < this.contentParts.length; index += 2) {
+        const title = this.contentParts[index].trim()
+        if (!title) return []
+        tabs.push({ title, content: this.contentParts[index + 1] })
+      }
+      return tabs
+    },
+    markedIntroduction() {
+      return this.articleTabs.length ? marked(this.contentParts[0]) : ''
+    },
     markedContent() {
-      return marked(this.article.content);
+      return marked(this.articleTabs.length ? this.articleTabs[this.activeTab].content : (this.article.content || ''));
     },
     ...mapGetters('manual', [
       'previousArticleUrl',
       'nextArticleUrl'
     ])
   },
+  watch: {
+    article() {
+      this.activeTab = 0
+    }
+  },
   mounted() {
     axios.patch(process.env.strapiUrl + '/articles/' + this.article.id + '/view');
+  },
+  activated() {
+    this.activeTab = 0
+  },
+  methods: {
+    selectTab(index) {
+      this.activeTab = (index + this.articleTabs.length) % this.articleTabs.length
+      this.$nextTick(() => this.$refs.articleTabs[this.activeTab].focus())
+    }
   },
 }
 </script>
 
 <style scoped>
+.manual-tabs {
+  min-height: 2.8rem;
+}
+
 >>> .prose img {
   margin-left: auto;
   margin-right: auto;
