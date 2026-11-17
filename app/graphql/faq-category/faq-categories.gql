@@ -1,0 +1,11 @@
+query FaqCategories {
+  faqCategories(sort: ["order:asc", "createdAt:asc"], pagination: { limit: 1000 }) {
+    documentId
+    title
+    order
+    manual {
+      documentId
+      title
+    }
+  }
+}

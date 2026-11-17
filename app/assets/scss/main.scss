@@ -1,0 +1,50 @@
+@use "fonts";
+
+// vue-select theme (was SCSS variables in vue-select 3)
+:root {
+  --vs-border-width: 0;
+  --vs-border-radius: 0px;
+  --vs-border-color: black;
+  --vs-font-size: 1.6rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+h1 {
+  @apply text-40;
+}
+h2 {
+  @apply text-32;
+}
+h3 {
+  @apply text-18;
+}
+
+// daisyUI 2 recolours `.prose` with the theme's base-content (white in the
+// dogtra theme) via a higher-specificity `:root .prose` rule, which made rich
+// text invisible on white backgrounds. Restore Typography's default gray palette.
+:root .prose {
+  --tw-prose-body: #374151;
+  --tw-prose-headings: #111827;
+  --tw-prose-lead: #4b5563;
+  --tw-prose-links: #111827;
+  --tw-prose-bold: #111827;
+  --tw-prose-counters: #6b7280;
+  --tw-prose-bullets: #d1d5db;
+  --tw-prose-hr: #e5e7eb;
+  --tw-prose-quotes: #111827;
+  --tw-prose-quote-borders: #e5e7eb;
+  --tw-prose-captions: #6b7280;
+  --tw-prose-kbd: #111827;
+  --tw-prose-code: #111827;
+  --tw-prose-pre-code: #e5e7eb;
+  --tw-prose-pre-bg: #1f2937;
+  --tw-prose-th-borders: #d1d5db;
+  --tw-prose-td-borders: #e5e7eb;
+}

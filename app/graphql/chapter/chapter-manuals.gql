@@ -1,0 +1,8 @@
+query ChapterManuals($locale: I18NLocaleCode) {
+  chapters(locale: $locale, pagination: { limit: 1000 }) {
+    documentId
+    manual {
+      documentId
+    }
+  }
+}

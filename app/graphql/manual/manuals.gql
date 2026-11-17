@@ -1,0 +1,24 @@
+query Manuals($locale: I18NLocaleCode) {
+  manuals(locale: $locale, sort: "order:asc", pagination: { limit: 1000 }) {
+    documentId
+    slug
+    title
+    hidden
+    tag
+    order
+    product_image {
+      url
+      alternativeText
+    }
+    product_with_title_image {
+      url
+    }
+    app {
+      icon {
+        url
+        alternativeText
+      }
+    }
+    locale
+  }
+}

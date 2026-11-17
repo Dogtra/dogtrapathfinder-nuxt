@@ -1,0 +1,25 @@
+query BlogCategory($documentId: ID!) {
+  blogCategory(documentId: $documentId) {
+    documentId
+    title
+    order
+    color
+    manual {
+      documentId
+      slug
+      title
+      hidden
+      tag
+    }
+    articles(sort: "order:asc", pagination: { limit: 1000 }) {
+      documentId
+      uuid
+      title
+      content
+      content_plain_text
+      view_count
+      order
+      youtube_url
+    }
+  }
+}

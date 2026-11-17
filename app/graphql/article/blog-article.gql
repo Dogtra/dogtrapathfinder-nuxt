@@ -1,0 +1,14 @@
+query BlogArticle($uuid: String!) {
+  articles(filters: { uuid: { eq: $uuid } }) {
+    documentId
+    uuid
+    slug
+    title
+    content
+    youtube_url
+    blog_category {
+      documentId
+      title
+    }
+  }
+}

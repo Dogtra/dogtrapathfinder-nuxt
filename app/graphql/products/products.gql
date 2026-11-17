@@ -1,0 +1,22 @@
+query Products {
+  products(filters: { active: { eq: true } }, sort: "order:asc", pagination: { limit: 1000 }) {
+    documentId
+    title
+    price
+    description
+    order
+    shop_url
+    active
+    images {
+      url
+      alternativeText
+    }
+    features(pagination: { limit: 100 }) {
+      title
+      icon {
+        url
+        alternativeText
+      }
+    }
+  }
+}

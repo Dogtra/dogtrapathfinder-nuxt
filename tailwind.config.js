@@ -1,6 +1,7 @@
-module.exports = {
-  mode: 'jit',
-  darkMode: false, // or 'media' or 'class'
+import daisyui from 'daisyui'
+import typography from '@tailwindcss/typography'
+
+export default {
   theme: {
     fontSize: {
       '40': "4.0rem",
@@ -31,15 +32,9 @@ module.exports = {
       }
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [
-    require('daisyui'),
-    require(`@tailwindcss/typography`),
-    require('@neojp/tailwindcss-line-clamp-utilities')
-  ],
-  daisyui:{
+  plugins: [daisyui, typography],
+  daisyui: {
+    logs: false,
     themes: [
       {
         'dogtra': {                          /* your theme name */

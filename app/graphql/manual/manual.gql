@@ -1,0 +1,55 @@
+query Manual($slug: String!, $locale: I18NLocaleCode) {
+  manuals(filters: { slug: { eq: $slug } }, locale: $locale) {
+    documentId
+    slug
+    title
+    hidden
+    tag
+    chapters(sort: "order:asc", pagination: { limit: 1000 }) {
+      documentId
+      uuid
+      title
+      order
+      articles(sort: "order:asc", pagination: { limit: 1000 }) {
+        documentId
+        uuid
+        title
+        order
+      }
+    }
+    product_image {
+      url
+    }
+    product_with_title_image {
+      url
+    }
+    app {
+      icon {
+        url
+      }
+      download
+      compatibility
+      disclaimer
+      android_store_url
+      apple_store_url
+    }
+    products(pagination: { limit: 1000 }) {
+      documentId
+      slug
+      title
+      pdf {
+        url
+      }
+    }
+    video_tutorial_category {
+      documentId
+      articles(sort: "order:asc", pagination: { limit: 1000 }) {
+        documentId
+        uuid
+        title
+        order
+        youtube_url
+      }
+    }
+  }
+}

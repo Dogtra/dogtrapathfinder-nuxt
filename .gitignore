@@ -92,3 +92,7 @@ sw.*
 .netlify
 
 .output/
+
+# Nuxt 4
+dist
+.data
