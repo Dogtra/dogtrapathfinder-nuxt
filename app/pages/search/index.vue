@@ -106,16 +106,28 @@ const manuals = computed(() => data.value?.manuals ?? [])
 const chapterManuals = computed(() => data.value?.chapterManuals ?? {})
 const filteredManuals = computed(() => manuals.value.filter(manual => !manual.hidden))
 
-const queryProducts = route.query['products[]']
-const searchText = ref(typeof route.query.searchText === 'string' ? route.query.searchText : '')
-const checkedProductsFilter = ref<string[]>(
-  (Array.isArray(queryProducts) ? queryProducts : queryProducts ? [queryProducts] : []).filter((p): p is string => !!p),
-)
+const queryText = () => (typeof route.query.searchText === 'string' ? route.query.searchText : '')
+const queryProducts = () => {
+  const products = route.query['products[]']
+  return (Array.isArray(products) ? products : products ? [products] : []).filter((p): p is string => !!p)
+}
+
+const searchText = ref(queryText())
+const checkedProductsFilter = ref<string[]>(queryProducts())
 // The index holds every locale (see the Strapi meilisearch plugin config): only show this one.
 const filters = `type = manual AND locale = ${contentLocale}`
 
+// The page is prerendered without a query string: Nuxt hydrates it on the bare path and only then
+// switches to the real URL, so follow the query instead of reading it once.
+watch(() => route.query, () => {
+  if (queryText() !== searchText.value) searchText.value = queryText()
+  const products = queryProducts()
+  if (products.join('\n') !== checkedProductsFilter.value.join('\n')) checkedProductsFilter.value = products
+})
+
 // Keep the URL shareable: mirror the search text and product filters into the query string.
 watch([searchText, checkedProductsFilter], () => {
+  if (queryText() === searchText.value && queryProducts().join('\n') === checkedProductsFilter.value.join('\n')) return
   router.replace({ query: { 'searchText': searchText.value, 'products[]': checkedProductsFilter.value } })
 }, { deep: true })
 
