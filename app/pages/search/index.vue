@@ -111,7 +111,8 @@ const searchText = ref(typeof route.query.searchText === 'string' ? route.query.
 const checkedProductsFilter = ref<string[]>(
   (Array.isArray(queryProducts) ? queryProducts : queryProducts ? [queryProducts] : []).filter((p): p is string => !!p),
 )
-const filters = 'type = manual'
+// The index holds every locale (see the Strapi meilisearch plugin config): only show this one.
+const filters = `type = manual AND locale = ${contentLocale}`
 
 // Keep the URL shareable: mirror the search text and product filters into the query string.
 watch([searchText, checkedProductsFilter], () => {
