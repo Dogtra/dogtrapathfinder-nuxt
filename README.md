@@ -24,7 +24,7 @@ yarn dev            # http://localhost:3000
 ## Build
 
 ```bash
-yarn generate   # static site in .output/public (Netlify publishes this, see netlify.toml)
+yarn generate   # static site in .output/public locally, dist/ on Netlify (see netlify.toml)
 yarn lint
 yarn typecheck
 ```

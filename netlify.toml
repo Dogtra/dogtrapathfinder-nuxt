@@ -1,6 +1,7 @@
 [build]
   command = "yarn generate"
-  publish = ".output/public"
+  # Nuxt auto-selects the netlify-static preset on Netlify, which writes to dist/
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "24"
