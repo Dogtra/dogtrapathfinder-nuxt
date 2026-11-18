@@ -1,0 +1,22 @@
+# Filter by manual too: cloned manuals may reuse uuids.
+query Article($uuid: String!, $slug: String!, $locale: I18NLocaleCode) {
+  articles(filters: { uuid: { eq: $uuid }, chapter: { manual: { slug: { eq: $slug } } } }, locale: $locale) {
+    documentId
+    uuid
+    slug
+    title
+    content
+    chapter {
+      documentId
+      uuid
+      slug
+      title
+      manual {
+        documentId
+        slug
+        title
+      }
+    }
+    locale
+  }
+}

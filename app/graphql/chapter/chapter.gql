@@ -1,0 +1,20 @@
+# Filter by manual too: cloned manuals reuse chapter uuids.
+query Chapter($uuid: String!, $slug: String!, $locale: I18NLocaleCode) {
+  chapters(filters: { uuid: { eq: $uuid }, manual: { slug: { eq: $slug } } }, locale: $locale) {
+    documentId
+    uuid
+    manual {
+      documentId
+      slug
+      title
+    }
+    title
+    slug
+    articles(sort: "order:asc", pagination: { limit: 1000 }) {
+      documentId
+      title
+      slug
+      uuid
+    }
+  }
+}

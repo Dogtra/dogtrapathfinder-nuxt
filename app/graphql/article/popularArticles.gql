@@ -1,0 +1,26 @@
+query PopularArticles($limit: Int) {
+  articles(
+    sort: "view_count:desc"
+    pagination: { limit: $limit }
+    filters: { type: { eq: "manual" }, chapter: { manual: { documentId: { notNull: true } } } }
+  ) {
+    documentId
+    uuid
+    slug
+    title
+    content_plain_text
+    chapter {
+      documentId
+      slug
+      title
+      manual {
+        documentId
+        slug
+        title
+        tag
+      }
+    }
+    type
+    view_count
+  }
+}

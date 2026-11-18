@@ -1,69 +1,47 @@
-# dogtra-nuxt
+# Dogtra Pathfinder (Nuxt 4)
 
-## Build Setup
+Static site for the Dogtra Pathfinder manuals, products, videos and FAQ. Content comes from the
+Strapi v5 GraphQL API at build time; search uses Meilisearch from the browser.
+
+## Setup
+
+Requires Node 24 (see `.nvmrc`).
 
 ```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+cp .env.dist .env   # then fill in the values
+yarn install
+yarn dev            # http://localhost:3000
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+| Variable | Purpose |
+| --- | --- |
+| `STRAPI_URL` | Strapi v5 base URL, without `/api` (GraphQL is at `$STRAPI_URL/graphql`) |
+| `STRAPI_MEDIA_PREFIX` | Optional. Prefix for relative media URLs; defaults to `STRAPI_URL` |
+| `MEILI_URL` | Meilisearch URL used by the search page |
+| `MEILI_SEARCH_KEY` | **Search-only** Meilisearch key (it is public). Falls back to `MEILI_MASTER_KEY` with a warning |
+| `GTAG_ID` | Optional GA4 measurement id |
 
-## Special Directories
+## Build
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+```bash
+yarn generate   # static site in .output/public locally, dist/ on Netlify (see netlify.toml)
+yarn lint
+yarn typecheck
+```
 
-### `assets`
+`yarn generate` prerenders every page. Manual, chapter, article and video routes are listed from
+Strapi in `scripts/prerender-routes.ts` for both locales, and the crawler finds the rest. Content
+changes in Strapi need a rebuild (e.g. a Netlify build hook). Popular articles and search are the
+only parts that query live data in the browser.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+## Structure
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+- `app/pages`: routes (`[param]` folders); manual pages use the `manual` layout and middleware
+- `app/middleware/manual.ts`: loads the current manual into the Pinia store before rendering
+- `app/graphql/*.gql`: Strapi v5 GraphQL queries, imported with `?raw`
+- `app/composables/useStrapi.ts`: `strapiQuery()` / `useStrapiQuery()`
+- `app/stores/manual.ts`: manual menu state and previous/next article links
+- `i18n/locales`: UI translations (en, fr)
+- `public/_redirects`, `public/_headers`: Netlify redirects and security headers
 
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+Article content may contain optional tabs: `<!-- tab: Title -->` markers split an article into tabs.
