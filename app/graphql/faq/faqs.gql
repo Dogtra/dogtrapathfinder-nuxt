@@ -1,5 +1,5 @@
-query Faqs {
-  faqs(sort: ["order:asc", "createdAt:asc"], pagination: { limit: 1000 }) {
+query Faqs($locale: I18NLocaleCode) {
+  faqs(locale: $locale, sort: ["order:asc", "createdAt:asc"], pagination: { limit: 1000 }) {
     documentId
     title
     description
