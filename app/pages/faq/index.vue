@@ -50,12 +50,15 @@ import OpenIndicator from '~/components/SelectOpenIndicator.vue'
 // within its category, so FAQs are grouped by category order first (stable sort).
 const byCategoryOrder = (a: any, b: any) =>
   (a.faq_category?.order ?? Infinity) - (b.faq_category?.order ?? Infinity)
-const { data } = await useAsyncData('faq', async () => {
+const { locale } = useI18n()
+const contentLocale = getLocaleToUse(locale.value)
+const { data } = await useAsyncData(`faq-${contentLocale}`, async () => {
+  const variables = { locale: contentLocale }
   const [faqs, categories, banner, manuals] = await Promise.all([
-    strapiQuery(faqsQuery),
-    strapiQuery(faqCategoriesQuery),
-    strapiQuery(faqBannerQuery),
-    strapiQuery(manualsQuery),
+    strapiQuery(faqsQuery, variables),
+    strapiQuery(faqCategoriesQuery, variables),
+    strapiQuery(faqBannerQuery, variables),
+    strapiQuery(manualsQuery, variables),
   ])
   return {
     faqs: [...faqs.faqs].sort(byCategoryOrder) as any[],
