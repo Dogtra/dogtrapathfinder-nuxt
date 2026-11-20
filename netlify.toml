@@ -5,3 +5,8 @@
 
 [build.environment]
   NODE_VERSION = "24"
+
+# Posts a "netlify/production" GitHub commit status when a production build
+# fails, which triggers the Claude deploy-failure triage routine.
+[[plugins]]
+  package = "./netlify/plugins/deploy-failure-status"
